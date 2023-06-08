@@ -17,7 +17,6 @@
 		179438D42A31E23200616B9B /* ECGListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438D32A31E23200616B9B /* ECGListView.swift */; };
 		179438D62A31E42400616B9B /* ECGRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438D52A31E42400616B9B /* ECGRowView.swift */; };
 		179438D92A31E4CC00616B9B /* ECGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438D82A31E4CC00616B9B /* ECGViewModel.swift */; };
-		179438DC2A31EB5500616B9B /* HealthKitExceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438DB2A31EB5500616B9B /* HealthKitExceptions.swift */; };
 		179438E02A31F47700616B9B /* ECGSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438DF2A31F47700616B9B /* ECGSample.swift */; };
 		179438E32A32422A00616B9B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438E22A32422A00616B9B /* DateUtils.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +52,6 @@
 		179438D32A31E23200616B9B /* ECGListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGListView.swift; sourceTree = "<group>"; };
 		179438D52A31E42400616B9B /* ECGRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowView.swift; sourceTree = "<group>"; };
 		179438D82A31E4CC00616B9B /* ECGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGViewModel.swift; sourceTree = "<group>"; };
-		179438DB2A31EB5500616B9B /* HealthKitExceptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitExceptions.swift; sourceTree = "<group>"; };
 		179438DD2A31F36800616B9B /* PeakWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PeakWatch.entitlements; sourceTree = "<group>"; };
 		179438DF2A31F47700616B9B /* ECGSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSample.swift; sourceTree = "<group>"; };
 		179438E22A32422A00616B9B /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 		179438DA2A31EB4000616B9B /* Exceptions */ = {
 			isa = PBXGroup;
 			children = (
-				179438DB2A31EB5500616B9B /* HealthKitExceptions.swift */,
 			);
 			path = Exceptions;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 				173C05362A31C15F00D3E786 /* ContentView.swift in Sources */,
 				179438E32A32422A00616B9B /* DateUtils.swift in Sources */,
 				179438D62A31E42400616B9B /* ECGRowView.swift in Sources */,
-				179438DC2A31EB5500616B9B /* HealthKitExceptions.swift in Sources */,
 				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
 				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
 				179438E02A31F47700616B9B /* ECGSample.swift in Sources */,
