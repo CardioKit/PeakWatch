@@ -25,7 +25,7 @@ class ECGViewModel: ObservableObject {
     
     func getECGFromHealthStore() async {
         await self.requestAuthorization()
-        self.getEcgSamples()
+        self.getECGSamples()
     }
     
     private func requestAuthorization() async {
@@ -39,7 +39,7 @@ class ECGViewModel: ObservableObject {
         }
     }
     
-    private func getEcgSamples() {
+    private func getECGSamples() {
         
         guard let healthStore = healthStore else {
             return
