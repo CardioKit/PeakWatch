@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C05332A31C15F00D3E786 /* PeakWatchApp.swift */; };
+		173C05362A31C15F00D3E786 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C05352A31C15F00D3E786 /* ContentView.swift */; };
+		173C05382A31C16100D3E786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173C05372A31C16100D3E786 /* Assets.xcassets */; };
+		173C053B2A31C16100D3E786 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173C053A2A31C16100D3E786 /* Preview Assets.xcassets */; };
+		173C05452A31C16200D3E786 /* PeakWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C05442A31C16200D3E786 /* PeakWatchTests.swift */; };
+		173C054F2A31C16200D3E786 /* PeakWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C054E2A31C16200D3E786 /* PeakWatchUITests.swift */; };
+		173C05512A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C05502A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		173C05412A31C16200D3E786 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 173C05282A31C15F00D3E786 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 173C052F2A31C15F00D3E786;
+			remoteInfo = PeakWatch;
+		};
+		173C054B2A31C16200D3E786 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 173C05282A31C15F00D3E786 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 173C052F2A31C15F00D3E786;
+			remoteInfo = PeakWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		173C05302A31C15F00D3E786 /* PeakWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeakWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		173C05332A31C15F00D3E786 /* PeakWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakWatchApp.swift; sourceTree = "<group>"; };
+		173C05352A31C15F00D3E786 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		173C05372A31C16100D3E786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		173C053A2A31C16100D3E786 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		173C05402A31C16200D3E786 /* PeakWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		173C05442A31C16200D3E786 /* PeakWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakWatchTests.swift; sourceTree = "<group>"; };
+		173C054A2A31C16200D3E786 /* PeakWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		173C054E2A31C16200D3E786 /* PeakWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakWatchUITests.swift; sourceTree = "<group>"; };
+		173C05502A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakWatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		173C052D2A31C15F00D3E786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C053D2A31C16200D3E786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C05472A31C16200D3E786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		173C05272A31C15F00D3E786 = {
+			isa = PBXGroup;
+			children = (
+				173C05322A31C15F00D3E786 /* PeakWatch */,
+				173C05432A31C16200D3E786 /* PeakWatchTests */,
+				173C054D2A31C16200D3E786 /* PeakWatchUITests */,
+				173C05312A31C15F00D3E786 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		173C05312A31C15F00D3E786 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				173C05302A31C15F00D3E786 /* PeakWatch.app */,
+				173C05402A31C16200D3E786 /* PeakWatchTests.xctest */,
+				173C054A2A31C16200D3E786 /* PeakWatchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		173C05322A31C15F00D3E786 /* PeakWatch */ = {
+			isa = PBXGroup;
+			children = (
+				173C05332A31C15F00D3E786 /* PeakWatchApp.swift */,
+				173C05352A31C15F00D3E786 /* ContentView.swift */,
+				173C05372A31C16100D3E786 /* Assets.xcassets */,
+				173C05392A31C16100D3E786 /* Preview Content */,
+			);
+			path = PeakWatch;
+			sourceTree = "<group>";
+		};
+		173C05392A31C16100D3E786 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				173C053A2A31C16100D3E786 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		173C05432A31C16200D3E786 /* PeakWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				173C05442A31C16200D3E786 /* PeakWatchTests.swift */,
+			);
+			path = PeakWatchTests;
+			sourceTree = "<group>";
+		};
+		173C054D2A31C16200D3E786 /* PeakWatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				173C054E2A31C16200D3E786 /* PeakWatchUITests.swift */,
+				173C05502A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift */,
+			);
+			path = PeakWatchUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		173C052F2A31C15F00D3E786 /* PeakWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173C05542A31C16200D3E786 /* Build configuration list for PBXNativeTarget "PeakWatch" */;
+			buildPhases = (
+				173C052C2A31C15F00D3E786 /* Sources */,
+				173C052D2A31C15F00D3E786 /* Frameworks */,
+				173C052E2A31C15F00D3E786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PeakWatch;
+			productName = PeakWatch;
+			productReference = 173C05302A31C15F00D3E786 /* PeakWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		173C053F2A31C16200D3E786 /* PeakWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173C05572A31C16200D3E786 /* Build configuration list for PBXNativeTarget "PeakWatchTests" */;
+			buildPhases = (
+				173C053C2A31C16200D3E786 /* Sources */,
+				173C053D2A31C16200D3E786 /* Frameworks */,
+				173C053E2A31C16200D3E786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				173C05422A31C16200D3E786 /* PBXTargetDependency */,
+			);
+			name = PeakWatchTests;
+			productName = PeakWatchTests;
+			productReference = 173C05402A31C16200D3E786 /* PeakWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		173C05492A31C16200D3E786 /* PeakWatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173C055A2A31C16200D3E786 /* Build configuration list for PBXNativeTarget "PeakWatchUITests" */;
+			buildPhases = (
+				173C05462A31C16200D3E786 /* Sources */,
+				173C05472A31C16200D3E786 /* Frameworks */,
+				173C05482A31C16200D3E786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				173C054C2A31C16200D3E786 /* PBXTargetDependency */,
+			);
+			name = PeakWatchUITests;
+			productName = PeakWatchUITests;
+			productReference = 173C054A2A31C16200D3E786 /* PeakWatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		173C05282A31C15F00D3E786 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					173C052F2A31C15F00D3E786 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					173C053F2A31C16200D3E786 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 173C052F2A31C15F00D3E786;
+					};
+					173C05492A31C16200D3E786 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 173C052F2A31C15F00D3E786;
+					};
+				};
+			};
+			buildConfigurationList = 173C052B2A31C15F00D3E786 /* Build configuration list for PBXProject "PeakWatch" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 173C05272A31C15F00D3E786;
+			productRefGroup = 173C05312A31C15F00D3E786 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				173C052F2A31C15F00D3E786 /* PeakWatch */,
+				173C053F2A31C16200D3E786 /* PeakWatchTests */,
+				173C05492A31C16200D3E786 /* PeakWatchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		173C052E2A31C15F00D3E786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173C053B2A31C16100D3E786 /* Preview Assets.xcassets in Resources */,
+				173C05382A31C16100D3E786 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C053E2A31C16200D3E786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C05482A31C16200D3E786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		173C052C2A31C15F00D3E786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173C05362A31C15F00D3E786 /* ContentView.swift in Sources */,
+				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C053C2A31C16200D3E786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173C05452A31C16200D3E786 /* PeakWatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C05462A31C16200D3E786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173C054F2A31C16200D3E786 /* PeakWatchUITests.swift in Sources */,
+				173C05512A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		173C05422A31C16200D3E786 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 173C052F2A31C15F00D3E786 /* PeakWatch */;
+			targetProxy = 173C05412A31C16200D3E786 /* PBXContainerItemProxy */;
+		};
+		173C054C2A31C16200D3E786 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 173C052F2A31C15F00D3E786 /* PeakWatch */;
+			targetProxy = 173C054B2A31C16200D3E786 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		173C05522A31C16200D3E786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		173C05532A31C16200D3E786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		173C05552A31C16200D3E786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
+				DEVELOPMENT_TEAM = UJYRLZA762;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		173C05562A31C16200D3E786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
+				DEVELOPMENT_TEAM = UJYRLZA762;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		173C05582A31C16200D3E786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJYRLZA762;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PeakWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PeakWatch";
+			};
+			name = Debug;
+		};
+		173C05592A31C16200D3E786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJYRLZA762;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PeakWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PeakWatch";
+			};
+			name = Release;
+		};
+		173C055B2A31C16200D3E786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJYRLZA762;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PeakWatch;
+			};
+			name = Debug;
+		};
+		173C055C2A31C16200D3E786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJYRLZA762;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PeakWatch;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		173C052B2A31C15F00D3E786 /* Build configuration list for PBXProject "PeakWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C05522A31C16200D3E786 /* Debug */,
+				173C05532A31C16200D3E786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173C05542A31C16200D3E786 /* Build configuration list for PBXNativeTarget "PeakWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C05552A31C16200D3E786 /* Debug */,
+				173C05562A31C16200D3E786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173C05572A31C16200D3E786 /* Build configuration list for PBXNativeTarget "PeakWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C05582A31C16200D3E786 /* Debug */,
+				173C05592A31C16200D3E786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173C055A2A31C16200D3E786 /* Build configuration list for PBXNativeTarget "PeakWatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C055B2A31C16200D3E786 /* Debug */,
+				173C055C2A31C16200D3E786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 173C05282A31C15F00D3E786 /* Project object */;
+}
