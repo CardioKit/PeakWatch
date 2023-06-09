@@ -19,6 +19,8 @@
 		179438D92A31E4CC00616B9B /* ECGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438D82A31E4CC00616B9B /* ECGViewModel.swift */; };
 		179438E02A31F47700616B9B /* ECGSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438DF2A31F47700616B9B /* ECGSample.swift */; };
 		179438E32A32422A00616B9B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438E22A32422A00616B9B /* DateUtils.swift */; };
+		17BF565F2A3332E600FF42D5 /* HKClassificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF565E2A3332E600FF42D5 /* HKClassificationExtension.swift */; };
+		17BF56622A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF56612A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		179438DD2A31F36800616B9B /* PeakWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PeakWatch.entitlements; sourceTree = "<group>"; };
 		179438DF2A31F47700616B9B /* ECGSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSample.swift; sourceTree = "<group>"; };
 		179438E22A32422A00616B9B /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		17BF565E2A3332E600FF42D5 /* HKClassificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKClassificationExtension.swift; sourceTree = "<group>"; };
+		17BF56612A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoListRowViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		173C05322A31C15F00D3E786 /* PeakWatch */ = {
 			isa = PBXGroup;
 			children = (
+				17BF56602A33364000FF42D5 /* ViewModifiers */,
+				17BF565D2A3332B400FF42D5 /* Extension */,
 				179438E12A32421500616B9B /* Utils */,
 				179438DE2A31F45A00616B9B /* Model */,
 				179438DD2A31F36800616B9B /* PeakWatch.entitlements */,
@@ -182,6 +188,22 @@
 				179438E22A32422A00616B9B /* DateUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		17BF565D2A3332B400FF42D5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				17BF565E2A3332E600FF42D5 /* HKClassificationExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		17BF56602A33364000FF42D5 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				17BF56612A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,7 +341,9 @@
 				179438D62A31E42400616B9B /* ECGRowView.swift in Sources */,
 				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
 				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
+				17BF56622A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift in Sources */,
 				179438E02A31F47700616B9B /* ECGSample.swift in Sources */,
+				17BF565F2A3332E600FF42D5 /* HKClassificationExtension.swift in Sources */,
 				179438D92A31E4CC00616B9B /* ECGViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
