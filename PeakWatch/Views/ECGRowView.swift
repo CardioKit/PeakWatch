@@ -18,16 +18,19 @@ struct ECGRowView: View {
                 Text(String(ecg.device)).bold()
                 Spacer()
                 Text(DateUtils.formatDate(date: ecg.startDate))
-            }.frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 5)
+            }.modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 5)
             HStack() {
                 Text("Voltage measurements: \(ecg.numberOfVoltageMeasurements)").foregroundColor(.secondary)
-            }.frame(maxWidth: .infinity, alignment: .leading)
+            }.modifier(SecondaryInfoListRowViewModifier())
+            HStack() {
+                Text("Symptoms: \(ecg.classification.description)").foregroundColor(.secondary)
+            }.modifier(SecondaryInfoListRowViewModifier())
         }
     }
 }
 
 struct ECGRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ECGRowView(ecg: ECGSample(numberOfVoltageMeasurements: 10, startDate: Date(), endDate: Date(), device: "Apple Watch"))
+        ECGRowView(ecg: ECGSample(numberOfVoltageMeasurements: 10, startDate: Date(), endDate: Date(), device: "Apple Watch", classification: .atrialFibrillation))
     }
 }

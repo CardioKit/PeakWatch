@@ -16,10 +16,11 @@ struct ECGSample: Identifiable {
     let startDate: Date
     let endDate: Date
     let device: String
+    let classification: HKElectrocardiogram.Classification
     
     
     static func createFromHKElectrocardiogram(hkElectrocardiogramm: HKElectrocardiogram) -> ECGSample {
-        return .init(numberOfVoltageMeasurements: hkElectrocardiogramm.numberOfVoltageMeasurements, startDate: hkElectrocardiogramm.startDate, endDate: hkElectrocardiogramm.endDate, device: hkElectrocardiogramm.device?.name ?? "Unknown device")
+        return .init(numberOfVoltageMeasurements: hkElectrocardiogramm.numberOfVoltageMeasurements, startDate: hkElectrocardiogramm.startDate, endDate: hkElectrocardiogramm.endDate, device: hkElectrocardiogramm.device?.name ?? "Unknown device", classification: hkElectrocardiogramm.classification)
     }
     
 }
