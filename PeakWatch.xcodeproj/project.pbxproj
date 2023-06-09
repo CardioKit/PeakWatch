@@ -14,6 +14,11 @@
 		173C05452A31C16200D3E786 /* PeakWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C05442A31C16200D3E786 /* PeakWatchTests.swift */; };
 		173C054F2A31C16200D3E786 /* PeakWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C054E2A31C16200D3E786 /* PeakWatchUITests.swift */; };
 		173C05512A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C05502A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift */; };
+		179438D42A31E23200616B9B /* ECGListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438D32A31E23200616B9B /* ECGListView.swift */; };
+		179438D62A31E42400616B9B /* ECGRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438D52A31E42400616B9B /* ECGRowView.swift */; };
+		179438D92A31E4CC00616B9B /* ECGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438D82A31E4CC00616B9B /* ECGViewModel.swift */; };
+		179438E02A31F47700616B9B /* ECGSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438DF2A31F47700616B9B /* ECGSample.swift */; };
+		179438E32A32422A00616B9B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179438E22A32422A00616B9B /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,12 @@
 		173C054A2A31C16200D3E786 /* PeakWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		173C054E2A31C16200D3E786 /* PeakWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakWatchUITests.swift; sourceTree = "<group>"; };
 		173C05502A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakWatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		179438D32A31E23200616B9B /* ECGListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGListView.swift; sourceTree = "<group>"; };
+		179438D52A31E42400616B9B /* ECGRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowView.swift; sourceTree = "<group>"; };
+		179438D82A31E4CC00616B9B /* ECGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGViewModel.swift; sourceTree = "<group>"; };
+		179438DD2A31F36800616B9B /* PeakWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PeakWatch.entitlements; sourceTree = "<group>"; };
+		179438DF2A31F47700616B9B /* ECGSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSample.swift; sourceTree = "<group>"; };
+		179438E22A32422A00616B9B /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +105,12 @@
 		173C05322A31C15F00D3E786 /* PeakWatch */ = {
 			isa = PBXGroup;
 			children = (
+				179438E12A32421500616B9B /* Utils */,
+				179438DE2A31F45A00616B9B /* Model */,
+				179438DD2A31F36800616B9B /* PeakWatch.entitlements */,
+				179438DA2A31EB4000616B9B /* Exceptions */,
+				179438D72A31E48300616B9B /* ViewModel */,
+				179438D22A31E13900616B9B /* Views */,
 				173C05332A31C15F00D3E786 /* PeakWatchApp.swift */,
 				173C05352A31C15F00D3E786 /* ContentView.swift */,
 				173C05372A31C16100D3E786 /* Assets.xcassets */,
@@ -125,6 +142,46 @@
 				173C05502A31C16200D3E786 /* PeakWatchUITestsLaunchTests.swift */,
 			);
 			path = PeakWatchUITests;
+			sourceTree = "<group>";
+		};
+		179438D22A31E13900616B9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				179438D32A31E23200616B9B /* ECGListView.swift */,
+				179438D52A31E42400616B9B /* ECGRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		179438D72A31E48300616B9B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				179438D82A31E4CC00616B9B /* ECGViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		179438DA2A31EB4000616B9B /* Exceptions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Exceptions;
+			sourceTree = "<group>";
+		};
+		179438DE2A31F45A00616B9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				179438DF2A31F47700616B9B /* ECGSample.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		179438E12A32421500616B9B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				179438E22A32422A00616B9B /* DateUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				173C05362A31C15F00D3E786 /* ContentView.swift in Sources */,
+				179438E32A32422A00616B9B /* DateUtils.swift in Sources */,
+				179438D62A31E42400616B9B /* ECGRowView.swift in Sources */,
+				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
 				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
+				179438E02A31F47700616B9B /* ECGSample.swift in Sources */,
+				179438D92A31E4CC00616B9B /* ECGViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,12 +476,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PeakWatch/PeakWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
 				DEVELOPMENT_TEAM = UJYRLZA762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The application would like to get access to your ECG information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,12 +507,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PeakWatch/PeakWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
 				DEVELOPMENT_TEAM = UJYRLZA762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The application would like to get access to your ECG information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
