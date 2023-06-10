@@ -23,4 +23,8 @@ struct ECGSample: Identifiable {
         return .init(numberOfVoltageMeasurements: hkElectrocardiogramm.numberOfVoltageMeasurements, startDate: hkElectrocardiogramm.startDate, endDate: hkElectrocardiogramm.endDate, device: hkElectrocardiogramm.device?.name ?? "Unknown device", classification: hkElectrocardiogramm.classification)
     }
     
+    static func mock() -> ECGSample {
+        return .init(numberOfVoltageMeasurements: 14560, startDate: Date(), endDate: Date(), device: "AppleWatch", classification: .sinusRhythm)
+    }
+    
 }

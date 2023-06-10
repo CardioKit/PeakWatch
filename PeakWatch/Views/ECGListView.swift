@@ -15,16 +15,16 @@ struct ECGListView: View {
  
     var body: some View {
         VStack {
-            List(ecgViewModel.ecgs, id: \.id) { ecg in
-                ECGRowView(ecg: ecg)
+            List(ecgViewModel.ecgsAndHkElectrocardiogram, id: \.0.id) { (ecg,hkElectrocardiogram)  in
+                NavigationLink(destination: ECGDetailView(ecgSample: hkElectrocardiogram)) {
+                     ECGRowView(ecg: ecg)
+                }
             }.task {
                 await ecgViewModel.getECGFromHealthStore()
             }
         }
     
     }
-    
-    
 }
 
 
