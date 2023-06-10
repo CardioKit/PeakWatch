@@ -11,9 +11,15 @@ import HealthKit
 class VoltageViewModel: ObservableObject {
     
     let ecgSample: HKElectrocardiogram
-    @Published private(set) var voltageMeasurements: [HKQuantity] = []
+    @Published private(set) var voltageMeasurementsRaw: [HKQuantity] = []
     @Published private(set) var voltagesAllFetched: Bool = false
     @Published private(set) var voltageError: Bool = false
+    
+    var voltageMeasurements: [VoltageMeasurement] {
+        self.voltageMeasurementsRaw.enumerated().map { (position, voltageMeasurementRaw) in
+            VoltageMeasurement.createFromHKQuantity(position: position, hkHKQuantity: voltageMeasurementRaw)
+        }
+    }
     
     let healthStore: HKHealthStore?
    
@@ -34,20 +40,26 @@ class VoltageViewModel: ObservableObject {
         }
         
         let voltageQuery = HKElectrocardiogramQuery(ecgSample) { (query, result) in
-            switch(result) {
             
+            switch(result) {
             case .measurement(let measurement):
                 if let voltageQuantity = measurement.quantity(for: .appleWatchSimilarToLeadI) {
                     // Do something with the voltage quantity here.
-                    self.voltageMeasurements.append(voltageQuantity)
+                    DispatchQueue.main.async { [self] in
+                        self.voltageMeasurementsRaw.append(voltageQuantity)
+                    }
                 }
             
             case .done:
                 // No more voltage measurements. Finish processing the existing measurements.
-                self.voltagesAllFetched = true
+                DispatchQueue.main.async { [self] in
+                    self.voltagesAllFetched = true
+                }
             case .error(let error):
                 // Handle the error here.
-                self.voltageError = true
+                DispatchQueue.main.async { [self] in
+                    self.voltageError = true
+                }
             }
         }
 

@@ -7,13 +7,32 @@
 
 import SwiftUI
 import HealthKit
+import Charts
 
 struct ECGDetailView: View {
     
     let ecgSample: HKElectrocardiogram
+    @StateObject var voltageViewModel: VoltageViewModel
+    
+    init(ecgSample: HKElectrocardiogram) {
+        self.ecgSample = ecgSample
+        self._voltageViewModel = StateObject(wrappedValue: VoltageViewModel(ecgSample: ecgSample))
+    }
     
     var body: some View {
-        Text(ecgSample.device?.description ?? "Unknown")
+        VStack {
+            if(voltageViewModel.voltagesAllFetched) {
+                ScrollView(.horizontal) {
+                    Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
+                        LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
+                    }.frame(width: CGFloat(voltageViewModel.voltageMeasurements.count) * 0.5, height: 300)
+                }
+                
+            }
+        }.navigationTitle("ECG Signal")
+            .task {
+            voltageViewModel.fetchVoltages()
+        }
     }
 }
 
