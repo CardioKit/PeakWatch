@@ -10,7 +10,19 @@ import HealthKit
 
 class ECGViewModel: ObservableObject {
     
-    @Published private(set) var ecgs: [ECGSample] = []
+    @Published private(set) var hkElectrocardiogram: [HKElectrocardiogram] = []
+    
+    var ecgs: [ECGSample] {
+        return  hkElectrocardiogram.map {
+            (sample) -> ECGSample in
+            return ECGSample.createFromHKElectrocardiogram(hkElectrocardiogramm: sample)
+        }
+    }
+    
+    var ecgsAndHkElectrocardiogram: [(ECGSample, HKElectrocardiogram)] {
+        return Array(zip(ecgs, hkElectrocardiogram))
+    }
+    
     let healthStore: HKHealthStore?
     let requestedAccessPolicy = Set<HKSampleType>([.electrocardiogramType()])
     
@@ -63,13 +75,8 @@ class ECGViewModel: ObservableObject {
                 fatalError("*** Unable to convert \(String(describing: samples)) to [HKElectrocardiogram] ***")
             }
             
-            let ecgSamplesTransformed = ecgSamples.map {
-                (sample) -> ECGSample in
-                return ECGSample.createFromHKElectrocardiogram(hkElectrocardiogramm: sample)
-            }
-            
             DispatchQueue.main.async { [self] in
-                self.ecgs = ecgSamplesTransformed
+                self.hkElectrocardiogram = ecgSamples
             }
            
         }
