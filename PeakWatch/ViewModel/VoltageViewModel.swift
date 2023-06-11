@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import PeakSwift
 
 class VoltageViewModel: ObservableObject {
     
@@ -15,10 +16,23 @@ class VoltageViewModel: ObservableObject {
     @Published private(set) var voltagesAllFetched: Bool = false
     @Published private(set) var voltageError: Bool = false
     
+    @Published private(set) var qrsResults: QRSResult?
+    
+    var rPeaks: [UInt] {
+        self.qrsResults?.rPeaks ?? []
+    }
+    
+    let qrsDetector = QRSDetector()
+    
     var voltageMeasurements: [VoltageMeasurement] {
-        self.voltageMeasurementsRaw.enumerated().map { (position, voltageMeasurementRaw) in
+        var measurements = self.voltageMeasurementsRaw.enumerated().map { (position, voltageMeasurementRaw) in
             VoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: voltageMeasurementRaw)
         }
+        self.rPeaks.forEach {
+            rPeakPosition in
+            measurements[Int(rPeakPosition)].isRpeak = true
+        }
+        return measurements
     }
     
     let healthStore: HKHealthStore?
@@ -53,7 +67,16 @@ class VoltageViewModel: ObservableObject {
             case .done:
                 // No more voltage measurements. Finish processing the existing measurements.
                 DispatchQueue.main.async { [self] in
-                    self.voltagesAllFetched = true
+                    let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
+                    
+                    if let samplingRate = self.ecgSample.samplingFrequency {
+                        let samplingRateValue = samplingRate.doubleValue(for: .hertz())
+                        self.qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: samplingRateValue), algorithm: .Christov)
+                        self.voltagesAllFetched = true
+                    } else {
+                        self.voltageError = true
+                    }
+                    
                 }
             case .error(let error):
                 // Handle the error here.

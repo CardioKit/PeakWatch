@@ -25,6 +25,10 @@ struct ECGDetailView: View {
                 ScrollView(.horizontal) {
                     Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
                         LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
+                        if voltageMeasurement.isRpeak {
+                            PointMark(x: .value("R peak position", voltageMeasurement.position),
+                                      y: .value("Voltage", voltageMeasurement.voltage))
+                        }
                     }
                     .chartXScale(domain: 0...voltageViewModel.voltageMeasurements.count)
                     .frame(width: CGFloat(voltageViewModel.voltageMeasurements.count) * 0.5, height: 300)
