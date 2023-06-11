@@ -14,8 +14,8 @@ struct VoltageMeasurement: Identifiable {
     let position: Int
     let voltage: Double
     
-    static func createFromHKQuantity(position: Int, hkHKQuantity: HKQuantity) -> VoltageMeasurement {
-        return .init(position: position, voltage: hkHKQuantity.doubleValue(for: .volt()))
+    static func createFromHKQuantity(position: Int, hkQuantity: HKQuantity) -> VoltageMeasurement {
+        return .init(position: position, voltage: hkQuantity.doubleValue(for: .volt()))
     }
     
 }

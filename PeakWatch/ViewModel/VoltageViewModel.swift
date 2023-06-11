@@ -17,7 +17,7 @@ class VoltageViewModel: ObservableObject {
     
     var voltageMeasurements: [VoltageMeasurement] {
         self.voltageMeasurementsRaw.enumerated().map { (position, voltageMeasurementRaw) in
-            VoltageMeasurement.createFromHKQuantity(position: position, hkHKQuantity: voltageMeasurementRaw)
+            VoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: voltageMeasurementRaw)
         }
     }
     

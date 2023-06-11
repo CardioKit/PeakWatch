@@ -25,9 +25,10 @@ struct ECGDetailView: View {
                 ScrollView(.horizontal) {
                     Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
                         LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
-                    }.frame(width: CGFloat(voltageViewModel.voltageMeasurements.count) * 0.5, height: 300)
+                    }
+                    .chartXScale(domain: 0...voltageViewModel.voltageMeasurements.count)
+                    .frame(width: CGFloat(voltageViewModel.voltageMeasurements.count) * 0.5, height: 300)
                 }
-                
             }
         }.navigationTitle("ECG Signal")
             .task {
