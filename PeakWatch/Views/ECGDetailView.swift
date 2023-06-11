@@ -28,6 +28,7 @@ struct ECGDetailView: View {
                         if voltageMeasurement.isRpeak {
                             PointMark(x: .value("R peak position", voltageMeasurement.position),
                                       y: .value("Voltage", voltageMeasurement.voltage))
+                            .foregroundStyle(.red)
                         }
                     }
                     .chartXScale(domain: 0...voltageViewModel.voltageMeasurements.count)
