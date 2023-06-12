@@ -11,16 +11,24 @@ import PeakSwift
 
 class VoltageViewModel: ObservableObject {
     
+    struct QRSResultsByAlgorithm {
+        let qrsResult: QRSResult
+        let algorithm: Algorithms
+    }
+    
     let ecgSample: HKElectrocardiogram
     @Published private(set) var voltageMeasurementsRaw: [HKQuantity] = []
     @Published private(set) var voltagesAllFetched: Bool = false
     @Published private(set) var voltageError: Bool = false
     
-    @Published private(set) var qrsResults: QRSResult?
-    
-    var rPeaks: [UInt] {
-        self.qrsResults?.rPeaks ?? []
+    var samplingRateValue: Double = 0.0
+    @Published var selectedAlgorithms: Set<Algorithms> = [.Christov, .Nabian2018] {
+        didSet {
+            qrsResults.removeAll()
+            calculateAlgorithms() // It's better to instruct recalculation only to add and remove the algorithm added or removed and not all
+        }
     }
+    @Published private(set) var qrsResults: [QRSResultsByAlgorithm] = []
     
     let qrsDetector = QRSDetector()
     
@@ -28,9 +36,12 @@ class VoltageViewModel: ObservableObject {
         var measurements = self.voltageMeasurementsRaw.enumerated().map { (position, voltageMeasurementRaw) in
             VoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: voltageMeasurementRaw)
         }
-        self.rPeaks.forEach {
-            rPeakPosition in
-            measurements[Int(rPeakPosition)].isRpeak = true
+        qrsResults.forEach {
+            qrsResult in
+            qrsResult.qrsResult.rPeaks.forEach {
+                rPeakPosition in
+                measurements[Int(rPeakPosition)].isRPeakByAlgorithm.append(qrsResult.algorithm)
+            }
         }
         return measurements
     }
@@ -44,6 +55,17 @@ class VoltageViewModel: ObservableObject {
         } else {
             self.healthStore = nil
         }
+    }
+    
+    private func calculateAlgorithms()  {
+        
+        let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
+        selectedAlgorithms.forEach {
+            algorithm in
+            let qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: self.samplingRateValue), algorithm: algorithm)
+            self.qrsResults.append(QRSResultsByAlgorithm(qrsResult: qrsResults, algorithm: algorithm))
+        }
+        
     }
     
    
@@ -67,11 +89,10 @@ class VoltageViewModel: ObservableObject {
             case .done:
                 // No more voltage measurements. Finish processing the existing measurements.
                 DispatchQueue.main.async { [self] in
-                    let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
                     
                     if let samplingRate = self.ecgSample.samplingFrequency {
-                        let samplingRateValue = samplingRate.doubleValue(for: .hertz())
-                        self.qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: samplingRateValue), algorithm: .Christov)
+                        self.samplingRateValue = samplingRate.doubleValue(for: .hertz())
+                        calculateAlgorithms()
                         self.voltagesAllFetched = true
                     } else {
                         self.voltageError = true

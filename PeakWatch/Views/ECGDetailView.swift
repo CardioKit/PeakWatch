@@ -8,11 +8,14 @@
 import SwiftUI
 import HealthKit
 import Charts
+import PeakSwift
 
 struct ECGDetailView: View {
     
     let ecgSample: HKElectrocardiogram
     @StateObject var voltageViewModel: VoltageViewModel
+    
+    @State private var showingEditAlgorithm: Bool = false
     
     init(ecgSample: HKElectrocardiogram) {
         self.ecgSample = ecgSample
@@ -22,13 +25,16 @@ struct ECGDetailView: View {
     var body: some View {
         VStack {
             if(voltageViewModel.voltagesAllFetched) {
+                Button("Select Algorithms") {
+                    showingEditAlgorithm.toggle()
+                }
                 ScrollView(.horizontal) {
                     Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
                         LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
-                        if voltageMeasurement.isRpeak {
+                        ForEach(voltageMeasurement.isRPeakByAlgorithm, id: \.self) { (algorithm:Algorithms) in
                             PointMark(x: .value("R peak position", voltageMeasurement.position),
                                       y: .value("Voltage", voltageMeasurement.voltage))
-                            .foregroundStyle(.red)
+                            .foregroundStyle(by: .value("Algorithm", algorithm.description))
                         }
                     }
                     .chartXScale(domain: 0...voltageViewModel.voltageMeasurements.count)
@@ -38,7 +44,9 @@ struct ECGDetailView: View {
         }.navigationTitle("ECG Signal")
             .task {
             voltageViewModel.fetchVoltages()
-        }
+            }.sheet(isPresented: $showingEditAlgorithm) {
+                AlgorithmSelectionView(voltageViewModel: self.voltageViewModel)
+            }
     }
 }
 
