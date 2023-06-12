@@ -31,7 +31,7 @@ struct ECGDetailView: View {
                         HStack {
                             ForEach(Array(self.voltageViewModel.selectedAlgorithms)) {
                                 algorithm in
-                                Text(algorithm.description)
+                                Text(algorithm.description).modifier(TagViewModifier())
                             }
                         }
                         Button("Select Algorithms") {
