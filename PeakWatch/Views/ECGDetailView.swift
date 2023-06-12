@@ -25,22 +25,37 @@ struct ECGDetailView: View {
     var body: some View {
         VStack {
             if(voltageViewModel.voltagesAllFetched) {
-                Button("Select Algorithms") {
-                    showingEditAlgorithm.toggle()
-                }
-                ScrollView(.horizontal) {
-                    Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
-                        LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
-                            .foregroundStyle(.red)
-                        ForEach(voltageMeasurement.isRPeakByAlgorithm, id: \.self) { (algorithm:Algorithms) in
-                            PointMark(x: .value("R peak position", voltageMeasurement.position),
-                                      y: .value("Voltage", voltageMeasurement.voltage))
-                            .foregroundStyle(by: .value("Algorithm", algorithm.description))
+                
+                List {
+                    Section(header: Text("Algorithms performed")) {
+                        HStack {
+                            ForEach(Array(self.voltageViewModel.selectedAlgorithms)) {
+                                algorithm in
+                                Text(algorithm.description)
+                            }
+                        }
+                        Button("Select Algorithms") {
+                            showingEditAlgorithm.toggle()
                         }
                     }
-                    .chartXScale(domain: 0...voltageViewModel.voltageMeasurements.count)
-                    .frame(width: CGFloat(voltageViewModel.voltageMeasurements.count) * 0.5, height: 300)
+                    .headerProminence(.increased)
+                    Section(header: Text("ECG Signal with R peaks")) {
+                        ScrollView(.horizontal) {
+                            Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
+                                LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
+                                    .foregroundStyle(.red)
+                                ForEach(voltageMeasurement.isRPeakByAlgorithm, id: \.self) { (algorithm:Algorithms) in
+                                    PointMark(x: .value("R peak position", voltageMeasurement.position),
+                                              y: .value("Voltage", voltageMeasurement.voltage))
+                                    .foregroundStyle(by: .value("Algorithm", algorithm.description))
+                                }
+                            }
+                            .chartXScale(domain: 0...voltageViewModel.voltageMeasurements.count)
+                            .frame(width: CGFloat(voltageViewModel.voltageMeasurements.count) * 0.5, height: 300)
+                        }
+                    }.headerProminence(.increased)
                 }
+                .listStyle(.insetGrouped)
             }
         }.navigationTitle("ECG Signal")
             .task {
