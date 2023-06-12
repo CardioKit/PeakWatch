@@ -31,6 +31,7 @@ struct ECGDetailView: View {
                 ScrollView(.horizontal) {
                     Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
                         LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
+                            .foregroundStyle(.red)
                         ForEach(voltageMeasurement.isRPeakByAlgorithm, id: \.self) { (algorithm:Algorithms) in
                             PointMark(x: .value("R peak position", voltageMeasurement.position),
                                       y: .value("Voltage", voltageMeasurement.voltage))
