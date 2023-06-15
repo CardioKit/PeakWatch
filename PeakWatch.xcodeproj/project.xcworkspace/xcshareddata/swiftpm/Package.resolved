@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "peakswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CardioKit/PeakSwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ea8192ea66590783c3742f5c87d1f90caa1da091"
+      }
+    }
+  ],
+  "version" : 2
+}
