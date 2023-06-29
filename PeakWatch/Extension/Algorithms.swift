@@ -11,18 +11,22 @@ import PeakSwift
 extension Algorithms: CustomStringConvertible {
     public var description: String {
         switch self {
-            case .Christov:
+            case .christov:
                 return "Christov"
-            case .WQRS:
+            case .wqrs:
                 return "WQRS"
-            case .Nabian2018:
+            case .nabian2018:
                 return "Nabian"
-            case .Aristotle:
+            case .aristotle:
                 return "Aristotle"
-            case .Basic:
+            case .basic:
                 return "Basic"
-            case .GQRS:
+            case .gqrs:
                 return "GQRS"
+            case .hamilton:
+                return "Hamilton"
+        case .hamiltonCleaned:
+                return "Hamilton cleaned signal"
         }
     }
 }
