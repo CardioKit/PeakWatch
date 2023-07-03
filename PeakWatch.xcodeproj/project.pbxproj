@@ -560,10 +560,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = UJYRLZA762;
+				DEVELOPMENT_TEAM = W47Y3X8372;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The application would like to get access to your ECG information.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "PeakWatch requires access to your health database to load and analyse ECG data. New recordings are loaded on behalf of the application that needs this permission.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -574,7 +575,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ukb.idm.peakwatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -591,10 +592,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = UJYRLZA762;
+				DEVELOPMENT_TEAM = W47Y3X8372;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The application would like to get access to your ECG information.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "PeakWatch requires access to your health database to load and analyse ECG data. New recordings are loaded on behalf of the application that needs this permission.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -605,7 +607,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ukb.idm.peakwatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
