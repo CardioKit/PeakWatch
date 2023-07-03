@@ -76,6 +76,7 @@
 		17BF56612A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoListRowViewModifier.swift; sourceTree = "<group>"; };
 		17BF56632A33479800FF42D5 /* ECGDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGDetailView.swift; sourceTree = "<group>"; };
 		17BF56652A334AD600FF42D5 /* VoltageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageViewModel.swift; sourceTree = "<group>"; };
+		50407ECA2A53001400E17921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,12 +148,12 @@
 		173C05322A31C15F00D3E786 /* PeakWatch */ = {
 			isa = PBXGroup;
 			children = (
+				50407ECA2A53001400E17921 /* Info.plist */,
 				17BF56602A33364000FF42D5 /* ViewModifiers */,
 				17BF565D2A3332B400FF42D5 /* Extension */,
 				179438E12A32421500616B9B /* Utils */,
 				179438DE2A31F45A00616B9B /* Model */,
 				179438DD2A31F36800616B9B /* PeakWatch.entitlements */,
-				179438DA2A31EB4000616B9B /* Exceptions */,
 				179438D72A31E48300616B9B /* ViewModel */,
 				179438D22A31E13900616B9B /* Views */,
 				173C05332A31C15F00D3E786 /* PeakWatchApp.swift */,
@@ -204,13 +205,6 @@
 				17BF56652A334AD600FF42D5 /* VoltageViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		179438DA2A31EB4000616B9B /* Exceptions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Exceptions;
 			sourceTree = "<group>";
 		};
 		179438DE2A31F45A00616B9B /* Model */ = {
@@ -563,6 +557,7 @@
 				DEVELOPMENT_TEAM = W47Y3X8372;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PeakWatch/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The application would like to get access to your ECG information.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "PeakWatch requires access to your health database to load and analyse ECG data. New recordings are loaded on behalf of the application that needs this permission.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -595,6 +590,7 @@
 				DEVELOPMENT_TEAM = W47Y3X8372;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PeakWatch/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The application would like to get access to your ECG information.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "PeakWatch requires access to your health database to load and analyse ECG data. New recordings are loaded on behalf of the application that needs this permission.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
