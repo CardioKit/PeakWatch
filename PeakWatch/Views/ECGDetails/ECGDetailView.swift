@@ -49,7 +49,7 @@ struct ECGDetailView: View {
     
     func butter() {
         print("Click butterworth button")
-        print(Butterworth().test())
+        //print(Butterworth().test())
     }
 }
 
