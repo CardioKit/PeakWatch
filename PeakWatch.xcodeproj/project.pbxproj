@@ -554,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = W47Y3X8372;
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PeakWatch/Info.plist;
@@ -570,7 +570,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.ukb.idm.peakwatch;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -587,7 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = W47Y3X8372;
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PeakWatch/Info.plist;
@@ -603,7 +603,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.ukb.idm.peakwatch;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
