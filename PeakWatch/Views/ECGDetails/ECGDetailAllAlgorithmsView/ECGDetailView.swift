@@ -35,7 +35,6 @@ struct ECGDetailView: View {
                     Section(header: Text("Algorithm view execution details")) {
                         ECGSingleAlgorithmSelectionView(voltageViewModel: voltageViewModel)
                     }.headerProminence(.increased)
-                    Button("Butterworth", action: butter)
                 }
                 .listStyle(.insetGrouped)
             }

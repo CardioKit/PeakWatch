@@ -14,8 +14,9 @@ struct ECGSignalView: View {
     @ObservedObject var voltageViewModel: VoltageViewModel
     
     var body: some View {
-        ScrollView(.horizontal) {
-            Chart(voltageViewModel.voltageMeasurements) { (voltageMeasurement) in
+        ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count) {
+            ForEach(voltageViewModel.voltageMeasurements) {
+                (voltageMeasurement) in
                 LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
                     .foregroundStyle(.red)
                 ForEach(voltageMeasurement.isRPeakByAlgorithm, id: \.self) { (algorithm:Algorithms) in
@@ -24,8 +25,7 @@ struct ECGSignalView: View {
                     .foregroundStyle(by: .value("Algorithm", algorithm.description))
                 }
             }
-            .chartXScale(domain: 0...voltageViewModel.voltageMeasurements.count)
-            .frame(width: CGFloat(voltageViewModel.voltageMeasurements.count) * 0.5, height: 300)
         }
-    }
+       }
+    
 }
