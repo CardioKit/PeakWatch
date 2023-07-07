@@ -33,7 +33,6 @@
 		17C88C9C2A366DD9007B8A8E /* PeakSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17C88C9B2A366DD9007B8A8E /* PeakSwift */; };
 		17CACAF32A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CACAF22A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift */; };
 		17CACAF52A4C5E670061576F /* ECGSingleAlgorithmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CACAF42A4C5E670061576F /* ECGSingleAlgorithmView.swift */; };
-		17CACAF72A4C64940061576F /* SingleAlgorithmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CACAF62A4C64940061576F /* SingleAlgorithmViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +82,6 @@
 		17BF56652A334AD600FF42D5 /* VoltageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageViewModel.swift; sourceTree = "<group>"; };
 		17CACAF22A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmSelectionView.swift; sourceTree = "<group>"; };
 		17CACAF42A4C5E670061576F /* ECGSingleAlgorithmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmView.swift; sourceTree = "<group>"; };
-		17CACAF62A4C64940061576F /* SingleAlgorithmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAlgorithmViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +234,6 @@
 			children = (
 				179438D82A31E4CC00616B9B /* ECGViewModel.swift */,
 				17BF56652A334AD600FF42D5 /* VoltageViewModel.swift */,
-				17CACAF62A4C64940061576F /* SingleAlgorithmViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -414,7 +411,6 @@
 			files = (
 				173C05362A31C15F00D3E786 /* ContentView.swift in Sources */,
 				179438E32A32422A00616B9B /* DateUtils.swift in Sources */,
-				17CACAF72A4C64940061576F /* SingleAlgorithmViewModel.swift in Sources */,
 				179438D62A31E42400616B9B /* ECGRowView.swift in Sources */,
 				17A82BEC2A3725BB00873DF7 /* Algorithms.swift in Sources */,
 				116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */,
