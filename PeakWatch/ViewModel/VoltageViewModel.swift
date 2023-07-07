@@ -58,6 +58,7 @@ class VoltageViewModel: ObservableObject {
     }
     
     private func calculateAlgorithms()  {
+        print("Calc algorithms")
         
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
         selectedAlgorithms.forEach {
@@ -70,6 +71,7 @@ class VoltageViewModel: ObservableObject {
     
    
     func fetchVoltages() {
+        print("fetch voltages")
         
         guard let healthStore = healthStore else {
             return

@@ -41,10 +41,16 @@ struct ECGDetailView: View {
             }
         }.navigationTitle("ECG Signal")
             .task {
-            voltageViewModel.fetchVoltages()
+            fetchVolatgesOnload()
             }.sheet(isPresented: $showingEditAlgorithm) {
                 AlgorithmSelectionView(voltageViewModel: self.voltageViewModel)
             }
+    }
+    
+    func fetchVolatgesOnload() {
+        if !voltageViewModel.voltagesAllFetched {
+            voltageViewModel.fetchVoltages()
+        }
     }
     
     func butter() {
