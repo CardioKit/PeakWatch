@@ -160,7 +160,6 @@
 				179438E12A32421500616B9B /* Utils */,
 				179438DE2A31F45A00616B9B /* Model */,
 				179438DD2A31F36800616B9B /* PeakWatch.entitlements */,
-				179438DA2A31EB4000616B9B /* Exceptions */,
 				179438D72A31E48300616B9B /* ViewModel */,
 				179438D22A31E13900616B9B /* Views */,
 				173C05332A31C15F00D3E786 /* PeakWatchApp.swift */,
@@ -213,13 +212,6 @@
 				17CACAF62A4C64940061576F /* SingleAlgorithmViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		179438DA2A31EB4000616B9B /* Exceptions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Exceptions;
 			sourceTree = "<group>";
 		};
 		179438DE2A31F45A00616B9B /* Model */ = {
@@ -747,7 +739,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CardioKit/PeakSwift";
 			requirement = {
-				branch = "feature/butterworth-filter";
+				branch = main;
 				kind = branch;
 			};
 		};

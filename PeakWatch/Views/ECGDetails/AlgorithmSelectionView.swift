@@ -16,7 +16,7 @@ struct AlgorithmSelectionView: View {
     
     let algorithms: [Algorithms] = [.nabian2018, .christov,
         //.GQRS, - not implemented
-                                    .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton]
+                                    .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton, .panTompkins, .twoAverage]
     
     
     

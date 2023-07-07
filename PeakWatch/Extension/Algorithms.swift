@@ -25,7 +25,11 @@ extension Algorithms: CustomStringConvertible {
                 return "GQRS"
             case .hamilton:
                 return "Hamilton"
-        case .hamiltonCleaned:
+            case .panTompkins:
+                return "Pan Tompkins"
+            case .twoAverage:
+                return "Two Average"
+            case .hamiltonCleaned:
                 return "Hamilton cleaned signal"
         }
     }

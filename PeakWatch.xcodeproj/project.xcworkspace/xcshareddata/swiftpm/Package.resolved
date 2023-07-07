@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CardioKit/PeakSwift",
       "state" : {
-        "branch" : "feature/butterworth-filter",
-        "revision" : "c64d8d05ce5e92421f4159cbc3a0c59beabb696d"
+        "branch" : "main",
+        "revision" : "6df266cc3b08bb70e168ff860278766307cb4d24"
       }
     }
   ],
