@@ -9,10 +9,9 @@ import SwiftUI
 import PeakSwift
 import Charts
 
-struct ECGSingleAlgorithmView: View {
+struct ECGSingleAlgorithmChartView: View {
     
     let qrsResult: QRSResult
-    let algorithm: Algorithms
     
     var body: some View {
             ECGChartView(chartRange: qrsResult.electrocardiogram.ecg.count) {
@@ -37,7 +36,6 @@ struct ECGSingleAlgorithmView: View {
                 }
             }
             .chartForegroundStyleScale(range: [.red, .blue, .green])
-            .navigationTitle(algorithm.description)
     }
 }
 
