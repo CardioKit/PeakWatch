@@ -20,7 +20,7 @@ struct ECGNavigationView: View {
                 ECGNotFoundView(ecgViewModel: ecgViewModel)
             }
         }.task {
-            await ecgViewModel.getECGFromHealthStore()
+            //await ecgViewModel.getECGFromHealthStore()
         }
     }
 }

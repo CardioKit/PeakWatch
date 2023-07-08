@@ -11,10 +11,23 @@ struct ECGFoundView: View {
     
     @ObservedObject var ecgViewModel: ECGViewModel
     
+    let navigationTitle = "ECG Samples"
+    let buttonLabel = "Try out PeakWatch"
+    var ecgRecordedText: String {
+        "PeakWatch detected \(ecgViewModel.ecgs.count) recorded ECGs."
+    }
+    
     var body: some View {
-        NavigationLink(destination:
-                        ECGListView(ecgViewModel: self.ecgViewModel).navigationTitle("ECG Samples")) {
-            Text("Try it out")
+        
+        VStack {
+            Text(ecgRecordedText)
+        }
+
+        VStack {
+            NavigationLink(destination:
+                            ECGListView(ecgViewModel: self.ecgViewModel).navigationTitle(navigationTitle)) {
+                Text(self.buttonLabel)
+            }
         }
     }
 }

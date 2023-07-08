@@ -11,14 +11,19 @@ struct ECGNotFoundView: View {
     
     @ObservedObject var ecgViewModel: ECGViewModel
     
+    let ecgNotFoundText = "No ECGs found. Please, try to record a few ECGs. (e.g. AppleWatch)"
+    let refreshButtonLabel = "Refresh"
+    
     var body: some View {
         VStack {
-            Text("No ECG found. Please, try to record a few ECGs. (e.g. AppleWatch)")
-            Button("Refresh") {
+            Text(ecgNotFoundText)
+        }
+        VStack {
+            Button(refreshButtonLabel) {
                 Task {
                     await ecgViewModel.getECGFromHealthStore()
                 }
-            }
+            }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
         }
     }
 }
