@@ -17,10 +17,12 @@ struct ECGSignalView: View {
         ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count) {
             ForEach(voltageViewModel.voltageMeasurements) {
                 (voltageMeasurement) in
-                LineMark(x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
+                LineMark(
+                    x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
                     .foregroundStyle(.red)
                 ForEach(voltageMeasurement.isRPeakByAlgorithm, id: \.self) { (algorithm:Algorithms) in
-                    PointMark(x: .value("R peak position", voltageMeasurement.position),
+                    PointMark(
+                        x: .value("R peak position", voltageMeasurement.position),
                               y: .value("Voltage", voltageMeasurement.voltage))
                     .foregroundStyle(by: .value("Algorithm", algorithm.description))
                 }

@@ -19,6 +19,7 @@ struct ECGChartView<Content: ChartContent>: View {
                 content
             }.chartXScale(domain: 0...chartRange)
             .frame(width: CGFloat(chartRange) * 0.5, height: 300)
+            .chartLegend(.visible)
         }
     }
 }
