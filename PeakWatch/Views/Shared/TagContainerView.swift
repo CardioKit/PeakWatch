@@ -25,8 +25,6 @@ struct TagContainerView: View {
        }
     
     var body: some View {
-        var width = CGFloat.zero
-        var height = CGFloat.zero
         
         return VStack {
             GeometryReader { geo in
@@ -45,7 +43,6 @@ struct TagContainerView: View {
                 TagView(text: tag.text)
                     .padding(.all, 5)
                     .alignmentGuide(.leading, computeValue: { dimension in
-                        print(".leading")
                         if (abs(width - dimension.width) > geometry.size.width) {
                             width = 0
                             height -= dimension.height
