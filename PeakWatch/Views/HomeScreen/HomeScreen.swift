@@ -12,12 +12,14 @@ struct HomeScreen: View {
     
                                     
     var body: some View {
-        List {
-            GoalView()
-            FeaturesView()
-            SupportedAlgorithmsView()
+        VStack {
+            GoalView().padding(.top, 40)
+            FeaturesView().padding(.top, 40)
+            SupportedAlgorithmsView().padding(.top, 40)
+            Spacer()
             ECGNavigationView()
-        }.navigationTitle("PeakWatch")
+        }
+       .navigationTitle("PeakWatch")
  
     }
 }

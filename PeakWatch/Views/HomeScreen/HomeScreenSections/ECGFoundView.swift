@@ -24,10 +24,14 @@ struct ECGFoundView: View {
         }
 
         VStack {
-            NavigationLink(destination:
-                            ECGListView(ecgViewModel: self.ecgViewModel).navigationTitle(navigationTitle)) {
-                Text(self.buttonLabel)
+            NavigationLink {
+                ECGListView(ecgViewModel: self.ecgViewModel)
+                    .navigationTitle(navigationTitle)
             }
+        label: {
+                Text(buttonLabel)
+            }
+        .buttonStyle(.borderedProminent)
         }
     }
 }

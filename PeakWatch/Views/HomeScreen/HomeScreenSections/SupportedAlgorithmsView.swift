@@ -14,8 +14,11 @@ struct SupportedAlgorithmsView: View {
     
     
     var body: some View {
-        Section(header: Text("Algorithms supported")) {
+        VStack {
+            Text("Algorithms supported").modifier(HeaderViewModifier())
             TagContainerView(tags: tags)
-        }.headerProminence(.increased)
+        }
+        
+
     }
 }

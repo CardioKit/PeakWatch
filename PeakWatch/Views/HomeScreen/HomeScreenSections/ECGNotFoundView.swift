@@ -19,11 +19,15 @@ struct ECGNotFoundView: View {
             Text(ecgNotFoundText)
         }
         VStack {
-            Button(refreshButtonLabel) {
+            Button {
                 Task {
                     await ecgViewModel.getECGFromHealthStore()
                 }
-            }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+            } label: {
+                Text(refreshButtonLabel).frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+            }
+            .buttonStyle(.borderedProminent)
+
         }
     }
 }

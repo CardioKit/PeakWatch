@@ -9,10 +9,9 @@ import SwiftUI
 
 struct GoalView: View {
     var body: some View {
-        Section(header: Text("Goal of PeakWatch")) {
-            HStack {
+            VStack {
+                Text("Goal of PeakWatch").modifier(HeaderViewModifier())
                 Text("The goal of PeackWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiogramms.")
             }
-        }.headerProminence(.increased)
     }
 }
