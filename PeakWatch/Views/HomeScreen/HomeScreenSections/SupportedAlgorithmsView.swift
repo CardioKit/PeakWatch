@@ -10,15 +10,17 @@ import PeakSwift
 
 struct SupportedAlgorithmsView: View {
     
-    let supportedAlgorithms: [Algorithms] = [.Nabian2018, .Christov, .Basic, .WQRS, .Aristotle]
+    let supportedAlgorithms: [Algorithms] = [.Nabian2018, .Christov, .Basic, .WQRS, .Aristotle, .Nabian2018]
+    
+    var supportedAlgorithmsAsTags: [Tag] {
+        self.supportedAlgorithms.map { algorithm in
+            Tag(text: algorithm.description)
+        }
+    }
     
     var body: some View {
         Section(header: Text("Algorithms supported")) {
-            HStack {
-                ForEach(supportedAlgorithms, id: \.self) { algorithm in
-                    Text(algorithm.description).modifier(TagViewModifier())
-                }
-            }
+            TagContainerView(tags: supportedAlgorithmsAsTags)
         }.headerProminence(.increased)
     }
 }
