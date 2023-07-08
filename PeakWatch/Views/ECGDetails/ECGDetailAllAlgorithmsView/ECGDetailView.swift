@@ -51,10 +51,5 @@ struct ECGDetailView: View {
             voltageViewModel.fetchVoltages()
         }
     }
-    
-    func butter() {
-        print("Click butterworth button")
-        //print(Butterworth().test())
-    }
 }
 
