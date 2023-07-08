@@ -11,7 +11,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             HomeScreen()
-            //ECGListView().navigationTitle("ECG Samples")
         }
     }
 }

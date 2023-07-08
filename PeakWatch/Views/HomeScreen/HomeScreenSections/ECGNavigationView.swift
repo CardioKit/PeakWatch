@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ECGNavigationView: View {
     var body: some View {
-        Button("Try it out") {
-            
+        NavigationLink(destination:
+                        ECGListView().navigationTitle("ECG Samples")) {
+            Text("Try it out")
         }
     }
 }
