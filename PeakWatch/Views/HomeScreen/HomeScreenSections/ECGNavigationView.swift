@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct ECGNavigationView: View {
+    
+    @StateObject var ecgViewModel: ECGViewModel = ECGViewModel()
+    
+    
     var body: some View {
-        NavigationLink(destination:
-                        ECGListView().navigationTitle("ECG Samples")) {
-            Text("Try it out")
+        Group() {
+            if !ecgViewModel.ecgs.isEmpty {
+                ECGFoundView(ecgViewModel: ecgViewModel)
+            } else {
+                ECGNotFoundView(ecgViewModel: ecgViewModel)
+            }
+        }.task {
+            await ecgViewModel.getECGFromHealthStore()
         }
     }
 }
