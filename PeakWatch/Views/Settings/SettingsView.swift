@@ -14,7 +14,8 @@ struct SettingsView: View {
     
     
     var body: some View {
-            AlgorithmSelectionView(voltageViewModel: defaultAlgorithmViewModel)
+            AlgorithmSelectionView(voltageViewModel: defaultAlgorithmViewModel,
+                                   listTitle: "Default Algorithms")
                 .navigationTitle("User Settings")
         
     }

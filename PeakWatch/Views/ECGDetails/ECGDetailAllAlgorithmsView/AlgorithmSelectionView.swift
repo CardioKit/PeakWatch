@@ -14,6 +14,8 @@ struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
         
     @ObservedObject var voltageViewModel: AlgorithmViewModel
     
+    let listTitle: String
+    
     let algorithms: [Algorithms] = [.nabian2018, .christov,
         //.GQRS, - not implemented
                                     .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton, .panTompkins, .twoAverage]
@@ -21,13 +23,12 @@ struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
     
     var body: some View {
                 List(selection: $voltageViewModel.selectedAlgorithms) {
-                    Section("Algorithms") {
+                    Section(listTitle) {
                         ForEach(algorithms) { algorithm in
                             Text(algorithm.description)
                         }
                     }.headerProminence(.increased)
                 }
-                //.navigationTitle(title(voltageViewModel.selectedAlgorithms.count))
                 .environment(\.editMode, $editMode)
     }
 }

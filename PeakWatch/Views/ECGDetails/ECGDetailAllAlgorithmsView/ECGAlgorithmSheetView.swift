@@ -13,7 +13,7 @@ struct ECGAlgorithmSheetView: View {
     
     var body: some View {
         NavigationView {
-            AlgorithmSelectionView(voltageViewModel: self.voltageViewModel)
+            AlgorithmSelectionView(voltageViewModel: self.voltageViewModel, listTitle: "Algorithms")
                 .navigationTitle( "\(voltageViewModel.selectedAlgorithms.count) algorithms selected")
         }
     }
