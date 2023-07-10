@@ -82,12 +82,9 @@
 		17BF56612A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoListRowViewModifier.swift; sourceTree = "<group>"; };
 		17BF56632A33479800FF42D5 /* ECGDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGDetailView.swift; sourceTree = "<group>"; };
 		17BF56652A334AD600FF42D5 /* VoltageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageViewModel.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		17CACAF22A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmSelectionView.swift; sourceTree = "<group>"; };
 		17CACAF42A4C5E670061576F /* ECGSingleAlgorithmChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmChartView.swift; sourceTree = "<group>"; };
-=======
 		50407ECA2A53001400E17921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
->>>>>>> main
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
