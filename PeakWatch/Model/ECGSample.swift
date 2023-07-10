@@ -21,7 +21,6 @@ struct ECGSample: Identifiable {
     
     
     static func createFromHKElectrocardiogram(hkElectrocardiogramm: HKElectrocardiogram) -> ECGSample {
-        hkElectrocardiogramm.averageHeartRate?.doubleValue(for: HKUnit.count().unitDivided(by: .minute()))
         return .init(numberOfVoltageMeasurements: hkElectrocardiogramm.numberOfVoltageMeasurements,
                      startDate: hkElectrocardiogramm.startDate,
                      endDate: hkElectrocardiogramm.endDate,
