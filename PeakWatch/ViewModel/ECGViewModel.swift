@@ -76,7 +76,9 @@ class ECGViewModel: ObservableObject {
             }
             
             DispatchQueue.main.async { [self] in
-                self.hkElectrocardiogram = ecgSamples
+                self.hkElectrocardiogram = ecgSamples.sorted {
+                    $0.startDate.compare($1.startDate) == .orderedDescending
+                }
             }
            
         }
