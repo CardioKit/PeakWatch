@@ -10,7 +10,7 @@ import PeakSwift
 
 struct SettingsView: View {
     
-    @StateObject var defaultAlgorithmViewModel = DefaultAlgorithmsViewModel()
+    @StateObject var defaultAlgorithmViewModel = UserSettingsViewModel()
     
     
     var body: some View {

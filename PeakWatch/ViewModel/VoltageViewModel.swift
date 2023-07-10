@@ -22,7 +22,7 @@ class VoltageViewModel: AlgorithmSelectable {
     @Published private(set) var voltageError: Bool = false
     
     var samplingRateValue: Double = 0.0
-    @Published var selectedAlgorithms: Set<Algorithms> = [.panTompkins, .twoAverage] {
+    @Published var selectedAlgorithms: Set<Algorithms> {
         didSet {
             qrsResultsByAlgorithm.removeAll()
             calculateAlgorithms() // It's better to instruct recalculation only to add and remove the algorithm added or removed and not all
@@ -50,6 +50,8 @@ class VoltageViewModel: AlgorithmSelectable {
    
     init(ecgSample: HKElectrocardiogram) {
         self.ecgSample = ecgSample
+        self.selectedAlgorithms = UserSettingsViewModel().selectedAlgorithms
+        
         if HKHealthStore.isHealthDataAvailable() {
             self.healthStore = HKHealthStore()
         } else {
