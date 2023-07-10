@@ -10,12 +10,14 @@ import PeakSwift
 
 struct HomeScreen: View {
     
+    let spacingBetweenSections = CGFloat(20)
+    
                                     
     var body: some View {
         VStack {
-            GoalView().padding(.top, 40)
-            FeaturesView().padding(.top, 40)
-            SupportedAlgorithmsView().padding(.top, 40)
+            GoalView().padding(.top, spacingBetweenSections)
+            FeaturesView().padding(.top, spacingBetweenSections)
+            SupportedAlgorithmsView().padding(.top, spacingBetweenSections)
             Spacer()
             ECGNavigationView()
         }

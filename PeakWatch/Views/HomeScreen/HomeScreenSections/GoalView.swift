@@ -11,7 +11,9 @@ struct GoalView: View {
     var body: some View {
             VStack {
                 Text("Goal of PeakWatch").modifier(HeaderViewModifier())
+                CardView(padding: 15) {
                 Text("The goal of PeackWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiogramms.")
             }
+        }
     }
 }

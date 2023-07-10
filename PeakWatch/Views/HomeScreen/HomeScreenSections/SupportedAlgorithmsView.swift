@@ -16,7 +16,9 @@ struct SupportedAlgorithmsView: View {
     var body: some View {
         VStack {
             Text("Algorithms supported").modifier(HeaderViewModifier())
-            TagContainerView(tags: tags)
+            CardView {
+                TagContainerView(tags: tags)
+            }
         }
         
 

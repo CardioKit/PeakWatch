@@ -22,6 +22,7 @@
 		1157081D2A59F121004D31F5 /* ECGNotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157081C2A59F121004D31F5 /* ECGNotFoundView.swift */; };
 		115708202A5A03E4004D31F5 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157081F2A5A03E3004D31F5 /* PrimaryButtonStyle.swift */; };
 		115708222A5A0F98004D31F5 /* HeaderViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */; };
+		11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */; };
 		172871292A37B0D800507869 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172871282A37B0D800507869 /* TagViewModifier.swift */; };
 		1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */; };
 		1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712C2A37B28C00507869 /* ECGSignalView.swift */; };
@@ -80,6 +81,7 @@
 		1157081C2A59F121004D31F5 /* ECGNotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGNotFoundView.swift; sourceTree = "<group>"; };
 		1157081F2A5A03E3004D31F5 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModifier.swift; sourceTree = "<group>"; };
+		11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
 		172871282A37B0D800507869 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSectionView.swift; sourceTree = "<group>"; };
 		1728712C2A37B28C00507869 /* ECGSignalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSignalView.swift; sourceTree = "<group>"; };
@@ -157,8 +159,8 @@
 		115708062A59C095004D31F5 /* HomeScreenSections */ = {
 			isa = PBXGroup;
 			children = (
+				11671E5D2A5BFE8100C3A913 /* FeaturesView */,
 				115708082A59C0B7004D31F5 /* GoalView.swift */,
-				1157080A2A59C0E0004D31F5 /* FeaturesView.swift */,
 				1157080C2A59C112004D31F5 /* SupportedAlgorithmsView.swift */,
 				1157080E2A59C16D004D31F5 /* ECGNavigationView.swift */,
 				1157081A2A59F0BE004D31F5 /* ECGFoundView.swift */,
@@ -173,6 +175,15 @@
 				1157081F2A5A03E3004D31F5 /* PrimaryButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		11671E5D2A5BFE8100C3A913 /* FeaturesView */ = {
+			isa = PBXGroup;
+			children = (
+				1157080A2A59C0E0004D31F5 /* FeaturesView.swift */,
+				11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */,
+			);
+			path = FeaturesView;
 			sourceTree = "<group>";
 		};
 		1728712E2A37B34000507869 /* ECGDetails */ = {
@@ -465,6 +476,7 @@
 				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
 				115708132A59CD50004D31F5 /* Tag.swift in Sources */,
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
+				11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */,
 				115708092A59C0B7004D31F5 /* GoalView.swift in Sources */,
 				115708032A59BC10004D31F5 /* CardView.swift in Sources */,
 				115708192A59E7B9004D31F5 /* Constants.swift in Sources */,
@@ -662,7 +674,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.dev.PeakWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -695,7 +707,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.PeakWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.dev.PeakWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
