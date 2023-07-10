@@ -12,11 +12,14 @@ struct SettingsView: View {
     
     @StateObject var defaultAlgorithmViewModel = UserSettingsViewModel()
     
+    let algorithmSectionTitle = "Default Algorithms"
+    let settingsNavigationTitle = "User Settings"
+    
     
     var body: some View {
             AlgorithmSelectionView(voltageViewModel: defaultAlgorithmViewModel,
-                                   listTitle: "Default Algorithms")
-                .navigationTitle("User Settings")
+                                   listTitle: algorithmSectionTitle)
+                .navigationTitle(settingsNavigationTitle)
         
     }
 }

@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let title = "ECG Samples"
+    
     var body: some View {
         NavigationView{
             ECGListView()
-                .navigationTitle("ECG Samples")
+                .navigationTitle(title)
+                .toolbar {
+                    SettingsButton()
+                }
         }
     }
 }

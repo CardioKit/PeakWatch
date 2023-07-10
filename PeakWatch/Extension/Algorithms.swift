@@ -75,8 +75,3 @@ extension Algorithms: CustomStringConvertible {
         return rawValue
     }
 }
-
-//extension Algorithms: Codable {
-//    
-//}
-
