@@ -22,6 +22,7 @@ class VoltageViewModel: ObservableObject {
     @Published private(set) var voltageError: Bool = false
     
     var samplingRateValue: Double = 0.0
+    
     @Published var selectedAlgorithms: Set<Algorithms> = [.neurokit] {
         didSet {
             qrsResultsByAlgorithm.removeAll()

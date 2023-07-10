@@ -23,11 +23,18 @@ extension Algorithms: CustomStringConvertible {
                 return "Basic"
             case .gqrs:
                 return "GQRS"
+            case .hamilton:
+                return "Hamilton"
+            case .panTompkins:
+                return "Pan Tompkins"
+            case .twoAverage:
+                return "Two Average"
+            case .hamiltonCleaned:
+                return "Hamilton cleaned signal"
             case .neurokit:
                 return "NeuroKit"
             default:
                 return "unknown"
-    
         }
     }
 }

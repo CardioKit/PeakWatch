@@ -7,6 +7,7 @@
 
 import SwiftUI
 import HealthKit
+import PeakSwift
 
 struct ECGDetailView: View {
     
@@ -23,7 +24,6 @@ struct ECGDetailView: View {
     var body: some View {
         VStack {
             if(voltageViewModel.voltagesAllFetched) {
-                
                 List {
                     Section(header: Text("Algorithms performed")) {
                         ECGAlgorithmSectionView(voltageViewModel: voltageViewModel, showingEditAlgorithm: $showingEditAlgorithm)
@@ -32,15 +32,24 @@ struct ECGDetailView: View {
                     Section(header: Text("ECG Signal with R peaks")) {
                         ECGSignalView(voltageViewModel: voltageViewModel)
                     }.headerProminence(.increased)
+                    Section(header: Text("Algorithm view execution details")) {
+                        ECGSingleAlgorithmSelectionView(voltageViewModel: voltageViewModel)
+                    }.headerProminence(.increased)
                 }
                 .listStyle(.insetGrouped)
             }
         }.navigationTitle("ECG Signal")
             .task {
-            voltageViewModel.fetchVoltages()
+            fetchVolatgesOnload()
             }.sheet(isPresented: $showingEditAlgorithm) {
                 AlgorithmSelectionView(voltageViewModel: self.voltageViewModel)
             }
+    }
+    
+    func fetchVolatgesOnload() {
+        if !voltageViewModel.voltagesAllFetched {
+            voltageViewModel.fetchVoltages()
+        }
     }
 }
 
