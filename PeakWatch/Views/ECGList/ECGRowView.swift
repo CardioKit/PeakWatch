@@ -15,7 +15,7 @@ struct ECGRowView: View {
         if let beatsPerMinute = ecg.beatsPerMinute {
             return String(format: "%.f", beatsPerMinute)
         } else {
-            return "Unkown"
+            return "Unknown"
         }
     }
     
