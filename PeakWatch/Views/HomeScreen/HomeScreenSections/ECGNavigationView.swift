@@ -15,9 +15,11 @@ struct ECGNavigationView: View {
     var body: some View {
         Group() {
             if !ecgViewModel.ecgs.isEmpty {
-                ECGFoundView(ecgViewModel: ecgViewModel)
+                //ECGFoundView(ecgViewModel: ecgViewModel)
+                GoalView()
             } else {
                 ECGNotFoundView(ecgViewModel: ecgViewModel)
+                //Text("Test")
             }
         }.task {
             //await ecgViewModel.getECGFromHealthStore()

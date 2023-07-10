@@ -7,29 +7,25 @@
 
 import SwiftUI
 
-struct CardView<CardContent: View>: View {
+struct CardView<CardContent: View, Style: ShapeStyle>: View {
     
-    let style: HierarchicalShapeStyle //= HierarchicalShapeStyle.quaternary
+    let style: Style //= HierarchicalShapeStyle.quaternary
     let padding: CGFloat  //= CGFloat(10)
+    let cornerRadius: CGFloat
     @ViewBuilder let cardContent: CardContent
     
-    init(style: HierarchicalShapeStyle = .quaternary, padding: CGFloat = CGFloat(10), @ViewBuilder cardContent: () -> CardContent) {
+    init(style: Style = .quaternary, padding: CGFloat = CGFloat(10), cornerRadius: CGFloat = 25, @ViewBuilder cardContent: () -> CardContent) {
         self.style = style
         self.padding = padding
+        self.cornerRadius = cornerRadius
         self.cardContent = cardContent()
     }
     
     var body: some View {
-        ZStack {
-//            RoundedRectangle(
-//                cornerSize: CGSize(width: 25, height: 25),
-//                style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/
-//            )
-//            .fill(style)
             
-            cardContent.padding(padding).background(style).cornerRadius(25)
+        cardContent.padding(.all, padding).background(style).cornerRadius(cornerRadius)
            // .multilineTextAlignment(.center)
-        }
+        
     }
 }
 
