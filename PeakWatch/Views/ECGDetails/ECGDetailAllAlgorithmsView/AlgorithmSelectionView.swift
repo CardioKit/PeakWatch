@@ -19,17 +19,15 @@ struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
                                     .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton, .panTompkins, .twoAverage]
     
     
-    
     var body: some View {
-        NavigationView {
-            VStack {
                 List(selection: $voltageViewModel.selectedAlgorithms) {
-                    ForEach(algorithms) { algorithm in
-                        Text(algorithm.description)
-                    }
-                }.navigationTitle("Algorithms \(voltageViewModel.selectedAlgorithms.count) selected")
-                    .environment(\.editMode, $editMode)
-            }
-        }
+                    Section("Algorithms") {
+                        ForEach(algorithms) { algorithm in
+                            Text(algorithm.description)
+                        }
+                    }.headerProminence(.increased)
+                }
+                //.navigationTitle(title(voltageViewModel.selectedAlgorithms.count))
+                .environment(\.editMode, $editMode)
     }
 }

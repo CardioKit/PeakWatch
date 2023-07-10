@@ -42,7 +42,7 @@ struct ECGDetailView: View {
             .task {
             fetchVolatgesOnload()
             }.sheet(isPresented: $showingEditAlgorithm) {
-                AlgorithmSelectionView(voltageViewModel: self.voltageViewModel)
+                ECGAlgorithmSheetView(voltageViewModel: voltageViewModel)
             }
     }
     
