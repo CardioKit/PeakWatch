@@ -8,11 +8,11 @@
 import SwiftUI
 import PeakSwift
 
-struct AlgorithmSelectionView: View {
+struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
     
     @State var editMode: EditMode = .active
         
-    @ObservedObject var voltageViewModel: VoltageViewModel
+    @ObservedObject var voltageViewModel: AlgorithmViewModel
     
     let algorithms: [Algorithms] = [.nabian2018, .christov,
         //.GQRS, - not implemented

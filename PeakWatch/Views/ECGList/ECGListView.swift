@@ -22,6 +22,13 @@ struct ECGListView: View {
             }.task {
                 await ecgViewModel.getECGFromHealthStore()
             }
+        }.toolbar {
+            
+            NavigationLink {
+                SettingsView()
+            } label: {
+                Text("Settings")
+            }
         }
     
     }

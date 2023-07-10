@@ -9,7 +9,7 @@ import Foundation
 import HealthKit
 import PeakSwift
 
-class VoltageViewModel: ObservableObject {
+class VoltageViewModel: AlgorithmSelectable {
     
     struct QRSResultsByAlgorithm {
         let qrsResult: QRSResult

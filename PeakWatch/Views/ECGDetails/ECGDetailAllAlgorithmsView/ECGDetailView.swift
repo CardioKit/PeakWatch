@@ -20,7 +20,7 @@ struct ECGDetailView: View {
         self.ecgSample = ecgSample
         self._voltageViewModel = StateObject(wrappedValue: VoltageViewModel(ecgSample: ecgSample))
     }
-    
+
     var body: some View {
         VStack {
             if(voltageViewModel.voltagesAllFetched) {
