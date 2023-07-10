@@ -18,7 +18,6 @@ struct ECGNavigationView: View {
                 ECGFoundView(ecgViewModel: ecgViewModel)
             } else {
                 ECGNotFoundView(ecgViewModel: ecgViewModel)
-                //Text("Test")
             }
         }.task {
             //await ecgViewModel.getECGFromHealthStore()

@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct FeaturesView: View {
+    
+    let features = [
+        Feature(icon: "waveform.path.ecg", text: "R peaks detection"),
+        Feature(icon: "star", text: "Signal quality"),
+        Feature(icon: "speedometer", text: "Performance evaluation")
+    ]
+    
     var body: some View {
         VStack {
             Text("Our features").modifier(HeaderViewModifier())
             VStack {
-                CardView() {
+                CardView {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            FeatureCardView(icon: "waveform.path.ecg", text: "R peaks detection")
-                            FeatureCardView(icon: "star", text: "Signal quality")
-                            FeatureCardView(icon: "speedometer", text: "Performance evaluation")
+                            ForEach(features) { feature in
+                                FeatureCardView(feature: feature)
+                            }
                         }
                     }.padding(5)
-                }//.frame(maxHeight: 120)
+                }
             }
         }
     }

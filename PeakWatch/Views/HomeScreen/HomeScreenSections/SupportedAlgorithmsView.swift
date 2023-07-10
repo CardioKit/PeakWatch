@@ -11,11 +11,12 @@ import PeakSwift
 struct SupportedAlgorithmsView: View {
     
     let tags = TagUtils.createTags(from: supportedAlgorithms)
+    let supportedAlgorithmTitle = "Algorithms supported"
     
     
     var body: some View {
         VStack {
-            Text("Algorithms supported").modifier(HeaderViewModifier())
+            Text(supportedAlgorithmTitle).modifier(HeaderViewModifier())
             CardView {
                 TagContainerView(tags: tags)
             }

@@ -10,15 +10,14 @@ import SwiftUI
 struct FeatureCardView: View {
     
     
-    var icon: String
-    var text: String
+    let feature: Feature
     
     var body: some View {
-        CardView() {
+        CardView(padding: 20) {
             HStack {
-                Image(systemName: icon)
-                Text(text)
-            }.padding(10)
-        }//.frame(maxHeight: 80)
+                Image(systemName: feature.icon)
+                Text(feature.text)
+            }
+        }
     }
 }

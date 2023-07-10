@@ -27,11 +27,10 @@ struct ECGFoundView: View {
             NavigationLink {
                 ECGListView(ecgViewModel: self.ecgViewModel)
                     .navigationTitle(navigationTitle)
+            } label: {
+                Text(buttonLabel).frame(maxWidth: .infinity)
             }
-        label: {
-            Text(buttonLabel).frame(maxWidth: .infinity)
-            }
-        .buttonStyle(.borderedProminent)
+            .buttonStyle(.borderedProminent)
         }
     }
 }

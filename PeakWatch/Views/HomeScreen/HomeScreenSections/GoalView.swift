@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct GoalView: View {
+    
+    
+    let goalTitle = "Goal of PeakWatch"
+    let goalDescription = "The goal of PeackWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiogramms."
+    
     var body: some View {
             VStack {
-                Text("Goal of PeakWatch").modifier(HeaderViewModifier())
+                Text(goalTitle).modifier(HeaderViewModifier())
                 CardView(padding: 15) {
-                Text("The goal of PeackWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiogramms.")
+                Text(goalDescription)
             }
         }
     }
