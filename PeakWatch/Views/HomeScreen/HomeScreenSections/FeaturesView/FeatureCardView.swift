@@ -16,6 +16,7 @@ struct FeatureCardView: View {
         CardView(padding: 20) {
             HStack {
                 Image(systemName: feature.icon)
+                    .foregroundColor(Color(feature.iconColor))
                 Text(feature.text)
             }
         }

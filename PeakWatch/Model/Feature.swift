@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Feature: Identifiable {
     
     let id = UUID()
     let icon: String
+    let iconColor: UIColor
     let text: String
 }

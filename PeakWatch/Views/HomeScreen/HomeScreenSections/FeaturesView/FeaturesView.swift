@@ -10,9 +10,9 @@ import SwiftUI
 struct FeaturesView: View {
     
     let features = [
-        Feature(icon: "waveform.path.ecg", text: "R peaks detection"),
-        Feature(icon: "star", text: "Signal quality"),
-        Feature(icon: "speedometer", text: "Performance evaluation")
+        Feature(icon: "waveform.path.ecg", iconColor: .systemRed, text: "R peaks detection"),
+        Feature(icon: "star.fill", iconColor: .systemYellow, text: "Signal quality"),
+        Feature(icon: "speedometer", iconColor: .systemBlue, text: "Performance evaluation")
     ]
     
     var body: some View {
