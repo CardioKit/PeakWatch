@@ -15,8 +15,7 @@ struct ECGNavigationView: View {
     var body: some View {
         Group() {
             if !ecgViewModel.ecgs.isEmpty {
-                //ECGFoundView(ecgViewModel: ecgViewModel)
-                GoalView()
+                ECGFoundView(ecgViewModel: ecgViewModel)
             } else {
                 ECGNotFoundView(ecgViewModel: ecgViewModel)
                 //Text("Test")

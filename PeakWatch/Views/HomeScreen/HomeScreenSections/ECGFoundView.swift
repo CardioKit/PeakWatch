@@ -19,8 +19,8 @@ struct ECGFoundView: View {
     
     var body: some View {
         
-        VStack {
-            Text(ecgRecordedText)
+        CardView(style: .green, cornerRadius: 5) {
+            Text(ecgRecordedText).frame(maxWidth: .infinity)
         }
 
         VStack {
@@ -29,7 +29,7 @@ struct ECGFoundView: View {
                     .navigationTitle(navigationTitle)
             }
         label: {
-                Text(buttonLabel)
+            Text(buttonLabel).frame(maxWidth: .infinity)
             }
         .buttonStyle(.borderedProminent)
         }
