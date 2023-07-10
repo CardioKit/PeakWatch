@@ -27,9 +27,11 @@ struct ECGRowView: View {
                     Text(DateUtils.formatDate(date: ecg.startDate))
                 }.modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 5)
                 HStack() {
+                    Image(systemName: "heart.fill").foregroundColor(.red)
                     Text("BPM Average: \(beatsPerMinuteLabel)").foregroundColor(.secondary)
-                }.modifier(SecondaryInfoListRowViewModifier())
+                }.modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
                 HStack() {
+                    Image(systemName: "magnifyingglass").foregroundColor(.orange)
                     Text("Symptoms: \(ecg.classification.description)").foregroundColor(.secondary)
                 }.modifier(SecondaryInfoListRowViewModifier())
             }
