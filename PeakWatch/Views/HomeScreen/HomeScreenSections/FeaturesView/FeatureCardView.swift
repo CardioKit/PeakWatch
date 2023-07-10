@@ -18,6 +18,8 @@ struct FeatureCardView: View {
                 Image(systemName: feature.icon)
                     .foregroundColor(Color(feature.iconColor))
                 Text(feature.text)
+                    .bold()
+                    .foregroundStyle(Color(feature.iconColor))
             }
         }
     }
