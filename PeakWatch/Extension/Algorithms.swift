@@ -31,6 +31,8 @@ extension Algorithms: CustomStringConvertible {
                 return "Two Average"
             case .hamiltonCleaned:
                 return "Hamilton cleaned signal"
+            default:
+                return "Unknown"
         }
     }
 }
