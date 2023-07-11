@@ -16,6 +16,7 @@ struct ECGFoundView: View {
     var ecgRecordedText: String {
         "PeakWatch detected \(ecgViewModel.ecgs.count) recorded ECGs."
     }
+    @Binding var isSheetOpen: Bool
     
     var body: some View {
         
@@ -24,9 +25,8 @@ struct ECGFoundView: View {
         }
 
         VStack {
-            NavigationLink {
-                ECGListView(ecgViewModel: self.ecgViewModel)
-                    .navigationTitle(navigationTitle)
+            Button {
+                isSheetOpen.toggle()
             } label: {
                 Text(buttonLabel).frame(maxWidth: .infinity)
             }

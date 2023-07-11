@@ -11,6 +11,7 @@ import PeakSwift
 struct HomeScreen: View {
     
     let spacingBetweenSections = CGFloat(20)
+    @Binding var isSheetOpen: Bool
     
                                     
     var body: some View {
@@ -19,7 +20,7 @@ struct HomeScreen: View {
             FeaturesView().padding(.top, spacingBetweenSections)
             SupportedAlgorithmsView().padding(.top, spacingBetweenSections)
             Spacer()
-            ECGNavigationView()
+            ECGNavigationView(isSheetOpen: $isSheetOpen)
         }
        .navigationTitle("PeakWatch")
  
