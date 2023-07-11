@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CardView<CardContent: View, Style: ShapeStyle>: View {
     
-    let style: Style //= HierarchicalShapeStyle.quaternary
-    let padding: CGFloat  //= CGFloat(10)
+    let style: Style
+    let padding: CGFloat
     let cornerRadius: CGFloat
     @ViewBuilder let cardContent: CardContent
     
@@ -23,9 +23,10 @@ struct CardView<CardContent: View, Style: ShapeStyle>: View {
     
     var body: some View {
             
-        cardContent.padding(.all, padding).background(style).cornerRadius(cornerRadius)
-           // .multilineTextAlignment(.center)
-        
+        cardContent
+            .padding(.all, padding)
+            .background(style)
+            .cornerRadius(cornerRadius)
     }
 }
 
