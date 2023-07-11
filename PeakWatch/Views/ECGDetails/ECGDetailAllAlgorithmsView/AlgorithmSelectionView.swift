@@ -14,9 +14,9 @@ struct AlgorithmSelectionView: View {
         
     @ObservedObject var voltageViewModel: VoltageViewModel
     
-    let algorithms: [Algorithms] = [.Nabian2018, .Christov,
+    let algorithms: [Algorithms] = [.nabian2018, .christov,
         //.GQRS, - not implemented
-                                    .Basic, .WQRS, .Aristotle]
+                                    .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton, .panTompkins, .twoAverage]
     
     
     
