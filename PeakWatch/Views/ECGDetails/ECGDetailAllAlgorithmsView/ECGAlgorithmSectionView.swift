@@ -12,12 +12,13 @@ struct ECGAlgorithmSectionView: View {
     @ObservedObject var voltageViewModel: VoltageViewModel
     @Binding var showingEditAlgorithm: Bool
     
+    var selectedAlgorithmsAsTags: [Tag] {
+        TagUtils.createTags(from: Array(self.voltageViewModel.selectedAlgorithms))
+    }
+    
     var body: some View {
         HStack {
-            ForEach(Array(self.voltageViewModel.selectedAlgorithms)) {
-                algorithm in
-                Text(algorithm.description).modifier(TagViewModifier())
-            }
+            TagContainerView(tags: selectedAlgorithmsAsTags)
         }
         Button("Select Algorithms") {
             showingEditAlgorithm.toggle()

@@ -33,8 +33,6 @@ extension Algorithms: CustomStringConvertible {
                 return "Hamilton cleaned signal"
             case .neurokit:
                 return "NeuroKit"
-            default:
-                return "unknown"
         }
     }
 }
