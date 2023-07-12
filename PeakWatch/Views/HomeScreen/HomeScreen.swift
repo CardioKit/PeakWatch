@@ -11,18 +11,24 @@ import PeakSwift
 struct HomeScreen: View {
     
     let spacingBetweenSections = CGFloat(20)
+    let paddingBetweenLeftRight = CGFloat(5)
     @Binding var isSheetOpen: Bool
     
                                     
     var body: some View {
         VStack {
-            GoalView().padding(.top, spacingBetweenSections)
-            FeaturesView().padding(.top, spacingBetweenSections)
-            SupportedAlgorithmsView().padding(.top, spacingBetweenSections)
-            Spacer()
-            ECGNavigationView(isSheetOpen: $isSheetOpen)
+                GoalView()
+                    .padding(.top, spacingBetweenSections)
+                FeaturesView()
+                    .padding(.top, spacingBetweenSections)
+                    .padding([.leading, .trailing], paddingBetweenLeftRight)
+                SupportedAlgorithmsView()
+                    .padding(.top, spacingBetweenSections)
+                    .padding([.leading, .trailing], paddingBetweenLeftRight)
+                Spacer()
+                ECGNavigationView(isSheetOpen: $isSheetOpen)
+                    .padding([.leading, .trailing], paddingBetweenLeftRight)
         }
-       .navigationTitle("PeakWatch")
  
     }
 }
