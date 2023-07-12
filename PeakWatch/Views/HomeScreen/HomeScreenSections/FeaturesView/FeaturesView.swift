@@ -10,9 +10,10 @@ import SwiftUI
 struct FeaturesView: View {
     
     let features = [
-        Feature(icon: "waveform.path.ecg", iconColor: .cyan, text: "R peaks detection"),
+        Feature(icon: "waveform.path.ecg", iconColor: .cyan, text: "R peaks"),
         Feature(icon: "star.fill", iconColor: .systemYellow, text: "Signal quality"),
-        Feature(icon: "speedometer", iconColor: .systemGreen, text: "Performance evaluation")
+        Feature(icon: "speedometer", iconColor: .systemGreen, text: "Context"),
+        Feature(icon: "speedometer", iconColor: .systemOrange, text: "Remote analysis")
     ]
     
     var body: some View {
@@ -20,13 +21,18 @@ struct FeaturesView: View {
             Text("Our features").modifier(HeaderViewModifier())
             VStack {
                 CardView {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(features) { feature in
-                                FeatureCardView(feature: feature)
+                    Grid {
+                            GridRow {
+                                FeatureCardView(feature: features[0])
+                                FeatureCardView(feature: features[1])
                             }
-                        }
-                    }.padding(5)
+                            GridRow {
+                                FeatureCardView(feature: features[2])
+                                FeatureCardView(feature: features[3])
+                            }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(5)
                 }
             }
         }

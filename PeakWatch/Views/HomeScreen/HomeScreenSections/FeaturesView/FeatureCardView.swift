@@ -14,13 +14,14 @@ struct FeatureCardView: View {
     
     var body: some View {
         CardView(padding: 20) {
-            HStack {
+            VStack {
                 Image(systemName: feature.icon)
                     .foregroundColor(Color(feature.iconColor))
                 Text(feature.text)
                     .bold()
                     .foregroundStyle(Color(feature.iconColor))
             }
+            .frame(maxWidth: .infinity)
         }
     }
 }
