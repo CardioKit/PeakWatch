@@ -14,7 +14,7 @@ struct ECGSignalView: View {
     @ObservedObject var voltageViewModel: VoltageViewModel
     
     var body: some View {
-        ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count) {
+        ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: self.voltageViewModel.samplingRateValue) {
             ForEach(voltageViewModel.voltageMeasurements) {
                 (voltageMeasurement) in
                 LineMark(
