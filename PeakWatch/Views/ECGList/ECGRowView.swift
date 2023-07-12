@@ -13,23 +13,17 @@ struct ECGRowView: View {
     
     var body: some View {
             VStack {
-                HStack() {
-                    Text(String(ecg.device)).bold()
-                    Spacer()
-                    Text(DateUtils.formatDate(date: ecg.startDate))
-                }.modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 5)
-                HStack() {
-                    Text("Voltage measurements: \(ecg.numberOfVoltageMeasurements)").foregroundColor(.secondary)
-                }.modifier(SecondaryInfoListRowViewModifier())
-                HStack() {
-                    Text("Symptoms: \(ecg.classification.description)").foregroundColor(.secondary)
-                }.modifier(SecondaryInfoListRowViewModifier())
+                ECGRowHeader(ecg: ecg)
+                    .modifier(SecondaryInfoListRowViewModifier())
+                    .padding(.bottom, 5)
+                ECGRowDetailsView(ecg: ecg)
+                    .modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
             }
     }
 }
 
 struct ECGRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ECGRowView(ecg: ECGSample(numberOfVoltageMeasurements: 10, startDate: Date(), endDate: Date(), device: "Apple Watch", classification: .atrialFibrillation))
+        ECGRowView(ecg: ECGSample(numberOfVoltageMeasurements: 10, startDate: Date(), endDate: Date(), device: "Apple Watch", classification: .atrialFibrillation, beatsPerMinute: 10, ecgSource: .HealthKit))
     }
 }

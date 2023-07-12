@@ -13,7 +13,7 @@ struct DateUtils {
     static func formatDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.dateFormat = "dd.MM., HH:mm"
         return dateFormatter.string(from: date)
     }
 }
