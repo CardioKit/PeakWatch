@@ -9,15 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let title = "ECG Samples"
+    @StateObject var ecgViewModel = ECGViewModel()
+    @StateObject var infoSheetViewModel = InfoSheetViewModel()
+    
+    let title = "ECG samples"
     
     var body: some View {
-        NavigationView{
-            ECGListView()
-                .navigationTitle(title)
+        NavigationView {
+            ECGListView(ecgViewModel: self.ecgViewModel)
+                .navigationTitle(self.title)
                 .toolbar {
+                    InfoButtonView(
+                        ecgViewModel: self.ecgViewModel,
+                        openInfoSheet: $infoSheetViewModel.openInfoSheet)
                     SettingsButton()
                 }
+                .sheet(isPresented: $infoSheetViewModel.openInfoSheet) {
+                    HomeScreen(isSheetOpen: $infoSheetViewModel.openInfoSheet)
+            }
+        }.task {
+            await ecgViewModel.getECGFromHealthStore()
+            infoSheetViewModel.shouldOpenInfoSheet()
         }
     }
 }

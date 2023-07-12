@@ -35,6 +35,8 @@ extension Algorithms: RawRepresentable {
             self = .twoAverage
         case Algorithms.hamiltonCleaned.rawValue:
             self = .hamiltonCleaned
+        case Algorithms.neurokit.rawValue:
+            self = .neurokit
         default:
             return nil
         }
@@ -62,6 +64,8 @@ extension Algorithms: RawRepresentable {
                 return "Two Average"
             case .hamiltonCleaned:
                 return "Hamilton cleaned signal"
+            case .neurokit:
+                return "NeuroKit"
         }
     }
 }
