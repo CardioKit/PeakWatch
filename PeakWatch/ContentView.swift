@@ -22,7 +22,7 @@ struct ContentView: View {
                     InfoButtonView(
                         ecgViewModel: self.ecgViewModel,
                         openInfoSheet: $infoSheetViewModel.openInfoSheet)
-                    SettingsButton()
+                    SettingsButtonView()
                 }
                 .sheet(isPresented: $infoSheetViewModel.openInfoSheet) {
                     HomeScreen(isSheetOpen: $infoSheetViewModel.openInfoSheet)

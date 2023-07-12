@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct SettingsButton: View {
+struct SettingsButtonView: View {
     
-    let buttonLabel = "gearshape"
+    let buttonIcon = "gearshape"
     
     var body: some View {
         NavigationLink {
             SettingsView()
         } label: {
-            Image(systemName: buttonLabel)
+            Image(systemName: buttonIcon)
         }
 
     }

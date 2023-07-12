@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		114C258F2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */; };
-		114C25912A5C7D5F00CB6F01 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C25902A5C7D5F00CB6F01 /* SettingsButton.swift */; };
+		114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */; };
 		115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */; };
 		115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FF2A59ADA1004D31F5 /* HomeScreen.swift */; };
 		115708032A59BC10004D31F5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708022A59BC10004D31F5 /* CardView.swift */; };
@@ -80,7 +80,7 @@
 
 /* Begin PBXFileReference section */
 		114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSheetView.swift; sourceTree = "<group>"; };
-		114C25902A5C7D5F00CB6F01 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmDetailView.swift; sourceTree = "<group>"; };
 		115707FF2A59ADA1004D31F5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		115708022A59BC10004D31F5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				11B3C9D12A5C4C2A00EF0555 /* SettingsView.swift */,
-				114C25902A5C7D5F00CB6F01 /* SettingsButton.swift */,
+				114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -586,7 +586,7 @@
 				1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */,
 				115708152A59CD8F004D31F5 /* TagView.swift in Sources */,
 				172871292A37B0D800507869 /* TagViewModifier.swift in Sources */,
-				114C25912A5C7D5F00CB6F01 /* SettingsButton.swift in Sources */,
+				114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */,
 				115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */,
 				179438D92A31E4CC00616B9B /* ECGViewModel.swift in Sources */,
 				115708172A59E700004D31F5 /* TagUtils.swift in Sources */,
