@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */; };
+		1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */; };
 		116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E63B72A586F9C00A0C6F4 /* ECGChartView.swift */; };
 		172871292A37B0D800507869 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172871282A37B0D800507869 /* TagViewModifier.swift */; };
 		1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmDetailView.swift; sourceTree = "<group>"; };
+		1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSource.swift; sourceTree = "<group>"; };
 		116E63B72A586F9C00A0C6F4 /* ECGChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGChartView.swift; sourceTree = "<group>"; };
 		172871282A37B0D800507869 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSectionView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				179438DF2A31F47700616B9B /* ECGSample.swift */,
 				17A759422A349282001B5E7D /* VoltageMeasurement.swift */,
+				1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				179438E32A32422A00616B9B /* DateUtils.swift in Sources */,
 				179438D62A31E42400616B9B /* ECGRowView.swift in Sources */,
 				17A82BEC2A3725BB00873DF7 /* Algorithms.swift in Sources */,
+				1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */,
 				116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */,
 				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
 				17A82BEE2A3767F200873DF7 /* AlgorithmSelectionView.swift in Sources */,
