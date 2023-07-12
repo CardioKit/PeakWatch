@@ -29,7 +29,7 @@ class UserSettingsViewModel: AlgorithmSelectable {
         
         if algorithmList.isEmpty {
             // If no defaults are selected, propose some defaults
-            self.selectedAlgorithms = [.twoAverage, .christov]
+            self.selectedAlgorithms = [.neurokit]
         } else {
             // Otherwise use the user configured defaults
             self.selectedAlgorithms = Set(algorithmList)
