@@ -19,9 +19,7 @@ struct ContentView: View {
             ECGListView(ecgViewModel: self.ecgViewModel)
                 .navigationTitle(self.title)
                 .toolbar {
-                    InfoButtonView(
-                        ecgViewModel: self.ecgViewModel,
-                        openInfoSheet: $infoSheetViewModel.openInfoSheet)
+                    ToolbarView(openInfoSheet: $infoSheetViewModel.openInfoSheet)
                 }
                 .sheet(isPresented: $infoSheetViewModel.openInfoSheet) {
                     HomeScreen(isSheetOpen: $infoSheetViewModel.openInfoSheet)

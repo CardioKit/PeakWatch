@@ -10,7 +10,6 @@ import SwiftUI
 struct InfoButtonView: View {
     
     let infoButtonIcon = "info.circle"
-    @ObservedObject var ecgViewModel: ECGViewModel
     @Binding var openInfoSheet: Bool
     
     var body: some View {
