@@ -52,6 +52,7 @@
 		17C88C9C2A366DD9007B8A8E /* PeakSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17C88C9B2A366DD9007B8A8E /* PeakSwift */; };
 		17CACAF32A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CACAF22A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift */; };
 		17CACAF52A4C5E670061576F /* ECGSingleAlgorithmChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CACAF42A4C5E670061576F /* ECGSingleAlgorithmChartView.swift */; };
+		50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D5922A2A5EF923006A7897 /* InfoSheetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		17CACAF22A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmSelectionView.swift; sourceTree = "<group>"; };
 		17CACAF42A4C5E670061576F /* ECGSingleAlgorithmChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmChartView.swift; sourceTree = "<group>"; };
 		50407ECA2A53001400E17921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		50D5922A2A5EF923006A7897 /* InfoSheetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSheetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +336,7 @@
 		179438D72A31E48300616B9B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				50D5922A2A5EF923006A7897 /* InfoSheetViewModel.swift */,
 				179438D82A31E4CC00616B9B /* ECGViewModel.swift */,
 				17BF56652A334AD600FF42D5 /* VoltageViewModel.swift */,
 			);
@@ -528,6 +531,7 @@
 				115708132A59CD50004D31F5 /* Tag.swift in Sources */,
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
 				11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */,
+				50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */,
 				115708092A59C0B7004D31F5 /* GoalView.swift in Sources */,
 				115708032A59BC10004D31F5 /* CardView.swift in Sources */,
 				115708192A59E7B9004D31F5 /* Constants.swift in Sources */,
