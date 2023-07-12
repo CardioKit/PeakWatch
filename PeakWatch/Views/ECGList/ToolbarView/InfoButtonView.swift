@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoButtonView: View {
     
-    let infoButtonLabel = "Info"
+    let infoButtonIcon = "info.circle"
     @ObservedObject var ecgViewModel: ECGViewModel
     @Binding var openInfoSheet: Bool
     
@@ -17,7 +17,7 @@ struct InfoButtonView: View {
         Button {
             self.openInfoSheet = true
         } label: {
-            Text(infoButtonLabel)
+            Image(systemName: infoButtonIcon)
         }
     }
 }
