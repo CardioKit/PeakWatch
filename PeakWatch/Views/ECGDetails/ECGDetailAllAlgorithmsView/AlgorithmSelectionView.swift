@@ -8,28 +8,28 @@
 import SwiftUI
 import PeakSwift
 
-struct AlgorithmSelectionView: View {
+struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
     
     @State var editMode: EditMode = .active
         
-    @ObservedObject var voltageViewModel: VoltageViewModel
+    @ObservedObject var voltageViewModel: AlgorithmViewModel
     
+    let listTitle: String
+    
+
     let algorithms: [Algorithms] = [.nabian2018, .christov,
         //.GQRS, - not implemented
-                                    .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton, .panTompkins, .twoAverage]
-    
+                                    .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton, .panTompkins, .twoAverage, .neurokit]
     
     
     var body: some View {
-        NavigationView {
-            VStack {
                 List(selection: $voltageViewModel.selectedAlgorithms) {
-                    ForEach(algorithms) { algorithm in
-                        Text(algorithm.description)
-                    }
-                }.navigationTitle("Algorithms \(voltageViewModel.selectedAlgorithms.count) selected")
-                    .environment(\.editMode, $editMode)
-            }
-        }
+                    Section(listTitle) {
+                        ForEach(algorithms) { algorithm in
+                            Text(algorithm.description)
+                        }
+                    }.headerProminence(.increased)
+                }
+                .environment(\.editMode, $editMode)
     }
 }

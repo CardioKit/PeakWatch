@@ -19,7 +19,7 @@ struct ECGSingleAlgorithmDetailView: View {
             Section(header: Text("ECG Signal")) {
                 ECGSingleAlgorithmChartView(qrsResult: qrsResult)
             }
-            .navigationTitle(algorithm.description)
+            .navigationTitle(algorithm.rawValue)
             .headerProminence(.increased)
         }
     }
