@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */; };
 		1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */; };
+		1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */; };
+		1160CEB52A5F11DA00BE5867 /* ECGRowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */; };
 		116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E63B72A586F9C00A0C6F4 /* ECGChartView.swift */; };
 		172871292A37B0D800507869 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172871282A37B0D800507869 /* TagViewModifier.swift */; };
 		1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmDetailView.swift; sourceTree = "<group>"; };
 		1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSource.swift; sourceTree = "<group>"; };
+		1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowHeader.swift; sourceTree = "<group>"; };
+		1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowDetailsView.swift; sourceTree = "<group>"; };
 		116E63B72A586F9C00A0C6F4 /* ECGChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGChartView.swift; sourceTree = "<group>"; };
 		172871282A37B0D800507869 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSectionView.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1160CEB12A5F10B100BE5867 /* ECGRowComponentsView */ = {
+			isa = PBXGroup;
+			children = (
+				1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */,
+				1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */,
+			);
+			path = ECGRowComponentsView;
+			sourceTree = "<group>";
+		};
 		116E63B42A586B1B00A0C6F4 /* ECGDetailAllAlgorithmsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +170,7 @@
 		1728712F2A37B38E00507869 /* ECGList */ = {
 			isa = PBXGroup;
 			children = (
+				1160CEB12A5F10B100BE5867 /* ECGRowComponentsView */,
 				179438D32A31E23200616B9B /* ECGListView.swift */,
 				179438D52A31E42400616B9B /* ECGRowView.swift */,
 			);
@@ -427,10 +441,12 @@
 				17A82BEE2A3767F200873DF7 /* AlgorithmSelectionView.swift in Sources */,
 				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
 				17CACAF32A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift in Sources */,
+				1160CEB52A5F11DA00BE5867 /* ECGRowDetailsView.swift in Sources */,
 				17BF56642A33479800FF42D5 /* ECGDetailView.swift in Sources */,
 				17BF56662A334AD600FF42D5 /* VoltageViewModel.swift in Sources */,
 				17BF56622A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift in Sources */,
 				179438E02A31F47700616B9B /* ECGSample.swift in Sources */,
+				1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */,
 				17BF565F2A3332E600FF42D5 /* HKClassificationExtension.swift in Sources */,
 				115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */,
 				1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */,
