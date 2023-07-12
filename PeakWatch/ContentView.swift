@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var ecgViewModel = ECGViewModel()
-    @State var openInfoSheet = false
+    @StateObject var infoSheetViewModel = InfoSheetViewModel()
     
     let title = "ECG samples"
     
@@ -21,13 +21,14 @@ struct ContentView: View {
                 .toolbar {
                     InfoButtonView(
                         ecgViewModel: self.ecgViewModel,
-                        openInfoSheet: self.$openInfoSheet)
+                        openInfoSheet: $infoSheetViewModel.openInfoSheet)
                 }
-                .sheet(isPresented: $openInfoSheet) {
-                    HomeScreen(isSheetOpen: $openInfoSheet)
+                .sheet(isPresented: $infoSheetViewModel.openInfoSheet) {
+                    HomeScreen(isSheetOpen: $infoSheetViewModel.openInfoSheet)
             }
         }.task {
             await ecgViewModel.getECGFromHealthStore()
+            infoSheetViewModel.shouldOpenInfoSheet()
         }
     }
 }
