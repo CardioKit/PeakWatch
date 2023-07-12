@@ -16,20 +16,39 @@ struct FeaturesView: View {
         Feature(icon: "speedometer", iconColor: .systemOrange, text: "Remote analysis")
     ]
     
+    let numberOfFeaturesPerRow = 2
+    
+    var featuresPerRow: [FeatureRow] {
+        let featuresGroupedByRows: [[Feature]] = features.enumerated().reduce([]) { prev, next in
+            let (i, feature) = next
+            var nextAccumulator = prev
+            if i % numberOfFeaturesPerRow == 0 {
+                nextAccumulator.append([feature])
+            } else {
+                nextAccumulator[nextAccumulator.count-1].append(feature)
+            }
+            return nextAccumulator
+        }
+        
+        return featuresGroupedByRows.map {
+            FeatureRow(featureRow: $0)
+        }
+    }
+    
     var body: some View {
         VStack {
             Text("Our features").modifier(HeaderViewModifier())
             VStack {
                 CardView {
                     Grid {
+                        ForEach(featuresPerRow) { row in
                             GridRow {
-                                FeatureCardView(feature: features[0])
-                                FeatureCardView(feature: features[1])
-                            }
-                            GridRow {
-                                FeatureCardView(feature: features[2])
-                                FeatureCardView(feature: features[3])
-                            }
+                                ForEach(row.featureRow) { item in
+                                    FeatureCardView(feature: item)
+                                    
+                                }
+                            }                            
+                        }
                     }
                     .frame(maxWidth: .infinity)
                     .padding(5)
