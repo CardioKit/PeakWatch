@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SettingsButton: View {
     
-    let buttonLabel = "Settings"
+    let buttonLabel = "gearshape"
     
     var body: some View {
         NavigationLink {
             SettingsView()
         } label: {
-            Text(buttonLabel)
+            Image(systemName: buttonLabel)
         }
 
     }
