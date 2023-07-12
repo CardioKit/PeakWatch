@@ -13,11 +13,12 @@ struct FeaturesView: View {
         Feature(icon: "waveform.path.ecg", iconColor: .cyan, text: "R peaks"),
         Feature(icon: "star.fill", iconColor: .systemYellow, text: "Signal quality"),
         Feature(icon: "speedometer", iconColor: .systemGreen, text: "Context"),
-        Feature(icon: "speedometer", iconColor: .systemOrange, text: "Remote analysis")
+        Feature(icon: "icloud.fill", iconColor: .systemOrange, text: "Remote analysis")
     ]
     
     let numberOfFeaturesPerRow = 2
     
+    // Groupes the features dynamically per row
     var featuresPerRow: [FeatureRow] {
         let featuresGroupedByRows: [[Feature]] = features.enumerated().reduce([]) { prev, next in
             let (i, feature) = next
@@ -47,7 +48,7 @@ struct FeaturesView: View {
                                     FeatureCardView(feature: item)
                                     
                                 }
-                            }                            
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity)
