@@ -16,7 +16,7 @@ struct ECGChartView<Content: ChartContent>: View {
     @ChartContentBuilder var content: Content
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             Chart {
                 content
             }
