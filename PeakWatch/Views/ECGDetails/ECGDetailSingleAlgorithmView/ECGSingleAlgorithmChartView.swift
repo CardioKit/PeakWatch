@@ -14,7 +14,7 @@ struct ECGSingleAlgorithmChartView: View {
     let qrsResult: QRSResult
     
     var body: some View {
-            ECGChartView(chartRange: qrsResult.electrocardiogram.ecg.count) {
+        ECGChartView(chartRange: qrsResult.electrocardiogram.ecg.count, samplingRate: self.qrsResult.electrocardiogram.samplingRate) {
                 ForEach(Array(zip(qrsResult.electrocardiogram.ecg, qrsResult.cleanedElectrocardiogram.ecg).enumerated()), id: \.offset) { offset, ecg in
                     let (originalECG, cleanedECG) = ecg
                     
