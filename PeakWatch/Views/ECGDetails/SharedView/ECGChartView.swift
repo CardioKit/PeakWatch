@@ -44,16 +44,17 @@ struct ECGChartView<Content: ChartContent>: View {
         // The samping rate is the amount of samples per second
         // We need five lines per second
         // Each 5th line is a second and we mark the 5th
-        let intervalMss200 = self.samplingRate / 5.0
+        let intervalMs200 = self.samplingRate / 5.0
         
-        return AxisMarks(values: .stride(by: (intervalMss200))) { value in
-            if let intValue = value.as(Int.self) {
-                if intValue % Int(self.samplingRate) == 0  {
+        return AxisMarks(values: .stride(by: (intervalMs200))) { value in
+            if let doubleValue = value.as(Double.self) {
+                if doubleValue.truncatingRemainder(dividingBy: samplingRate) == 0  {
                     // Thick line
                     AxisTick(stroke: .init(lineWidth: 1))
                         .foregroundStyle(.gray)
                     AxisValueLabel() {
-                        Text("\(intValue / Int(self.samplingRate))s")
+                        let seconds = String(format: "%.0f", doubleValue/samplingRate)
+                        Text("\(seconds)s")
                     }
                     AxisGridLine(stroke: .init(lineWidth: 1))
                         .foregroundStyle(.gray)
