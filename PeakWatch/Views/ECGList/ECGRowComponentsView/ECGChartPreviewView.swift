@@ -11,16 +11,14 @@ import HealthKit
 
 struct ECGChartPreviewView: View {
     
-    let ecgSample: HKElectrocardiogram
     let samplinRate = 512.0
     let ecg: ECGSample
     
     @StateObject var voltageViewModel: OnlyVoltageViewModel
     
-    init(ecgSample: HKElectrocardiogram, ecg: ECGSample) {
-        self.ecgSample = ecgSample
+    init(ecg: ECGSample) {
         self.ecg = ecg
-        self._voltageViewModel = StateObject(wrappedValue: OnlyVoltageViewModel(ecgSample: ecgSample))
+        self._voltageViewModel = StateObject(wrappedValue: OnlyVoltageViewModel(ecgSample: ecg))
     }
 
     

@@ -11,12 +11,12 @@ import PeakSwift
 
 struct ECGDetailView: View {
     
-    let ecgSample: HKElectrocardiogram
+    let ecgSample: ECGSample
     @StateObject var voltageViewModel: VoltageViewModel
     
     @State private var showingEditAlgorithm: Bool = false
     
-    init(ecgSample: HKElectrocardiogram) {
+    init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample
         self._voltageViewModel = StateObject(wrappedValue: VoltageViewModel(ecgSample: ecgSample))
     }

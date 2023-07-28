@@ -16,7 +16,7 @@ class VoltageViewModel: AlgorithmSelectable {
         let algorithm: Algorithms
     }
     
-    let ecgSample: HKElectrocardiogram
+    let ecgSample: ECGSample
     @Published private(set) var voltageMeasurementsRaw: [HKQuantity] = []
     @Published private(set) var voltagesAllFetched: Bool = false
     @Published private(set) var voltageError: Bool = false
@@ -49,7 +49,7 @@ class VoltageViewModel: AlgorithmSelectable {
     
     let healthStore: HKHealthStore?
    
-    init(ecgSample: HKElectrocardiogram) {
+    init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample
         self.selectedAlgorithms = UserSettingsViewModel().selectedAlgorithms
         
@@ -73,6 +73,17 @@ class VoltageViewModel: AlgorithmSelectable {
     
    
     func fetchVoltages(amountOfSample: Int? = nil) {
+        
+        switch ecgSample.ecgSource {
+        case .Synthetic:
+        #warning("TODO not implemented")
+        case .HealthKit(let source):
+            fetchVoltagesFromHealthKit(ecgSample: source, amountOfSample: amountOfSample)
+        }
+        
+    }
+    
+    func fetchVoltagesFromHealthKit(ecgSample: HKElectrocardiogram, amountOfSample: Int? = nil) {
         
         guard let healthStore = healthStore else {
             return
@@ -99,15 +110,13 @@ class VoltageViewModel: AlgorithmSelectable {
                     // No more voltage measurements. Finish processing the existing measurements.
                     DispatchQueue.main.async { [self] in
                     
-                        if let samplingRate = self.ecgSample.samplingFrequency {
-                        self.samplingRateValue = samplingRate.doubleValue(for: .hertz())
+                     
+                        self.samplingRateValue = self.ecgSample.samplingRate
                         calculateAlgorithms()
                         self.voltagesAllFetched = true
-                        }   else {
-                        self.voltageError = true
+            
                     }
                     
-                    }
                 case .error(let error):
                     // Handle the error here.
                     DispatchQueue.main.async { [self] in

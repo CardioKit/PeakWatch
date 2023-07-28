@@ -25,9 +25,9 @@ class OnlyVoltageViewModel: ObservableObject {
     var voltageRequested: Bool = false
     
     let healthStore: HKHealthStore?
-    let ecgSample: HKElectrocardiogram
+    let ecgSample: ECGSample
    
-    init(ecgSample: HKElectrocardiogram) {
+    init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample
         
         if HKHealthStore.isHealthDataAvailable() {
@@ -38,7 +38,17 @@ class OnlyVoltageViewModel: ObservableObject {
     }
     
     func fetchVoltages(maxSamples: Int? = nil) async {
-        
+
+        switch ecgSample.ecgSource {
+        case .Synthetic:
+            #warning("TODO not implemented")
+        case .HealthKit(let source):
+            fetchVoltagesHealthKit(ecgSample: source, maxSamples: maxSamples)
+        }
+
+    }
+    
+    func fetchVoltagesHealthKit(ecgSample: HKElectrocardiogram, maxSamples: Int? = nil) {
         guard let healthStore = healthStore else {
             return
         }
@@ -87,6 +97,5 @@ class OnlyVoltageViewModel: ObservableObject {
 
         // Execute the query.
         healthStore.execute(voltageQuery)
-
     }
 }

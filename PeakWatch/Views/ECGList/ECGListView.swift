@@ -16,8 +16,8 @@ struct ECGListView: View {
             ScrollView(.vertical) {
                 LazyVStack(spacing: 20) {
                         ForEach(ecgViewModel.ecgs) { (ecg)  in
-                            NavigationLink(destination: ECGDetailView(ecgSample: ecg.hkEcg!)) {
-                                ECGRowView(ecg: ecg, hkECG: ecg.hkEcg!)
+                            NavigationLink(destination: ECGDetailView(ecgSample: ecg)) {
+                                ECGRowView(ecg: ecg)
                         }.buttonStyle(PlainButtonStyle())
                     }
                     
