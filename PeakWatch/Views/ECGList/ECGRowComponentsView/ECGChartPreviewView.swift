@@ -14,11 +14,11 @@ struct ECGChartPreviewView: View {
     let samplinRate = 512.0
     let ecg: ECGSample
     
-    @StateObject var voltageViewModel: OnlyVoltageViewModel
+    @StateObject var voltageViewModel: VoltageViewModel
     
     init(ecg: ECGSample) {
         self.ecg = ecg
-        self._voltageViewModel = StateObject(wrappedValue: OnlyVoltageViewModel(ecgSample: ecg))
+        self._voltageViewModel = StateObject(wrappedValue: VoltageViewModel(ecgSample: ecg))
     }
 
     

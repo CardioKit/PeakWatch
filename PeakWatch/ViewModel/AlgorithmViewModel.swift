@@ -8,7 +8,7 @@
 import Foundation
 import PeakSwift
 
-class AlgorithmViewModel: OnlyVoltageViewModel & AlgorithmSelectable {
+class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
     
     struct QRSResultsByAlgorithm {
