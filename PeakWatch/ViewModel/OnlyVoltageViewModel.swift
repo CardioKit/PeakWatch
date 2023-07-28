@@ -37,12 +37,7 @@ class OnlyVoltageViewModel: ObservableObject {
         }
     }
     
-    func fetchVoltages(amountOfSample: Int? = nil) async {
-        
-        if self.voltageRequested {
-            return
-        }
-        self.voltageRequested = true
+    func fetchVoltages(maxSamples: Int? = nil) async {
         
         guard let healthStore = healthStore else {
             return
@@ -57,13 +52,11 @@ class OnlyVoltageViewModel: ObservableObject {
                 return
             }
             
-            if let amountOfSample = amountOfSample {
-                guard voltages.count < amountOfSample else {
+            if let maxSamples = maxSamples {
+                guard voltages.count < maxSamples else {
                     DispatchQueue.main.async { [self] in
                         self.voltageMeasurementsRaw = voltages
                         self.voltagesAllFetched = true
-//                        self.voltagesAllFetched = true
-//                        self.voltageMeasurementsRaw = voltages
                         healthStore.stop(query)
                     }
                     return
@@ -80,8 +73,8 @@ class OnlyVoltageViewModel: ObservableObject {
                 case .done:
                     // No more voltage measurements. Finish processing the existing measurements.
                     DispatchQueue.main.async { [self] in
-//                        self.voltagesAllFetched = true
-//                        self.voltageMeasurementsRaw = voltages
+                        self.voltageMeasurementsRaw = voltages
+                        self.voltagesAllFetched = true
                     
                     }
                 case .error(let error):

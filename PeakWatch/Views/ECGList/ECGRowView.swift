@@ -25,7 +25,7 @@ struct ECGRowView: View {
                             .modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
                     }.padding(10)
                 }.background(.quaternary)
-                ECGPreviewView(ecgSample: hkECG, ecg: ecg).padding(10)
+                ECGChartPreviewView(ecgSample: hkECG, ecg: ecg).padding(10)
             }
         }
     }

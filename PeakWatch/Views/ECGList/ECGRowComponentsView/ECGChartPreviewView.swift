@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 import HealthKit
 
-struct ECGPreviewView: View {
+struct ECGChartPreviewView: View {
     
     let ecgSample: HKElectrocardiogram
     let samplinRate = 512.0
@@ -25,7 +25,6 @@ struct ECGPreviewView: View {
 
     
     var body: some View {
-        print("Load row")
         return VStack() {
             if voltageViewModel.voltagesAllFetched {
                 VStack {
@@ -46,22 +45,10 @@ struct ECGPreviewView: View {
             guard !voltageViewModel.voltagesAllFetched else {
                 return
             }
-            print("fetching \(ecgSample.uuid)")
             
-            
-            await voltageViewModel.fetchVoltages(amountOfSample: Int(samplinRate * 3.0))
+            let maxSamples3s = Int(samplinRate * 3.0)
+            await voltageViewModel.fetchVoltages(maxSamples: maxSamples3s)
             
         }
-//        ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: self.voltageViewModel.samplingRateValue) {
-////            ForEach(voltageViewModel.voltageMeasurements) {
-////                (voltageMeasurement) in
-////                LineMark(
-////                    x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
-////                    .foregroundStyle(.red)
-////            }
-//        }.task {
-//            //voltageViewModel.fetchVoltages()
-//        }
-        Text("test")
     }
 }
