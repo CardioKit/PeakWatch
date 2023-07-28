@@ -12,13 +12,13 @@ import PeakSwift
 struct ECGDetailView: View {
     
     let ecgSample: ECGSample
-    @StateObject var voltageViewModel: VoltageViewModel
+    @StateObject var voltageViewModel: AlgorithmViewModel //VoltageViewModel
     
     @State private var showingEditAlgorithm: Bool = false
     
     init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample
-        self._voltageViewModel = StateObject(wrappedValue: VoltageViewModel(ecgSample: ecgSample))
+        self._voltageViewModel = StateObject(wrappedValue: AlgorithmViewModel(ecgSample: ecgSample))
     }
 
     var body: some View {
@@ -40,15 +40,15 @@ struct ECGDetailView: View {
             }
         }.navigationTitle("ECG Signal")
             .task {
-            fetchVolatgesOnload()
+            await fetchVolatgesOnload()
             }.sheet(isPresented: $showingEditAlgorithm) {
                 ECGAlgorithmSheetView(voltageViewModel: voltageViewModel)
             }
     }
     
-    func fetchVolatgesOnload() {
+    func fetchVolatgesOnload() async {
         if !voltageViewModel.voltagesAllFetched {
-            voltageViewModel.fetchVoltages()
+             await voltageViewModel.fetchVoltages()
         }
     }
 }

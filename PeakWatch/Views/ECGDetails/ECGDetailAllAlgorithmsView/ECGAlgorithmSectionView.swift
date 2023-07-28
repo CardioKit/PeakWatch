@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ECGAlgorithmSectionView: View {
     
-    @ObservedObject var voltageViewModel: VoltageViewModel
+    @ObservedObject var voltageViewModel: AlgorithmViewModel
     @Binding var showingEditAlgorithm: Bool
     
     var selectedAlgorithmsAsTags: [Tag] {

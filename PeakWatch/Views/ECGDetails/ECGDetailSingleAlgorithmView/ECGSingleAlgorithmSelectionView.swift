@@ -10,7 +10,7 @@ import PeakSwift
 
 struct ECGSingleAlgorithmSelectionView: View {
     
-    @ObservedObject var voltageViewModel: VoltageViewModel
+    @ObservedObject var voltageViewModel: AlgorithmViewModel
     
     var body: some View {
         ForEach(Array(self.voltageViewModel.qrsResultsByAlgorithm), id: \.algorithm) {

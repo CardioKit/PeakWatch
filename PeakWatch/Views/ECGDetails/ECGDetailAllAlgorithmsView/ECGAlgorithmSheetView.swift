@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ECGAlgorithmSheetView: View {
     
-    @ObservedObject var voltageViewModel: VoltageViewModel
+    @ObservedObject var voltageViewModel: AlgorithmViewModel
     
     var body: some View {
         NavigationView {

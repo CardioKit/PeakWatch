@@ -15,17 +15,17 @@ class OnlyVoltageViewModel: ObservableObject {
         voltageMeasurementsRaw.enumerated().map { (position, measurement) in
             OnlyVoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: measurement)
         }
-//        (0...1560).map { (position) in
-//            OnlyVoltageMeasurement(position: position, voltage: Double.random(in: 0..<10))
-//        }
     }
     @Published private(set) var voltagesAllFetched: Bool = false
     @Published private(set) var voltageError: Bool = false
-    
-    var voltageRequested: Bool = false
+
     
     let healthStore: HKHealthStore?
     let ecgSample: ECGSample
+    
+    var samplingRateValue: Double {
+        ecgSample.samplingRate
+    }
    
     init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample
@@ -68,6 +68,7 @@ class OnlyVoltageViewModel: ObservableObject {
                         self.voltageMeasurementsRaw = voltages
                         self.voltagesAllFetched = true
                         healthStore.stop(query)
+                        self.afterFetchAllVoltagesCallback()
                     }
                     return
             }
@@ -85,6 +86,7 @@ class OnlyVoltageViewModel: ObservableObject {
                     DispatchQueue.main.async { [self] in
                         self.voltageMeasurementsRaw = voltages
                         self.voltagesAllFetched = true
+                        self.afterFetchAllVoltagesCallback()
                     
                     }
                 case .error(let error):
@@ -97,5 +99,11 @@ class OnlyVoltageViewModel: ObservableObject {
 
         // Execute the query.
         healthStore.execute(voltageQuery)
+    }
+    
+    // Template method. Can be overriden by subclasses
+    // Default behaviour empty
+    func afterFetchAllVoltagesCallback() {
+        
     }
 }
