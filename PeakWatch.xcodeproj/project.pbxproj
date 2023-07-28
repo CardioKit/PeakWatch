@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114BB1462A729D760079956A /* ECGChartPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB1452A729D760079956A /* ECGChartPreviewView.swift */; };
+		114BB1482A72D88A0079956A /* OnlyVoltageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB1472A72D88A0079956A /* OnlyVoltageViewModel.swift */; };
+		114BB14A2A72DA980079956A /* OnlyVoltageMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB1492A72DA980079956A /* OnlyVoltageMeasurement.swift */; };
 		114C258F2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */; };
 		114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */; };
 		115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */; };
-		1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */; };
-		1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */; };
-		1160CEB52A5F11DA00BE5867 /* ECGRowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */; };
 		115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FF2A59ADA1004D31F5 /* HomeScreen.swift */; };
 		115708032A59BC10004D31F5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708022A59BC10004D31F5 /* CardView.swift */; };
 		115708092A59C0B7004D31F5 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708082A59C0B7004D31F5 /* GoalView.swift */; };
@@ -30,6 +30,9 @@
 		115708222A5A0F98004D31F5 /* HeaderViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */; };
 		11597A8F2A5DE6F800E71A0D /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */; };
 		1160CEAE2A5F040100BE5867 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEAD2A5F040100BE5867 /* FeatureRow.swift */; };
+		1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */; };
+		1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */; };
+		1160CEB52A5F11DA00BE5867 /* ECGRowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */; };
 		1160CEB72A5F1F9E00BE5867 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB62A5F1F9E00BE5867 /* ToolbarView.swift */; };
 		11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */; };
 		11671E612A5C275100C3A913 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E602A5C275100C3A913 /* Feature.swift */; };
@@ -83,12 +86,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		114BB1452A729D760079956A /* ECGChartPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGChartPreviewView.swift; sourceTree = "<group>"; };
+		114BB1472A72D88A0079956A /* OnlyVoltageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyVoltageViewModel.swift; sourceTree = "<group>"; };
+		114BB1492A72DA980079956A /* OnlyVoltageMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyVoltageMeasurement.swift; sourceTree = "<group>"; };
 		114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSheetView.swift; sourceTree = "<group>"; };
 		114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmDetailView.swift; sourceTree = "<group>"; };
-		1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSource.swift; sourceTree = "<group>"; };
-		1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowHeader.swift; sourceTree = "<group>"; };
-		1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowDetailsView.swift; sourceTree = "<group>"; };
 		115707FF2A59ADA1004D31F5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		115708022A59BC10004D31F5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		115708082A59C0B7004D31F5 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
@@ -106,6 +109,9 @@
 		115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModifier.swift; sourceTree = "<group>"; };
 		11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
 		1160CEAD2A5F040100BE5867 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
+		1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSource.swift; sourceTree = "<group>"; };
+		1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowHeader.swift; sourceTree = "<group>"; };
+		1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowDetailsView.swift; sourceTree = "<group>"; };
 		1160CEB62A5F1F9E00BE5867 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
 		11671E602A5C275100C3A913 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
@@ -171,15 +177,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1160CEB12A5F10B100BE5867 /* ECGRowComponentsView */ = {
-			isa = PBXGroup;
-			children = (
-				1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */,
-				1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */,
-			);
-			path = ECGRowComponentsView;
-			sourceTree = "<group>";
-		};
 		115708012A59BBFE004D31F5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +225,16 @@
 				1160CEB62A5F1F9E00BE5867 /* ToolbarView.swift */,
 			);
 			path = ToolbarView;
+			sourceTree = "<group>";
+		};
+		1160CEB12A5F10B100BE5867 /* ECGRowComponentsView */ = {
+			isa = PBXGroup;
+			children = (
+				1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */,
+				1160CEB42A5F11DA00BE5867 /* ECGRowDetailsView.swift */,
+				114BB1452A729D760079956A /* ECGChartPreviewView.swift */,
+			);
+			path = ECGRowComponentsView;
 			sourceTree = "<group>";
 		};
 		11671E5D2A5BFE8100C3A913 /* FeaturesView */ = {
@@ -391,6 +398,7 @@
 				179438D82A31E4CC00616B9B /* ECGViewModel.swift */,
 				17BF56652A334AD600FF42D5 /* VoltageViewModel.swift */,
 				11B3C9D32A5C5BB600EF0555 /* UserSettingsViewModel.swift */,
+				114BB1472A72D88A0079956A /* OnlyVoltageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 				115708122A59CD50004D31F5 /* Tag.swift */,
 				11671E602A5C275100C3A913 /* Feature.swift */,
 				1160CEAD2A5F040100BE5867 /* FeatureRow.swift */,
+				114BB1492A72DA980079956A /* OnlyVoltageMeasurement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -575,6 +584,7 @@
 			files = (
 				173C05362A31C15F00D3E786 /* ContentView.swift in Sources */,
 				179438E32A32422A00616B9B /* DateUtils.swift in Sources */,
+				114BB1462A729D760079956A /* ECGChartPreviewView.swift in Sources */,
 				179438D62A31E42400616B9B /* ECGRowView.swift in Sources */,
 				17A82BEC2A3725BB00873DF7 /* Algorithms.swift in Sources */,
 				1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */,
@@ -600,6 +610,7 @@
 				11597A8F2A5DE6F800E71A0D /* InfoButtonView.swift in Sources */,
 				115708112A59CD3D004D31F5 /* TagContainerView.swift in Sources */,
 				17BF56662A334AD600FF42D5 /* VoltageViewModel.swift in Sources */,
+				114BB14A2A72DA980079956A /* OnlyVoltageMeasurement.swift in Sources */,
 				17BF56622A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift in Sources */,
 				179438E02A31F47700616B9B /* ECGSample.swift in Sources */,
 				1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */,
@@ -609,6 +620,7 @@
 				115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */,
 				1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */,
 				115708152A59CD8F004D31F5 /* TagView.swift in Sources */,
+				114BB1482A72D88A0079956A /* OnlyVoltageViewModel.swift in Sources */,
 				172871292A37B0D800507869 /* TagViewModifier.swift in Sources */,
 				114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */,
 				115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */,

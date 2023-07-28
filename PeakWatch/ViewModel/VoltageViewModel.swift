@@ -72,13 +72,19 @@ class VoltageViewModel: AlgorithmSelectable {
     }
     
    
-    func fetchVoltages() {
+    func fetchVoltages(amountOfSample: Int? = nil) {
         
         guard let healthStore = healthStore else {
             return
         }
-        
+
         let voltageQuery = HKElectrocardiogramQuery(ecgSample) { (query, result) in
+            
+            if let amountOfSample = amountOfSample {
+                guard self.voltageMeasurements.count < amountOfSample else {
+                return
+            }
+        }
             
             switch(result) {
                 case .measurement(let measurement):
