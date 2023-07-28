@@ -1,55 +1,33 @@
 //
-//  ECGChartView.swift
+//  ECGChartPreview.swift
 //  PeakWatch
 //
-//  Created by Nikita Charushnikov on 07.07.23.
+//  Created by Nikita Charushnikov on 28.07.23.
 //
 
 import SwiftUI
 import Charts
 
-struct ECGChartView<Content: ChartContent>: View {
+struct ECGChartPreviewView<Content: ChartContent>: View {
     
     
     let chartRange: Int
     let samplingRate: Double
-    let widthScaling: Double
-    let height: Double
-    let scrollable: Bool
     @ChartContentBuilder var content: Content
     
-    init(chartRange: Int, samplingRate: Double, widthScaling: Double = 0.5, height: Double = 300, scrollable: Bool = true, @ChartContentBuilder content: () -> Content) {
-        self.chartRange = chartRange
-        self.samplingRate = samplingRate
-        self.widthScaling = widthScaling
-        self.height = height
-        self.scrollable = scrollable
-        self.content = content()
-    }
-    
     var body: some View {
-        if scrollable {
-            ScrollView(.horizontal, showsIndicators: false) {
-                chart
+            Chart {
+                content
             }
-        } else {
-                chart
-        }
-    }
-    
-    var chart: some View {
-        Chart {
-            content
-        }
-        .chartXScale(domain: 0...chartRange)
-        .frame(width: CGFloat(chartRange) * CGFloat(widthScaling), height: CGFloat(height))
-        .chartLegend(.visible)
-        .chartXAxis {
-            self.xAxisMarks
-        }
-        .chartYAxis {
-            self.yAxisMarks
-        }
+            .chartXScale(domain: 0...chartRange)
+            .frame(width: CGFloat(chartRange) * 0.2, height: 150)
+            .chartLegend(.visible)
+            .chartXAxis {
+                self.xAxisMarks
+            }
+            .chartYAxis {
+                self.yAxisMarks
+            }
     }
     
     var yAxisMarks: some AxisContent {

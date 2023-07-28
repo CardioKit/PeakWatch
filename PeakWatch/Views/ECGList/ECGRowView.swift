@@ -14,14 +14,20 @@ struct ECGRowView: View {
     let hkECG: HKElectrocardiogram
     
     var body: some View {
+        CardView(padding: 0, cornerRadius: 8) {
             VStack {
-                ECGRowHeader(ecg: ecg)
-                    .modifier(SecondaryInfoListRowViewModifier())
-                    .padding(.bottom, 5)
-                ECGRowDetailsView(ecg: ecg)
-                    .modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
-                ECGChartPreviewView(ecgSample: hkECG, ecg: ecg)
+                VStack {
+                    VStack {
+                        ECGRowHeader(ecg: ecg)
+                            .modifier(SecondaryInfoListRowViewModifier())
+                            .padding(.bottom, 5)
+                        ECGRowDetailsView(ecg: ecg)
+                            .modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
+                    }.padding(10)
+                }.background(.quaternary)
+                ECGPreviewView(ecgSample: hkECG, ecg: ecg).padding(10)
             }
+        }
     }
 }
 //
