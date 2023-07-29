@@ -39,14 +39,18 @@ struct ECGChartPreviewView: View {
                 EmptyView()
             }
         }
-        .frame(minHeight: 150).task {
-            guard !voltageViewModel.voltagesAllFetched else {
-                return
-            }
-            
-            let maxSamples3s = Int(samplinRate * 3.0)
-            await voltageViewModel.fetchVoltages(maxSamples: maxSamples3s)
-            
+        .frame(minHeight: 150)
+        .task {
+           await fetchVoltagesOnLoad()
         }
+    }
+    
+    func fetchVoltagesOnLoad() async {
+        guard !voltageViewModel.voltagesAllFetched else {
+            return
+        }
+        
+        let maxSamples3s = Int(samplinRate * 3.0)
+        await voltageViewModel.fetchVoltages(maxSamples: maxSamples3s)
     }
 }
