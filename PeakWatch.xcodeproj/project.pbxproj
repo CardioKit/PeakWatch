@@ -13,6 +13,7 @@
 		114BB14E2A7450D60079956A /* AlgorithmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB14D2A7450D60079956A /* AlgorithmViewModel.swift */; };
 		114C258F2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */; };
 		114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */; };
+		1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDB62A753B23008E209C /* DurationExtension.swift */; };
 		115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */; };
 		115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FF2A59ADA1004D31F5 /* HomeScreen.swift */; };
 		115708032A59BC10004D31F5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708022A59BC10004D31F5 /* CardView.swift */; };
@@ -30,6 +31,7 @@
 		115708202A5A03E4004D31F5 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157081F2A5A03E3004D31F5 /* PrimaryButtonStyle.swift */; };
 		115708222A5A0F98004D31F5 /* HeaderViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */; };
 		11597A8F2A5DE6F800E71A0D /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */; };
+		1160186B2A7509EC00A7CE7A /* ECGAlgorithmPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160186A2A7509EC00A7CE7A /* ECGAlgorithmPerformanceView.swift */; };
 		1160CEAE2A5F040100BE5867 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEAD2A5F040100BE5867 /* FeatureRow.swift */; };
 		1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */; };
 		1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */; };
@@ -92,6 +94,7 @@
 		114BB14D2A7450D60079956A /* AlgorithmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmViewModel.swift; sourceTree = "<group>"; };
 		114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSheetView.swift; sourceTree = "<group>"; };
 		114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
+		1153CDB62A753B23008E209C /* DurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationExtension.swift; sourceTree = "<group>"; };
 		115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmDetailView.swift; sourceTree = "<group>"; };
 		115707FF2A59ADA1004D31F5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		115708022A59BC10004D31F5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		1157081F2A5A03E3004D31F5 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModifier.swift; sourceTree = "<group>"; };
 		11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
+		1160186A2A7509EC00A7CE7A /* ECGAlgorithmPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmPerformanceView.swift; sourceTree = "<group>"; };
 		1160CEAD2A5F040100BE5867 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
 		1160CEAF2A5F0F7700BE5867 /* ECGSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSource.swift; sourceTree = "<group>"; };
 		1160CEB22A5F10D400BE5867 /* ECGRowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGRowHeader.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */,
 				1728712C2A37B28C00507869 /* ECGSignalView.swift */,
 				114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */,
+				1160186A2A7509EC00A7CE7A /* ECGAlgorithmPerformanceView.swift */,
 			);
 			path = ECGDetailAllAlgorithmsView;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 			children = (
 				17BF565E2A3332E600FF42D5 /* HKClassificationExtension.swift */,
 				17A82BEB2A3725BB00873DF7 /* Algorithms.swift */,
+				1153CDB62A753B23008E209C /* DurationExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				11B3C9D42A5C5BB600EF0555 /* UserSettingsViewModel.swift in Sources */,
 				116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */,
 				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
+				1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */,
 				17A82BEE2A3767F200873DF7 /* AlgorithmSelectionView.swift in Sources */,
 				115708222A5A0F98004D31F5 /* HeaderViewModifier.swift in Sources */,
 				1160CEB72A5F1F9E00BE5867 /* ToolbarView.swift in Sources */,
@@ -602,6 +609,7 @@
 				115708092A59C0B7004D31F5 /* GoalView.swift in Sources */,
 				115708032A59BC10004D31F5 /* CardView.swift in Sources */,
 				115708192A59E7B9004D31F5 /* Constants.swift in Sources */,
+				1160186B2A7509EC00A7CE7A /* ECGAlgorithmPerformanceView.swift in Sources */,
 				1157081B2A59F0BE004D31F5 /* ECGFoundView.swift in Sources */,
 				115708202A5A03E4004D31F5 /* PrimaryButtonStyle.swift in Sources */,
 				17CACAF32A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift in Sources */,

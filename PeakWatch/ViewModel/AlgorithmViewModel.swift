@@ -14,6 +14,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     struct QRSResultsByAlgorithm {
         let qrsResult: QRSResult
         let algorithm: Algorithms
+        let duration: Duration
     }
     
     var voltageMeasurementsWithPeaks: [VoltageMeasurementWithPeak] {
@@ -46,10 +47,22 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
         selectedAlgorithms.forEach {
             algorithm in
-            let qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: self.ecgSample.samplingRate), algorithm: algorithm)
-            self.qrsResultsByAlgorithm.append(QRSResultsByAlgorithm(qrsResult: qrsResults, algorithm: algorithm))
+            let qrsResults = calculateAlgorithm(algorithm: algorithm, voltages: voltages)
+            self.qrsResultsByAlgorithm.append(qrsResults)
         }
         
+    }
+    
+    private func calculateAlgorithm(algorithm: Algorithms, voltages: [Double]) -> QRSResultsByAlgorithm {
+        let clock = ContinuousClock()
+        
+
+        var qrsResults: QRSResult?
+        let duration = clock.measure {
+            qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: self.ecgSample.samplingRate), algorithm: algorithm)
+        }
+        
+        return .init(qrsResult: qrsResults!, algorithm: algorithm, duration: duration)
     }
     
     override func afterFetchAllVoltagesCallback() {
