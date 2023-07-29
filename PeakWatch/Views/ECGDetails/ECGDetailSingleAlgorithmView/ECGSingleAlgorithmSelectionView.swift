@@ -15,7 +15,7 @@ struct ECGSingleAlgorithmSelectionView: View {
     var body: some View {
         ForEach(Array(self.algorithmViewModel.qrsResultsByAlgorithm), id: \.algorithm) {
             qrsResultByAlgorithm in
-            NavigationLink(destination: ECGSingleAlgorithmDetailView(qrsResult: qrsResultByAlgorithm.qrsResult, algorithm: qrsResultByAlgorithm.algorithm) ) {
+            NavigationLink(destination: ECGSingleAlgorithmDetailView(qrsResult: qrsResultByAlgorithm, algorithm: qrsResultByAlgorithm.algorithm) ) {
                 Text(qrsResultByAlgorithm.algorithm.description)
             }
         }
