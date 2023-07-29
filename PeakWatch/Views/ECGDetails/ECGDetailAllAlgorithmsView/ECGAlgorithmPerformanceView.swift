@@ -42,13 +42,17 @@ struct ECGAlgorithmPerformanceView: View {
         .frame(height: chartHeight)
         .chartXAxisLabel(xAxisLabel)
         .chartXAxis {
-            AxisMarks { mark in
-                let value = mark.as(Int.self)!
-                AxisGridLine()
-                AxisTick()
-                AxisValueLabel {
-                    Text("\(value) ms")
-                }
+            xAxisMarks
+        }
+    }
+    
+    var xAxisMarks: some AxisContent {
+        AxisMarks { mark in
+            let value = mark.as(Int.self)!
+            AxisGridLine()
+            AxisTick()
+            AxisValueLabel {
+                Text("\(value) ms")
             }
         }
     }
@@ -63,4 +67,5 @@ struct ECGAlgorithmPerformanceView: View {
                 .font(.system(size: 12, weight: .bold))
         }
     }
+
 }
