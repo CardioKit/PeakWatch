@@ -16,9 +16,9 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         let algorithm: Algorithms
     }
     
-    var voltageMeasurementsWithPeaks: [VoltageMeasurement] {
-        var measurements = self.voltageMeasurementsRaw.enumerated().map { (position, voltageMeasurementRaw) in
-            VoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: voltageMeasurementRaw)
+    var voltageMeasurementsWithPeaks: [VoltageMeasurementWithPeak] {
+        var measurements = self.voltageMeasurements.map { measurement in
+            VoltageMeasurementWithPeak(position: measurement.position, voltage: measurement.voltage)
         }
         qrsResultsByAlgorithm.forEach {
             qrsResultByAlgorithm in

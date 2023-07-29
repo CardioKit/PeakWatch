@@ -10,10 +10,10 @@ import PeakSwift
 
 struct ECGSingleAlgorithmSelectionView: View {
     
-    @ObservedObject var voltageViewModel: AlgorithmViewModel
+    @ObservedObject var algorithmViewModel: AlgorithmViewModel
     
     var body: some View {
-        ForEach(Array(self.voltageViewModel.qrsResultsByAlgorithm), id: \.algorithm) {
+        ForEach(Array(self.algorithmViewModel.qrsResultsByAlgorithm), id: \.algorithm) {
             qrsResultByAlgorithm in
             NavigationLink(destination: ECGSingleAlgorithmDetailView(qrsResult: qrsResultByAlgorithm.qrsResult, algorithm: qrsResultByAlgorithm.algorithm) ) {
                 Text(qrsResultByAlgorithm.algorithm.description)

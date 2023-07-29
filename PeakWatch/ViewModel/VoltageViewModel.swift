@@ -11,9 +11,9 @@ import HealthKit
 class VoltageViewModel: ObservableObject {
     
     @Published private(set) var voltageMeasurementsRaw: [HKQuantity] = []
-    var voltageMeasurements: [OnlyVoltageMeasurement] {
+    var voltageMeasurements: [VoltageMeasurement] {
         voltageMeasurementsRaw.enumerated().map { (position, measurement) in
-            OnlyVoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: measurement)
+            VoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: measurement)
         }
     }
     @Published private(set) var voltagesAllFetched: Bool = false
