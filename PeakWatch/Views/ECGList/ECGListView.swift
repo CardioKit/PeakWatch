@@ -24,8 +24,6 @@ struct ECGListView: View {
                 }
                 .padding([.leading, .trailing],20)
             }.background(Color("Background"))
-        
-        //.background(.quaternary)
 
         }
     

@@ -25,7 +25,6 @@ struct ECGRowView: View {
                             .modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
                     }.padding(10)
                 }.background(Color("CardHeader"))
-                //.background(Color.gray.opacity(0.1))
                 ECGChartPreviewView(ecg: ecg)
                     .padding(10)
             }
