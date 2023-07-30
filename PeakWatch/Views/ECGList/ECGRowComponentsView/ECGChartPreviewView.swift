@@ -26,7 +26,7 @@ struct ECGChartPreviewView: View {
         return VStack() {
             if voltageViewModel.voltagesAllFetched {
                 VStack {
-                    ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: samplinRate, widthScaling: 0.2, height: 150, scrollable: false) {
+                    ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: samplinRate, widthScaling: 0.2, height: 150, scrollable: false, showXAxisIntermediateMarker: false, showYAxisMarker: false, showXAxisValueLabels: false, oneSecondLinesColor: .gray.opacity(0.25)) {
                         ForEach(voltageViewModel.voltageMeasurements) {
                             (voltageMeasurement) in
                             LineMark(
@@ -35,6 +35,11 @@ struct ECGChartPreviewView: View {
                         }
                     }
                 }
+                .cornerRadius(10) /// make the background rounded
+                    .overlay( /// apply a rounded border
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.gray)
+                    )
             } else {
                 EmptyView()
             }
