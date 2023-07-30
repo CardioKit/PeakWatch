@@ -1,5 +1,5 @@
 //
-//  VoltageViewModel.swift
+//  OnlyVoltageViewModel.swift
 //  PeakWatch
 //
 //  Created by Nikita Charushnikov on 27.07.23.
@@ -38,6 +38,7 @@ class VoltageViewModel: ObservableObject {
             v1.voltage < v2.voltage
         }?.voltage ?? 0
     }
+
    
     init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample

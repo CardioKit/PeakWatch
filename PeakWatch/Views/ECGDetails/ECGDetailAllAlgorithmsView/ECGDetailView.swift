@@ -32,6 +32,9 @@ struct ECGDetailView: View {
                     Section(header: Text("ECG Signal with R peaks")) {
                         ECGSignalView(algorithmViewModel: algorithmViewModel)
                     }.headerProminence(.increased)
+                    Section(header: Text("ECG Algorithm performance")) {
+                        ECGAlgorithmPerformanceView(algorithmViewModel: algorithmViewModel)
+                    }.headerProminence(.increased)
                     Section(header: Text("Algorithm view execution details")) {
                         ECGSingleAlgorithmSelectionView(algorithmViewModel: algorithmViewModel)
                     }.headerProminence(.increased)

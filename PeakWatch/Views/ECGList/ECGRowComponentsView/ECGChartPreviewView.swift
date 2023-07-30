@@ -20,6 +20,7 @@ struct ECGChartPreviewView: View {
         self.ecg = ecg
         self._voltageViewModel = StateObject(wrappedValue: VoltageViewModel(ecgSample: ecg))
     }
+
     
     var chartRangeWithPadding: ClosedRange<Double> {
         let padding =  voltageViewModel.maxVoltage * 0.1
@@ -42,7 +43,7 @@ struct ECGChartPreviewView: View {
                         }
                     }.chartYScale(domain: chartRangeWithPadding)
                 }.modifier(RoundedBackgroundModifier())
-            } else {
+        } else {
                 EmptyView()
             }
         }
@@ -51,7 +52,7 @@ struct ECGChartPreviewView: View {
            await fetchVoltagesOnLoad()
         }
     }
-
+    
     func fetchVoltagesOnLoad() async {
         guard !voltageViewModel.voltagesAllFetched else {
             return

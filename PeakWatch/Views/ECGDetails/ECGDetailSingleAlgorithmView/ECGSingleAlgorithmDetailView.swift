@@ -10,17 +10,22 @@ import PeakSwift
 
 struct ECGSingleAlgorithmDetailView: View {
     
-    let qrsResult: QRSResult
+    let qrsResult: AlgorithmViewModel.QRSResultsByAlgorithm
     let algorithm: Algorithms
+    
+    let ecgSignalSection = "ECG Signal"
+    let performanceSection = "Performance"
     
     
     var body: some View {
         List {
-            Section(header: Text("ECG Signal")) {
-                ECGSingleAlgorithmChartView(qrsResult: qrsResult)
-            }
+            Section(header: Text(ecgSignalSection)) {
+                ECGSingleAlgorithmChartView(qrsResult: qrsResult.qrsResult)
+            }.headerProminence(.increased)
+            Section(header: Text(performanceSection)) {
+                ECGSingleAlgorithmPerformanceView(executionTime: qrsResult.duration)
+            }.headerProminence(.increased)
             .navigationTitle(algorithm.rawValue)
-            .headerProminence(.increased)
         }
     }
 }

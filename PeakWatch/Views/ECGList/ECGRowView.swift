@@ -12,7 +12,6 @@ struct ECGRowView: View {
     
     let ecg: ECGSample
     
-    
     var body: some View {
         CardView(padding: 0, cornerRadius: 8) {
             VStack {

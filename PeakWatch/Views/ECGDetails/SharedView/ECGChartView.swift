@@ -24,6 +24,7 @@ struct ECGChartView<Content: ChartContent>: View {
     @ChartContentBuilder var content: Content
     
     init(chartRange: Int, samplingRate: Double, widthScaling: Double = 0.5, height: Double = 300, scrollable: Bool = true, showXAxisIntermediateMarker: Bool = true, showYAxisMarker: Bool = true, showXAxisValueLabels: Bool = true, oneSecondLinesColor: Color = .gray, @ChartContentBuilder content: () -> Content) {
+
         self.chartRange = chartRange
         self.samplingRate = samplingRate
         self.widthScaling = widthScaling
