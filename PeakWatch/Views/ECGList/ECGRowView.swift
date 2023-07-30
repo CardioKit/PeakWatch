@@ -6,24 +6,28 @@
 //
 
 import SwiftUI
+import HealthKit
 
 struct ECGRowView: View {
     
     let ecg: ECGSample
     
+    
     var body: some View {
+        CardView(padding: 0, cornerRadius: 8) {
             VStack {
-                ECGRowHeader(ecg: ecg)
-                    .modifier(SecondaryInfoListRowViewModifier())
-                    .padding(.bottom, 5)
-                ECGRowDetailsView(ecg: ecg)
-                    .modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
+                VStack {
+                    VStack {
+                        ECGRowHeader(ecg: ecg)
+                            .modifier(SecondaryInfoListRowViewModifier())
+                            .padding(.bottom, 5)
+                        ECGRowDetailsView(ecg: ecg)
+                            .modifier(SecondaryInfoListRowViewModifier()).padding(.bottom, 1)
+                    }.padding(10)
+                }.background(Colors.cardHeader.value)
+                ECGChartPreviewView(ecg: ecg)
+                    .padding(10)
             }
-    }
-}
-
-struct ECGRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        ECGRowView(ecg: ECGSample(numberOfVoltageMeasurements: 10, startDate: Date(), endDate: Date(), device: "Apple Watch", classification: .atrialFibrillation, beatsPerMinute: 10, ecgSource: .HealthKit))
+        }.shadow(radius: 2)
     }
 }

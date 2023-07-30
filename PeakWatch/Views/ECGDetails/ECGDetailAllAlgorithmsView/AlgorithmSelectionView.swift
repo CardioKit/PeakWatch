@@ -12,7 +12,7 @@ struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
     
     @State var editMode: EditMode = .active
         
-    @ObservedObject var voltageViewModel: AlgorithmViewModel
+    @ObservedObject var algorithmViewModel: AlgorithmViewModel
     
     let listTitle: String
     
@@ -23,7 +23,7 @@ struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
     
     
     var body: some View {
-                List(selection: $voltageViewModel.selectedAlgorithms) {
+                List(selection: $algorithmViewModel.selectedAlgorithms) {
                     Section(listTitle) {
                         ForEach(algorithms) { algorithm in
                             Text(algorithm.description)

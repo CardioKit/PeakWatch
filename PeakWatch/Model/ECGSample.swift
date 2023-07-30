@@ -19,7 +19,9 @@ struct ECGSample: Identifiable {
     let classification: HKElectrocardiogram.Classification
     let beatsPerMinute: Double?
     let ecgSource: ECGSource
+    let samplingRate: Double
     
+    static let defaultSamplingRate = 512.0
     
     static func createFromHKElectrocardiogram(hkElectrocardiogramm: HKElectrocardiogram) -> ECGSample {
         return .init(numberOfVoltageMeasurements: hkElectrocardiogramm.numberOfVoltageMeasurements,
@@ -28,12 +30,8 @@ struct ECGSample: Identifiable {
                      device: hkElectrocardiogramm.device?.name ?? "Unknown device",
                      classification: hkElectrocardiogramm.classification,
                      beatsPerMinute: hkElectrocardiogramm.averageHeartRate?.doubleValue(for: HKUnit.count().unitDivided(by: .minute())),
-                     ecgSource: .HealthKit
+                     ecgSource: .HealthKit(source: hkElectrocardiogramm),
+                     samplingRate: hkElectrocardiogramm.samplingFrequency?.doubleValue(for: .hertz()) ?? defaultSamplingRate
         )
     }
-    
-    static func mock() -> ECGSample {
-        return .init(numberOfVoltageMeasurements: 14560, startDate: Date(), endDate: Date(), device: "AppleWatch", classification: .sinusRhythm, beatsPerMinute: 10, ecgSource: .HealthKit)
-    }
-    
 }

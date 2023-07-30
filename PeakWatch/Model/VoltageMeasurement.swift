@@ -1,21 +1,24 @@
 //
-//  VoltageMeasurement.swift
+//  OnlyVoltageMeasurement.swift
 //  PeakWatch
 //
-//  Created by x on 10.06.23.
+//  Created by Nikita Charushnikov on 27.07.23.
 //
 
 import Foundation
 import HealthKit
-import PeakSwift
 
-struct VoltageMeasurement: Identifiable {
+
+class VoltageMeasurement: Identifiable {
     
     let id = UUID()
     let position: Int
     let voltage: Double
-    // Stores which algorithms detected here a RPeak
-    var isRPeakByAlgorithm: [Algorithms] = []
+    
+    init(position: Int, voltage: Double) {
+        self.position = position
+        self.voltage = voltage
+    }
     
     static func createFromHKQuantity(position: Int, hkQuantity: HKQuantity) -> VoltageMeasurement {
         return .init(position: position, voltage: hkQuantity.doubleValue(for: .volt()))

@@ -2,56 +2,45 @@
 //  VoltageViewModel.swift
 //  PeakWatch
 //
-//  Created by x on 09.06.23.
+//  Created by Nikita Charushnikov on 27.07.23.
 //
 
 import Foundation
 import HealthKit
-import PeakSwift
 
-class VoltageViewModel: AlgorithmSelectable {
+class VoltageViewModel: ObservableObject {
     
-    struct QRSResultsByAlgorithm {
-        let qrsResult: QRSResult
-        let algorithm: Algorithms
-    }
-    
-    let ecgSample: HKElectrocardiogram
     @Published private(set) var voltageMeasurementsRaw: [HKQuantity] = []
+    var voltageMeasurements: [VoltageMeasurement] {
+        voltageMeasurementsRaw.enumerated().map { (position, measurement) in
+            VoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: measurement)
+        }
+    }
     @Published private(set) var voltagesAllFetched: Bool = false
     @Published private(set) var voltageError: Bool = false
-    
-    var samplingRateValue: Double = 0.0
 
-    @Published var selectedAlgorithms: Set<Algorithms> {
-        didSet {
-            qrsResultsByAlgorithm.removeAll()
-            calculateAlgorithms() // It's better to instruct recalculation only to add and remove the algorithm added or removed and not all
-        }
-    }
-    @Published private(set) var qrsResultsByAlgorithm: [QRSResultsByAlgorithm] = []
-    
-    let qrsDetector = QRSDetector()
-    
-    var voltageMeasurements: [VoltageMeasurement] {
-        var measurements = self.voltageMeasurementsRaw.enumerated().map { (position, voltageMeasurementRaw) in
-            VoltageMeasurement.createFromHKQuantity(position: position, hkQuantity: voltageMeasurementRaw)
-        }
-        qrsResultsByAlgorithm.forEach {
-            qrsResultByAlgorithm in
-            qrsResultByAlgorithm.qrsResult.rPeaks.forEach {
-                rPeakPosition in
-                measurements[Int(rPeakPosition)].isRPeakByAlgorithm.append(qrsResultByAlgorithm.algorithm)
-            }
-        }
-        return measurements
-    }
     
     let healthStore: HKHealthStore?
+    let ecgSample: ECGSample
+    
+    var samplingRateValue: Double {
+        ecgSample.samplingRate
+    }
+    
+    var maxVoltage: Double {
+        voltageMeasurements.max { (v1,v2) in
+            v1.voltage < v2.voltage
+        }?.voltage ?? 0
+    }
+    
+    var minVoltage: Double {
+        voltageMeasurements.min { (v1,v2) in
+            v1.voltage < v2.voltage
+        }?.voltage ?? 0
+    }
    
-    init(ecgSample: HKElectrocardiogram) {
+    init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample
-        self.selectedAlgorithms = UserSettingsViewModel().selectedAlgorithms
         
         if HKHealthStore.isHealthDataAvailable() {
             self.healthStore = HKHealthStore()
@@ -60,46 +49,56 @@ class VoltageViewModel: AlgorithmSelectable {
         }
     }
     
-    private func calculateAlgorithms()  {
-        
-        let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
-        selectedAlgorithms.forEach {
-            algorithm in
-            let qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: self.samplingRateValue), algorithm: algorithm)
-            self.qrsResultsByAlgorithm.append(QRSResultsByAlgorithm(qrsResult: qrsResults, algorithm: algorithm))
+    func fetchVoltages(maxSamples: Int? = nil) async {
+
+        switch ecgSample.ecgSource {
+        case .Synthetic:
+            #warning("TODO not implemented")
+        case .HealthKit(let source):
+            fetchVoltagesHealthKit(ecgSample: source, maxSamples: maxSamples)
         }
-        
+
     }
     
-   
-    func fetchVoltages() {
-        
+    func fetchVoltagesHealthKit(ecgSample: HKElectrocardiogram, maxSamples: Int? = nil) {
         guard let healthStore = healthStore else {
             return
         }
         
-        let voltageQuery = HKElectrocardiogramQuery(ecgSample) { (query, result) in
+        var voltages: [HKQuantity] = []
+
+        let voltageQuery = HKElectrocardiogramQuery(ecgSample) { [self] (query, result) in
+            
+           
+            if self.voltagesAllFetched {
+                return
+            }
+            
+            if let maxSamples = maxSamples {
+                guard voltages.count < maxSamples else {
+                    DispatchQueue.main.async { [self] in
+                        self.voltageMeasurementsRaw = voltages
+                        self.voltagesAllFetched = true
+                        healthStore.stop(query)
+                        self.afterFetchAllVoltagesCallback()
+                    }
+                    return
+            }
+        }
             
             switch(result) {
                 case .measurement(let measurement):
                     if let voltageQuantity = measurement.quantity(for: .appleWatchSimilarToLeadI) {
                     // Do something with the voltage quantity here.
-                    DispatchQueue.main.async { [self] in
-                        self.voltageMeasurementsRaw.append(voltageQuantity)
-                    }
+                        voltages.append(voltageQuantity)
                 }
             
                 case .done:
                     // No more voltage measurements. Finish processing the existing measurements.
                     DispatchQueue.main.async { [self] in
-                    
-                        if let samplingRate = self.ecgSample.samplingFrequency {
-                        self.samplingRateValue = samplingRate.doubleValue(for: .hertz())
-                        calculateAlgorithms()
+                        self.voltageMeasurementsRaw = voltages
                         self.voltagesAllFetched = true
-                        }   else {
-                        self.voltageError = true
-                    }
+                        self.afterFetchAllVoltagesCallback()
                     
                     }
                 case .error(let error):
@@ -112,7 +111,11 @@ class VoltageViewModel: AlgorithmSelectable {
 
         // Execute the query.
         healthStore.execute(voltageQuery)
-
     }
     
+    // Template method. Can be overriden by subclasses
+    // Default behaviour empty
+    func afterFetchAllVoltagesCallback() {
+        
+    }
 }

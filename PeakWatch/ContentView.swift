@@ -18,6 +18,7 @@ struct ContentView: View {
         NavigationView {
             ECGListView(ecgViewModel: self.ecgViewModel)
                 .navigationTitle(self.title)
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarView(openInfoSheet: $infoSheetViewModel.openInfoSheet)
                 }

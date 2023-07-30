@@ -6,8 +6,22 @@
 //
 
 import Foundation
+import HealthKit
 
-enum ECGSource: String {
-    case Synthetic = "Synthetic"
-    case HealthKit = "HealthKit"
+enum ECGSource {
+    case Synthetic
+    case HealthKit(source: HKElectrocardiogram)
+}
+
+extension ECGSource: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .Synthetic:
+            return "Synthetic"
+        case .HealthKit:
+            return "HealthKit"
+        }
+    }
+    
+    
 }

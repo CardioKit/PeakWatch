@@ -24,7 +24,7 @@ struct ECGRowDetailsView: View {
             Image(systemName: "heart.fill").foregroundColor(.red)
             Text("\(beatsPerMinuteLabel)  BPM").foregroundColor(.secondary)
             Spacer()
-            Text(ecg.ecgSource.rawValue).foregroundColor(.secondary)
+            Text(ecg.ecgSource.description).foregroundColor(.secondary)
         }
     }
 }

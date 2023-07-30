@@ -16,7 +16,7 @@ struct GoalView: View {
     var body: some View {
             VStack {
                 Text(goalTitle).modifier(HeaderViewModifier())
-                CardView(padding: 15) {
+                CardView(style: .quaternary, padding: 15) {
                 Text(goalDescription)
             }
         }

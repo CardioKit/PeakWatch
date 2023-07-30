@@ -11,11 +11,11 @@ import PeakSwift
 
 struct ECGSignalView: View {
     
-    @ObservedObject var voltageViewModel: VoltageViewModel
+    @ObservedObject var algorithmViewModel: AlgorithmViewModel
     
     var body: some View {
-        ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: self.voltageViewModel.samplingRateValue) {
-            ForEach(voltageViewModel.voltageMeasurements) {
+        ECGChartView(chartRange: algorithmViewModel.voltageMeasurements.count, samplingRate: self.algorithmViewModel.samplingRateValue) {
+            ForEach(algorithmViewModel.voltageMeasurementsWithPeaks) {
                 (voltageMeasurement) in
                 LineMark(
                     x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))

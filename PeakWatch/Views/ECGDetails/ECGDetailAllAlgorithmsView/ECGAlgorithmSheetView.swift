@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ECGAlgorithmSheetView: View {
     
-    @ObservedObject var voltageViewModel: VoltageViewModel
+    @ObservedObject var algorithmViewModel: AlgorithmViewModel
     
     var body: some View {
         NavigationView {
-            AlgorithmSelectionView(voltageViewModel: self.voltageViewModel, listTitle: "Algorithms")
-                .navigationTitle( "\(voltageViewModel.selectedAlgorithms.count) algorithms selected")
+            AlgorithmSelectionView(algorithmViewModel: self.algorithmViewModel, listTitle: "Algorithms")
+                .navigationTitle( "\(algorithmViewModel.selectedAlgorithms.count) algorithms selected")
         }
     }
 }

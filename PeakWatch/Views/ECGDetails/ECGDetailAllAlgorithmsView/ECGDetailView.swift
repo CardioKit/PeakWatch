@@ -11,44 +11,44 @@ import PeakSwift
 
 struct ECGDetailView: View {
     
-    let ecgSample: HKElectrocardiogram
-    @StateObject var voltageViewModel: VoltageViewModel
+    let ecgSample: ECGSample
+    @StateObject var algorithmViewModel: AlgorithmViewModel
     
     @State private var showingEditAlgorithm: Bool = false
     
-    init(ecgSample: HKElectrocardiogram) {
+    init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample
-        self._voltageViewModel = StateObject(wrappedValue: VoltageViewModel(ecgSample: ecgSample))
+        self._algorithmViewModel = StateObject(wrappedValue: AlgorithmViewModel(ecgSample: ecgSample))
     }
 
     var body: some View {
         VStack {
-            if(voltageViewModel.voltagesAllFetched) {
+            if(algorithmViewModel.voltagesAllFetched) {
                 List {
                     Section(header: Text("Algorithms performed")) {
-                        ECGAlgorithmSectionView(voltageViewModel: voltageViewModel, showingEditAlgorithm: $showingEditAlgorithm)
+                        ECGAlgorithmSectionView(voltageViewModel: algorithmViewModel, showingEditAlgorithm: $showingEditAlgorithm)
                     }
                     .headerProminence(.increased)
                     Section(header: Text("ECG Signal with R peaks")) {
-                        ECGSignalView(voltageViewModel: voltageViewModel)
+                        ECGSignalView(algorithmViewModel: algorithmViewModel)
                     }.headerProminence(.increased)
                     Section(header: Text("Algorithm view execution details")) {
-                        ECGSingleAlgorithmSelectionView(voltageViewModel: voltageViewModel)
+                        ECGSingleAlgorithmSelectionView(algorithmViewModel: algorithmViewModel)
                     }.headerProminence(.increased)
                 }
                 .listStyle(.insetGrouped)
             }
         }.navigationTitle("ECG Signal")
             .task {
-            fetchVolatgesOnload()
+            await fetchVolatgesOnload()
             }.sheet(isPresented: $showingEditAlgorithm) {
-                ECGAlgorithmSheetView(voltageViewModel: voltageViewModel)
+                ECGAlgorithmSheetView(algorithmViewModel: algorithmViewModel)
             }
     }
     
-    func fetchVolatgesOnload() {
-        if !voltageViewModel.voltagesAllFetched {
-            voltageViewModel.fetchVoltages()
+    func fetchVolatgesOnload() async {
+        if !algorithmViewModel.voltagesAllFetched {
+             await algorithmViewModel.fetchVoltages()
         }
     }
 }
