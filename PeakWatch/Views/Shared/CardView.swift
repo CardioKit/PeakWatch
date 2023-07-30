@@ -14,7 +14,7 @@ struct CardView<CardContent: View, Style: ShapeStyle>: View {
     let cornerRadius: CGFloat
     @ViewBuilder let cardContent: CardContent
     
-    init(style: Style = .quaternary, padding: CGFloat = CGFloat(10), cornerRadius: CGFloat = 25, @ViewBuilder cardContent: () -> CardContent) {
+    init(style: Style = Color("CardColor"), padding: CGFloat = CGFloat(10), cornerRadius: CGFloat = 25, @ViewBuilder cardContent: () -> CardContent) {
         self.style = style
         self.padding = padding
         self.cornerRadius = cornerRadius
