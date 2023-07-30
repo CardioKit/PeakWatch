@@ -13,6 +13,7 @@ struct ECGChartPreviewView: View {
     
     let samplinRate = 512.0
     let ecg: ECGSample
+    let chartHeight = 100.0
     
     @StateObject var voltageViewModel: VoltageViewModel
     
@@ -26,7 +27,7 @@ struct ECGChartPreviewView: View {
         return VStack() {
             if voltageViewModel.voltagesAllFetched {
                 VStack {
-                    ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: samplinRate, widthScaling: 0.2, height: 150, scrollable: false, showXAxisIntermediateMarker: false, showYAxisMarker: false, showXAxisValueLabels: false, oneSecondLinesColor: .gray.opacity(0.25)) {
+                    ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: samplinRate, widthScaling: 0.2, height: chartHeight, scrollable: false, showXAxisIntermediateMarker: false, showYAxisMarker: false, showXAxisValueLabels: false, oneSecondLinesColor: .gray.opacity(0.25)) {
                         ForEach(voltageViewModel.voltageMeasurements) {
                             (voltageMeasurement) in
                             LineMark(
@@ -44,7 +45,7 @@ struct ECGChartPreviewView: View {
                 EmptyView()
             }
         }
-        .frame(minHeight: 150)
+        .frame(minHeight: chartHeight)
         .task {
            await fetchVoltagesOnLoad()
         }
