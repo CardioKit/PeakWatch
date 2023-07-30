@@ -53,6 +53,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         
     }
     
+
     private func calculateAlgorithm(algorithm: Algorithms, voltages: [Double]) -> QRSResultsByAlgorithm {
         
         let clock = ContinuousClock()
@@ -65,6 +66,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         return .init(qrsResult: qrsResults!, algorithm: algorithm, duration: duration)
     }
     
+
     override func afterFetchAllVoltagesCallback() {
         calculateAlgorithms()
     }

@@ -26,6 +26,19 @@ class VoltageViewModel: ObservableObject {
     var samplingRateValue: Double {
         ecgSample.samplingRate
     }
+    
+    var maxVoltage: Double {
+        voltageMeasurements.max { (v1,v2) in
+            v1.voltage < v2.voltage
+        }?.voltage ?? 0
+    }
+    
+    var minVoltage: Double {
+        voltageMeasurements.min { (v1,v2) in
+            v1.voltage < v2.voltage
+        }?.voltage ?? 0
+    }
+
    
     init(ecgSample: ECGSample) {
         self.ecgSample = ecgSample

@@ -11,8 +11,8 @@ import HealthKit
 
 struct ECGChartPreviewView: View {
     
-    let samplinRate = 512.0
     let ecg: ECGSample
+    let chartHeight = 100.0
     
     @StateObject var voltageViewModel: VoltageViewModel
     
@@ -22,24 +22,32 @@ struct ECGChartPreviewView: View {
     }
 
     
+    var chartRangeWithPadding: ClosedRange<Double> {
+        let padding =  voltageViewModel.maxVoltage * 0.1
+        let start = voltageViewModel.minVoltage - padding
+        let end = voltageViewModel.maxVoltage + padding
+        return start...end
+    }
+
+    
     var body: some View {
         return VStack() {
             if voltageViewModel.voltagesAllFetched {
                 VStack {
-                    ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: samplinRate, widthScaling: 0.2, height: 150, scrollable: false) {
+                    ECGChartView(chartRange: voltageViewModel.voltageMeasurements.count, samplingRate: ecg.samplingRate, widthScaling: 0.2, height: chartHeight, scrollable: false, showXAxisIntermediateMarker: false, showYAxisMarker: false, showXAxisValueLabels: false, oneSecondLinesColor: .gray.opacity(0.25)) {
                         ForEach(voltageViewModel.voltageMeasurements) {
                             (voltageMeasurement) in
                             LineMark(
                                 x: .value("Sample", voltageMeasurement.position), y: .value("Voltage", voltageMeasurement.voltage))
                             .foregroundStyle(.red)
                         }
-                    }
-                }
-            } else {
+                    }.chartYScale(domain: chartRangeWithPadding)
+                }.modifier(RoundedBackgroundModifier())
+        } else {
                 EmptyView()
             }
         }
-        .frame(minHeight: 150)
+        .frame(minHeight: chartHeight)
         .task {
            await fetchVoltagesOnLoad()
         }
@@ -50,7 +58,7 @@ struct ECGChartPreviewView: View {
             return
         }
         
-        let maxSamples3s = Int(samplinRate * 3.0)
+        let maxSamples3s = Int(ecg.samplingRate * 3.0)
         await voltageViewModel.fetchVoltages(maxSamples: maxSamples3s)
     }
 }

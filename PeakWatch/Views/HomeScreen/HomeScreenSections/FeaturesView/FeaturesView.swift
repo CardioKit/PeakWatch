@@ -40,7 +40,7 @@ struct FeaturesView: View {
         VStack {
             Text("Our features").modifier(HeaderViewModifier())
             VStack {
-                CardView {
+                CardView(style: .quaternary) {
                     Grid {
                         ForEach(featuresPerRow) { row in
                             GridRow {

@@ -15,6 +15,8 @@
 		114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */; };
 		1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDB62A753B23008E209C /* DurationExtension.swift */; };
 		1153CDB92A755413008E209C /* ECGSingleAlgorithmPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDB82A755412008E209C /* ECGSingleAlgorithmPerformanceView.swift */; };
+		1153CDBB2A7690FC008E209C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDBA2A7690FC008E209C /* Colors.swift */; };
+		1153CDBD2A769401008E209C /* RoundedBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDBC2A769401008E209C /* RoundedBackgroundModifier.swift */; };
 		115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */; };
 		115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115707FF2A59ADA1004D31F5 /* HomeScreen.swift */; };
 		115708032A59BC10004D31F5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708022A59BC10004D31F5 /* CardView.swift */; };
@@ -97,6 +99,8 @@
 		114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		1153CDB62A753B23008E209C /* DurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationExtension.swift; sourceTree = "<group>"; };
 		1153CDB82A755412008E209C /* ECGSingleAlgorithmPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmPerformanceView.swift; sourceTree = "<group>"; };
+		1153CDBA2A7690FC008E209C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		1153CDBC2A769401008E209C /* RoundedBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackgroundModifier.swift; sourceTree = "<group>"; };
 		115707FD2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmDetailView.swift; sourceTree = "<group>"; };
 		115707FF2A59ADA1004D31F5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		115708022A59BC10004D31F5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -431,6 +435,7 @@
 				179438E22A32422A00616B9B /* DateUtils.swift */,
 				115708162A59E700004D31F5 /* TagUtils.swift */,
 				115708182A59E7B9004D31F5 /* Constants.swift */,
+				1153CDBA2A7690FC008E209C /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 				17BF56612A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift */,
 				172871282A37B0D800507869 /* TagViewModifier.swift */,
 				115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */,
+				1153CDBC2A769401008E209C /* RoundedBackgroundModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 				17A82BEC2A3725BB00873DF7 /* Algorithms.swift in Sources */,
 				1160CEB02A5F0F7700BE5867 /* ECGSource.swift in Sources */,
 				11B3C9D42A5C5BB600EF0555 /* UserSettingsViewModel.swift in Sources */,
+				1153CDBD2A769401008E209C /* RoundedBackgroundModifier.swift in Sources */,
 				116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */,
 				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
 				1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */,
@@ -631,6 +638,7 @@
 				115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */,
 				1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */,
 				115708152A59CD8F004D31F5 /* TagView.swift in Sources */,
+				1153CDBB2A7690FC008E209C /* Colors.swift in Sources */,
 				114BB14E2A7450D60079956A /* AlgorithmViewModel.swift in Sources */,
 				114BB1482A72D88A0079956A /* VoltageViewModel.swift in Sources */,
 				172871292A37B0D800507869 /* TagViewModifier.swift in Sources */,

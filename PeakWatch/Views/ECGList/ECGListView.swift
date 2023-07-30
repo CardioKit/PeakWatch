@@ -13,20 +13,18 @@ struct ECGListView: View {
     @ObservedObject var ecgViewModel: ECGViewModel
     
     var body: some View {
-            ScrollView(.vertical) {
-                LazyVStack(spacing: 20) {
-                        ForEach(ecgViewModel.ecgs) { (ecg)  in
-                            NavigationLink(destination: ECGDetailView(ecgSample: ecg)) {
-                                ECGRowView(ecg: ecg)
-                        }.buttonStyle(PlainButtonStyle())
-                    }
-                    
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 20) {
+                ForEach(ecgViewModel.ecgs) { (ecg)  in
+                    NavigationLink(destination: ECGDetailView(ecgSample: ecg)) {
+                        ECGRowView(ecg: ecg)
+                    }.buttonStyle(PlainButtonStyle())
                 }
-                .padding([.leading, .trailing],20)
+                
             }
-
-        }
-    
+            .padding([.leading, .trailing],20)
+        }.background(Colors.background.value)
+    }
     
 }
 
