@@ -54,10 +54,10 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     }
     
     private func calculateAlgorithm(algorithm: Algorithms, voltages: [Double]) -> QRSResultsByAlgorithm {
-        let clock = ContinuousClock()
         
-
+        let clock = ContinuousClock()
         var qrsResults: QRSResult?
+        
         let duration = clock.measure {
             qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: self.ecgSample.samplingRate), algorithm: algorithm)
         }

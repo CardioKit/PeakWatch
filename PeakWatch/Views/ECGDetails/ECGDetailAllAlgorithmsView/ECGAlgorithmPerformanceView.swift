@@ -14,9 +14,11 @@ struct ECGAlgorithmPerformanceView: View {
     
     let barWidth: Double = 30.0
     let spacing: Double = 40.0
+    let minHeight: Double = 100.0
     
     var chartHeight: CGFloat {
-        CGFloat((barWidth + spacing) * Double(algorithmViewModel.qrsResultsByAlgorithm.count))
+        let dynamicHeight = CGFloat((barWidth + spacing) * Double(algorithmViewModel.qrsResultsByAlgorithm.count))
+        return dynamicHeight > minHeight ? dynamicHeight : minHeight
     }
     
     let barColor = Color(.red)
