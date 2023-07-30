@@ -1,5 +1,5 @@
 //
-//  OnlyVoltageViewModel.swift
+//  VoltageViewModel.swift
 //  PeakWatch
 //
 //  Created by Nikita Charushnikov on 27.07.23.
