@@ -6,14 +6,26 @@
 //
 
 import Foundation
+import PeakSwift
 
 class ExportECGViewModel: ObservableObject {
     
-    
-    
+    @Published var jsonDocument: JSONDocument = JSONDocument(text: "")
+    @Published var showExporter = false
+    var documentName = "default"
     
     func exportECG(algorithmViewModel: AlgorithmViewModel) {
         let ecgExportDTO = createECGExportDTO(algorithmViewModel: algorithmViewModel)
+        
+        do {
+            let ecgExportDTOJSONString = try convertToJSON(ecgExportDTO: ecgExportDTO)
+            generateFileName(ecgSample: algorithmViewModel.ecgSample)
+            exportFile(text: ecgExportDTOJSONString)
+            
+        } catch {
+            #warning("Inform user")
+            print("error \(error)")
+        }
     }
     
     private func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) -> ECGExportDTO {
@@ -54,5 +66,35 @@ class ExportECGViewModel: ObservableObject {
     private func createSignalQualityDTO(algorithmViewModel: AlgorithmViewModel) -> [SignalQualityDTO] {
         #warning("Pass the signal quality when done")
         return [.init(method: "dummyMethod", score: "Excellent", runtime: .zero)]
+    }
+    
+    private func convertToJSON(ecgExportDTO: ECGExportDTO) throws -> String {
+        let converter = JSONConverter<ECGExportDTO>()
+        return try converter.serialize(toConvert: ecgExportDTO)
+    }
+    
+    private func storeToFile(text: String) throws {
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory,
+                                                            in: .userDomainMask).first {
+            let pathWithFilename = documentDirectory.appendingPathComponent("myJsonString.json")
+            try text.write(to: pathWithFilename,
+                                     atomically: true,
+                                     encoding: .utf8)
+            let input = try String(contentsOf: pathWithFilename)
+            print(pathWithFilename)
+            //print(input)
+            print("Store file")
+        } else {
+            print("url not found")
+        }
+    }
+    
+    private func exportFile(text: String) {
+        jsonDocument.text = text
+        showExporter.toggle()
+    }
+    
+    private func generateFileName(ecgSample: ECGSample) {
+        documentName = "ecg-sample-\(DateUtils.formatDate(date: ecgSample.startDate))"
     }
 }

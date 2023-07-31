@@ -51,6 +51,7 @@
 		1173550C2A778D7B000C7F6A /* RPeaksDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173550B2A778D7B000C7F6A /* RPeaksDTO.swift */; };
 		1173550E2A778E86000C7F6A /* SignalQualityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173550D2A778E85000C7F6A /* SignalQualityDTO.swift */; };
 		117355102A778FBB000C7F6A /* ExportECGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173550F2A778FBB000C7F6A /* ExportECGViewModel.swift */; };
+		117355122A77FCC6000C7F6A /* JSONDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117355112A77FCC6000C7F6A /* JSONDocument.swift */; };
 		11B3C9D22A5C4C2A00EF0555 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3C9D12A5C4C2A00EF0555 /* SettingsView.swift */; };
 		11B3C9D42A5C5BB600EF0555 /* UserSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3C9D32A5C5BB600EF0555 /* UserSettingsViewModel.swift */; };
 		11B3C9D72A5C5CB800EF0555 /* AlgorithmSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3C9D62A5C5CB800EF0555 /* AlgorithmSelectable.swift */; };
@@ -143,6 +144,7 @@
 		1173550B2A778D7B000C7F6A /* RPeaksDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPeaksDTO.swift; sourceTree = "<group>"; };
 		1173550D2A778E85000C7F6A /* SignalQualityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalQualityDTO.swift; sourceTree = "<group>"; };
 		1173550F2A778FBB000C7F6A /* ExportECGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportECGViewModel.swift; sourceTree = "<group>"; };
+		117355112A77FCC6000C7F6A /* JSONDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDocument.swift; sourceTree = "<group>"; };
 		11B3C9D12A5C4C2A00EF0555 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		11B3C9D32A5C5BB600EF0555 /* UserSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewModel.swift; sourceTree = "<group>"; };
 		11B3C9D62A5C5CB800EF0555 /* AlgorithmSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSelectable.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 				1160CEAD2A5F040100BE5867 /* FeatureRow.swift */,
 				114BB1492A72DA980079956A /* VoltageMeasurement.swift */,
 				117355092A778D10000C7F6A /* QRSResultByAlgorithm.swift */,
+				117355112A77FCC6000C7F6A /* JSONDocument.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
 				11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */,
 				50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */,
+				117355122A77FCC6000C7F6A /* JSONDocument.swift in Sources */,
 				115708092A59C0B7004D31F5 /* GoalView.swift in Sources */,
 				1173550E2A778E86000C7F6A /* SignalQualityDTO.swift in Sources */,
 				115708032A59BC10004D31F5 /* CardView.swift in Sources */,

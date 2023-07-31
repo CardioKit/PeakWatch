@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ExportButtonView: View {
     
@@ -22,7 +23,21 @@ struct ExportButtonView: View {
         } label: {
             Text(exportButtonLabel)
         }
-    }
+        .fileExporter(
+            isPresented: $exportECGViewModel.showExporter,
+            document: exportECGViewModel.jsonDocument,
+            contentType: .json,
+            defaultFilename: exportECGViewModel.documentName) {
+                result in
+            switch result {
+            case .success(let url):
+                print("Saved to \(url)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        }
     
     func exportJSON() {
         exportECGViewModel.exportECG(algorithmViewModel: algorithmViewModel)
