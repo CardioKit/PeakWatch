@@ -16,9 +16,9 @@ struct GoalView: View {
     var body: some View {
             VStack {
                 Text(goalTitle).modifier(HeaderViewModifier())
-                CardView(style: .background, padding: 15) {
+                CardView(style: Colors.cardColor.value, padding: 15, cornerRadius: 8) {
                 Text(goalDescription)
-            }
+                }
         }
     }
 }
