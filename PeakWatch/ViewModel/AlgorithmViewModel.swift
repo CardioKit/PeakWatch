@@ -9,14 +9,7 @@ import Foundation
 import PeakSwift
 
 class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
-    
-    
-    struct QRSResultsByAlgorithm {
-        let qrsResult: QRSResult
-        let algorithm: Algorithms
-        let duration: Duration
-    }
-    
+
     var voltageMeasurementsWithPeaks: [VoltageMeasurementWithPeak] {
         var measurements = self.voltageMeasurements.map { measurement in
             VoltageMeasurementWithPeak(position: measurement.position, voltage: measurement.voltage)

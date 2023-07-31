@@ -41,12 +41,16 @@ struct ECGDetailView: View {
                 }
                 .listStyle(.insetGrouped)
             }
-        }.navigationTitle("ECG Signal")
-            .task {
+        }
+        .navigationTitle("ECG Signal")
+        .toolbar {
+            ExportButtonView(algorithmViewModel: algorithmViewModel)
+        }
+        .task {
             await fetchVolatgesOnload()
-            }.sheet(isPresented: $showingEditAlgorithm) {
-                ECGAlgorithmSheetView(algorithmViewModel: algorithmViewModel)
-            }
+        }.sheet(isPresented: $showingEditAlgorithm) {
+            ECGAlgorithmSheetView(algorithmViewModel: algorithmViewModel)
+        }
     }
     
     func fetchVolatgesOnload() async {

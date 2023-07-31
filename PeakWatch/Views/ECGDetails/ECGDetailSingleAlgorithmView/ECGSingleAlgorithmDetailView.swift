@@ -10,7 +10,7 @@ import PeakSwift
 
 struct ECGSingleAlgorithmDetailView: View {
     
-    let qrsResult: AlgorithmViewModel.QRSResultsByAlgorithm
+    let qrsResult: QRSResultsByAlgorithm
     let algorithm: Algorithms
     
     let ecgSignalSection = "ECG Signal"
