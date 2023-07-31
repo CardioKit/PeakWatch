@@ -14,7 +14,7 @@ struct ExportButtonView: View {
     @ObservedObject var algorithmViewModel: AlgorithmViewModel
     @StateObject var exportECGViewModel: ExportECGViewModel = ExportECGViewModel()
     
-    let exportButtonLabel = "Export"
+    let buttonIcon = "square.and.arrow.up"
     
     let exportErrorTitle = "Export Error"
     let exportErrorBody = "An error occured during export of the ECG data."
@@ -25,7 +25,7 @@ struct ExportButtonView: View {
                await exportJSON()
             }
         } label: {
-            Text(exportButtonLabel)
+            Image(systemName: buttonIcon)
         }
         .fileExporter(
             isPresented: $exportECGViewModel.showExporter,
