@@ -11,7 +11,7 @@ struct ExportButtonView: View {
     
     
     @ObservedObject var algorithmViewModel: AlgorithmViewModel
-    @StateObject var exportECGViewModel: ExportECGViewModel
+    @StateObject var exportECGViewModel: ExportECGViewModel = ExportECGViewModel()
     
     let exportButtonLabel = "Export"
     

@@ -10,6 +10,6 @@ import Foundation
 struct RPeaksDTO: Codable {
     
     let algorithm: String
-    let rPeaks: [Int]
+    let rPeaks: [UInt]
     let duration: Duration
 }
