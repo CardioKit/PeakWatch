@@ -28,13 +28,7 @@ struct ExportButtonView: View {
             document: exportECGViewModel.jsonDocument,
             contentType: .json,
             defaultFilename: exportECGViewModel.documentName) {
-                result in
-            switch result {
-            case .success(let url):
-                print("Saved to \(url)")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+                result in exportECGViewModel.exportECGComplete(result: result)
         }
 
         }

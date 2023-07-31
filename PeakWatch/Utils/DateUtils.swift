@@ -16,4 +16,12 @@ struct DateUtils {
         dateFormatter.dateFormat = "dd.MM., HH:mm"
         return dateFormatter.string(from: date)
     }
+    
+    static func formatDateForTitle(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "dd-MM_HH-mm"
+        return dateFormatter.string(from: date)
+    }
+    
 }

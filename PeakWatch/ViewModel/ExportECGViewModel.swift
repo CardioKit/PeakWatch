@@ -28,6 +28,15 @@ class ExportECGViewModel: ObservableObject {
         }
     }
     
+    func exportECGComplete(result: Result<URL, Error>) {
+        switch result {
+        case .success(let url):
+            print("Saved to \(url)")
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+    }
+    
     private func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) -> ECGExportDTO {
         
         let ecgDTO = createECGDTO(algorithmViewModel: algorithmViewModel)
@@ -73,28 +82,12 @@ class ExportECGViewModel: ObservableObject {
         return try converter.serialize(toConvert: ecgExportDTO)
     }
     
-    private func storeToFile(text: String) throws {
-        if let documentDirectory = FileManager.default.urls(for: .documentDirectory,
-                                                            in: .userDomainMask).first {
-            let pathWithFilename = documentDirectory.appendingPathComponent("myJsonString.json")
-            try text.write(to: pathWithFilename,
-                                     atomically: true,
-                                     encoding: .utf8)
-            let input = try String(contentsOf: pathWithFilename)
-            print(pathWithFilename)
-            //print(input)
-            print("Store file")
-        } else {
-            print("url not found")
-        }
-    }
-    
     private func exportFile(text: String) {
         jsonDocument.text = text
         showExporter.toggle()
     }
     
     private func generateFileName(ecgSample: ECGSample) {
-        documentName = "ecg-sample-\(DateUtils.formatDate(date: ecgSample.startDate))"
+        documentName = "ecg-sample_\(DateUtils.formatDateForTitle(date: ecgSample.startDate))"
     }
 }
