@@ -9,19 +9,18 @@ import Foundation
 import PeakSwift
 import SwiftUI
 
-class ExportECGViewModel: ObservableObject {
+@MainActor class ExportECGViewModel: ObservableObject {
     
     @Published var jsonDocument: JSONDocument = JSONDocument(text: "")
     @Published var showExporter = false
     @Published var hasExportError = false
     var documentName = "default"
     
-    func exportECG(algorithmViewModel: AlgorithmViewModel) {
+    func exportECG(algorithmViewModel: AlgorithmViewModel) async {
         
         do {
             let ecgExportDTO = try createECGExportDTO(algorithmViewModel: algorithmViewModel)
             let ecgExportDTOJSONString = try convertToJSON(ecgExportDTO: ecgExportDTO)
-            throw ExportError.uniqueIdentifierNotFound
             generateFileName(ecgSample: algorithmViewModel.ecgSample)
             exportFile(text: ecgExportDTOJSONString)
         } catch {

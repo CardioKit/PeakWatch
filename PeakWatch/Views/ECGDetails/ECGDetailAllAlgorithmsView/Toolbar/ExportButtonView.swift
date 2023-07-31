@@ -21,7 +21,9 @@ struct ExportButtonView: View {
     
     var body: some View {
         Button {
-            exportJSON()
+            Task {
+               await exportJSON()
+            }
         } label: {
             Text(exportButtonLabel)
         }
@@ -37,7 +39,7 @@ struct ExportButtonView: View {
 
         }
     
-    func exportJSON() {
-        exportECGViewModel.exportECG(algorithmViewModel: algorithmViewModel)
+    func exportJSON() async {
+        await exportECGViewModel.exportECG(algorithmViewModel: algorithmViewModel)
     }
 }
