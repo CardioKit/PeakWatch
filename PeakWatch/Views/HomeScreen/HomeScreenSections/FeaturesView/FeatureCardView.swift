@@ -13,7 +13,7 @@ struct FeatureCardView: View {
     let feature: Feature
     
     var body: some View {
-        CardView(style: .quaternary, padding: 20) {
+        CardView(style: .background, padding: 20) {
             VStack {
                 Image(systemName: feature.icon)
                     .font(.system(size: 30))
