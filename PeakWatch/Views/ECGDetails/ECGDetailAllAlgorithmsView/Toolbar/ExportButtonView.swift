@@ -16,6 +16,8 @@ struct ExportButtonView: View {
     
     let exportButtonLabel = "Export"
     
+    let exportErrorTitle = "Export Error"
+    let exportErrorBody = "An error occured during export of the ECG data."
     
     var body: some View {
         Button {
@@ -29,7 +31,9 @@ struct ExportButtonView: View {
             contentType: .json,
             defaultFilename: exportECGViewModel.documentName) {
                 result in exportECGViewModel.exportECGComplete(result: result)
-        }
+            }.alert(exportErrorTitle, isPresented: $exportECGViewModel.hasExportError, actions: {}) {
+                Text(exportErrorBody)
+            }
 
         }
     

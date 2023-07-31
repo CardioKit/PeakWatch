@@ -13,6 +13,7 @@ class ExportECGViewModel: ObservableObject {
     
     @Published var jsonDocument: JSONDocument = JSONDocument(text: "")
     @Published var showExporter = false
+    @Published var hasExportError = false
     var documentName = "default"
     
     func exportECG(algorithmViewModel: AlgorithmViewModel) {
@@ -20,21 +21,21 @@ class ExportECGViewModel: ObservableObject {
         do {
             let ecgExportDTO = try createECGExportDTO(algorithmViewModel: algorithmViewModel)
             let ecgExportDTOJSONString = try convertToJSON(ecgExportDTO: ecgExportDTO)
+            throw ExportError.uniqueIdentifierNotFound
             generateFileName(ecgSample: algorithmViewModel.ecgSample)
             exportFile(text: ecgExportDTOJSONString)
-            
         } catch {
-            #warning("Inform user")
-            print("error \(error)")
+            hasExportError.toggle()
         }
     }
     
     func exportECGComplete(result: Result<URL, Error>) {
         switch result {
-        case .success(let url):
-            print("Saved to \(url)")
-        case .failure(let error):
-            print(error.localizedDescription)
+        case .success( _):
+            // Everythink ok
+            print("ok")
+        case .failure( _):
+            hasExportError.toggle()
         }
     }
     
