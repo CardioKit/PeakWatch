@@ -20,7 +20,7 @@ struct ECGFoundView: View {
     
     var body: some View {
         
-        CardView(style: .green, cornerRadius: 5) {
+        CardView(style: .background, cornerRadius: 5) {
             Text(ecgRecordedText).frame(maxWidth: .infinity)
         }
 
@@ -28,9 +28,9 @@ struct ECGFoundView: View {
             Button {
                 isSheetOpen.toggle()
             } label: {
-                Text(buttonLabel).frame(maxWidth: .infinity)
+                Text(buttonLabel)
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.automatic)
         }
     }
 }
