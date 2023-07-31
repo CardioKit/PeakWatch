@@ -24,6 +24,7 @@ struct ECGSample: Identifiable {
     static let defaultSamplingRate = 512.0
     
     static func createFromHKElectrocardiogram(hkElectrocardiogramm: HKElectrocardiogram) -> ECGSample {
+        
         return .init(numberOfVoltageMeasurements: hkElectrocardiogramm.numberOfVoltageMeasurements,
                      startDate: hkElectrocardiogramm.startDate,
                      endDate: hkElectrocardiogramm.endDate,

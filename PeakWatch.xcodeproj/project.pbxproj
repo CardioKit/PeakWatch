@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111AD9F92A782EC200A73AD3 /* ExportError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111AD9F82A782EC200A73AD3 /* ExportError.swift */; };
 		114BB1462A729D760079956A /* ECGChartPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB1452A729D760079956A /* ECGChartPreviewView.swift */; };
 		114BB1482A72D88A0079956A /* VoltageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB1472A72D88A0079956A /* VoltageViewModel.swift */; };
 		114BB14A2A72DA980079956A /* VoltageMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB1492A72DA980079956A /* VoltageMeasurement.swift */; };
@@ -52,6 +53,8 @@
 		1173550E2A778E86000C7F6A /* SignalQualityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173550D2A778E85000C7F6A /* SignalQualityDTO.swift */; };
 		117355102A778FBB000C7F6A /* ExportECGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173550F2A778FBB000C7F6A /* ExportECGViewModel.swift */; };
 		117355122A77FCC6000C7F6A /* JSONDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117355112A77FCC6000C7F6A /* JSONDocument.swift */; };
+		117355142A78266D000C7F6A /* RuntimeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117355132A78266D000C7F6A /* RuntimeDTO.swift */; };
+		117355172A782B25000C7F6A /* JSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117355162A782B25000C7F6A /* JSONError.swift */; };
 		11B3C9D22A5C4C2A00EF0555 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3C9D12A5C4C2A00EF0555 /* SettingsView.swift */; };
 		11B3C9D42A5C5BB600EF0555 /* UserSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3C9D32A5C5BB600EF0555 /* UserSettingsViewModel.swift */; };
 		11B3C9D72A5C5CB800EF0555 /* AlgorithmSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3C9D62A5C5CB800EF0555 /* AlgorithmSelectable.swift */; };
@@ -100,6 +103,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		111AD9F82A782EC200A73AD3 /* ExportError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportError.swift; sourceTree = "<group>"; };
 		114BB1452A729D760079956A /* ECGChartPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGChartPreviewView.swift; sourceTree = "<group>"; };
 		114BB1472A72D88A0079956A /* VoltageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageViewModel.swift; sourceTree = "<group>"; };
 		114BB1492A72DA980079956A /* VoltageMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageMeasurement.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		1173550D2A778E85000C7F6A /* SignalQualityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalQualityDTO.swift; sourceTree = "<group>"; };
 		1173550F2A778FBB000C7F6A /* ExportECGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportECGViewModel.swift; sourceTree = "<group>"; };
 		117355112A77FCC6000C7F6A /* JSONDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDocument.swift; sourceTree = "<group>"; };
+		117355132A78266D000C7F6A /* RuntimeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeDTO.swift; sourceTree = "<group>"; };
+		117355162A782B25000C7F6A /* JSONError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONError.swift; sourceTree = "<group>"; };
 		11B3C9D12A5C4C2A00EF0555 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		11B3C9D32A5C5BB600EF0555 /* UserSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewModel.swift; sourceTree = "<group>"; };
 		11B3C9D62A5C5CB800EF0555 /* AlgorithmSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSelectable.swift; sourceTree = "<group>"; };
@@ -323,8 +329,18 @@
 				117355072A778C73000C7F6A /* ECGAppleMetaDataDTO.swift */,
 				1173550B2A778D7B000C7F6A /* RPeaksDTO.swift */,
 				1173550D2A778E85000C7F6A /* SignalQualityDTO.swift */,
+				117355132A78266D000C7F6A /* RuntimeDTO.swift */,
 			);
 			path = DTOs;
+			sourceTree = "<group>";
+		};
+		117355152A782AD3000C7F6A /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				117355162A782B25000C7F6A /* JSONError.swift */,
+				111AD9F82A782EC200A73AD3 /* ExportError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		11B3C9D02A5C4C1400EF0555 /* Settings */ = {
@@ -387,6 +403,7 @@
 		173C05322A31C15F00D3E786 /* PeakWatch */ = {
 			isa = PBXGroup;
 			children = (
+				117355152A782AD3000C7F6A /* Error */,
 				11B3C9D52A5C5C6000EF0555 /* Protocols */,
 				1157081E2A5A03C9004D31F5 /* Styles */,
 				50407ECA2A53001400E17921 /* Info.plist */,
@@ -658,6 +675,7 @@
 				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
 				115708132A59CD50004D31F5 /* Tag.swift in Sources */,
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
+				117355142A78266D000C7F6A /* RuntimeDTO.swift in Sources */,
 				11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */,
 				50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */,
 				117355122A77FCC6000C7F6A /* JSONDocument.swift in Sources */,
@@ -697,8 +715,10 @@
 				115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */,
 				179438D92A31E4CC00616B9B /* ECGViewModel.swift in Sources */,
 				115708172A59E700004D31F5 /* TagUtils.swift in Sources */,
+				111AD9F92A782EC200A73AD3 /* ExportError.swift in Sources */,
 				1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */,
 				117355082A778C73000C7F6A /* ECGAppleMetaDataDTO.swift in Sources */,
+				117355172A782B25000C7F6A /* JSONError.swift in Sources */,
 				11671E612A5C275100C3A913 /* Feature.swift in Sources */,
 				1157081D2A59F121004D31F5 /* ECGNotFoundView.swift in Sources */,
 				17A759432A349282001B5E7D /* VoltageMeasurementWithPeak.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import Foundation
 import PeakSwift
+import SwiftUI
 
 class ExportECGViewModel: ObservableObject {
     
@@ -15,9 +16,9 @@ class ExportECGViewModel: ObservableObject {
     var documentName = "default"
     
     func exportECG(algorithmViewModel: AlgorithmViewModel) {
-        let ecgExportDTO = createECGExportDTO(algorithmViewModel: algorithmViewModel)
         
         do {
+            let ecgExportDTO = try createECGExportDTO(algorithmViewModel: algorithmViewModel)
             let ecgExportDTOJSONString = try convertToJSON(ecgExportDTO: ecgExportDTO)
             generateFileName(ecgSample: algorithmViewModel.ecgSample)
             exportFile(text: ecgExportDTOJSONString)
@@ -37,14 +38,18 @@ class ExportECGViewModel: ObservableObject {
         }
     }
     
-    private func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) -> ECGExportDTO {
+    private func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) throws -> ECGExportDTO {
+        // The id should be unique. The same id is generated for apps that come from the same vendor running on the same device.
+        guard let deviceId = UIDevice.current.identifierForVendor else {
+            throw ExportError.uniqueIdentifierNotFound
+        }
         
         let ecgDTO = createECGDTO(algorithmViewModel: algorithmViewModel)
         let appleMetaDataDTO = createAppleMetaDataDTO(algorithmViewModel: algorithmViewModel)
         let rPeaksDTO = createRPeaksDTO(algorithmViewModel: algorithmViewModel)
         let signalQuality = createSignalQualityDTO(algorithmViewModel: algorithmViewModel)
         
-        return .init(ecg: ecgDTO, appleMetaData: appleMetaDataDTO, algorithms: rPeaksDTO, signalQuality: signalQuality)
+        return .init(ecg: ecgDTO, appleMetaData: appleMetaDataDTO, algorithms: rPeaksDTO, signalQuality: signalQuality, deviceID: deviceId)
     }
     
     private func createECGDTO(algorithmViewModel: AlgorithmViewModel) -> ECGInformationDTO {
@@ -68,18 +73,33 @@ class ExportECGViewModel: ObservableObject {
             let duration = qrsResultsByAlg.duration
             let algorithm = qrsResultsByAlg.algorithm.description
             
-            return .init(algorithm: algorithm, rPeaks: peakPositions, duration: duration)
+            let runtimeDTO = createRuntimeDTO(duration: duration)
+            
+            return .init(algorithm: algorithm, rPeaks: peakPositions, runtime: runtimeDTO)
         }
     }
     
     private func createSignalQualityDTO(algorithmViewModel: AlgorithmViewModel) -> [SignalQualityDTO] {
-        #warning("Pass the signal quality when done")
-        return [.init(method: "dummyMethod", score: "Excellent", runtime: .zero)]
+        #warning("Pass the signal quality when implemented")
+        let runtime = createRuntimeDTO(duration: .zero)
+        return [.init(method: "dummyMethod", score: "Excellent", runtime: runtime)]
+    }
+    
+    private func createRuntimeDTO(duration: Duration) -> RuntimeDTO {
+        return .init(seconds: duration.components.seconds, attoseconds: duration.components.attoseconds)
     }
     
     private func convertToJSON(ecgExportDTO: ECGExportDTO) throws -> String {
-        let converter = JSONConverter<ECGExportDTO>()
-        return try converter.serialize(toConvert: ecgExportDTO)
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        let encodedData = try encoder.encode(ecgExportDTO)
+        let encodedString = String(data: encodedData, encoding: .utf8)
+        
+        if let encodedString = encodedString {
+            return encodedString
+        } else {
+            throw JSONError.failEncoding
+        }
     }
     
     private func exportFile(text: String) {

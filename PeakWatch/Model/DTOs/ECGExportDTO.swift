@@ -13,4 +13,5 @@ struct ECGExportDTO: Codable {
     let appleMetaData: ECGAppleMetaDataDTO
     let algorithms: [RPeaksDTO]
     let signalQuality: [SignalQualityDTO]
+    let deviceID: UUID
 }

@@ -11,5 +11,5 @@ struct SignalQualityDTO: Codable {
     
     let method: String
     let score: String
-    let runtime: Duration
+    let runtime: RuntimeDTO
 }

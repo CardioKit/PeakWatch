@@ -11,5 +11,5 @@ struct RPeaksDTO: Codable {
     
     let algorithm: String
     let rPeaks: [UInt]
-    let duration: Duration
+    let runtime: RuntimeDTO
 }
