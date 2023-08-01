@@ -15,7 +15,7 @@ struct ECGExportDTO: Codable, Transferable {
     let appleMetaData: ECGAppleMetaDataDTO
     let algorithms: [RPeaksDTO]
     let signalQuality: [SignalQualityDTO]
-    let deviceID: UUID
+    let deviceID: UUID?
     
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(exportedContentType: .json) { ecgExport in

@@ -18,16 +18,12 @@ enum ECGExportDTOFactory {
     }
     
     static func createFileName(ecgExportDTO: ECGExportDTO) -> String {
-        "PW_ECG_\(ecgExportDTO.deviceID.uuidString)_\(ecgExportDTO.appleMetaData.recordingStartTime) "
+        "PW_ECG_\(ecgExportDTO.deviceID?.uuidString ?? "unknown")_\(ecgExportDTO.appleMetaData.recordingStartTime) "
     }
     
-    static func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) /*throws*/ -> ECGExportDTO {
-        // The id should be unique. The same id is generated for apps that come from the same vendor running on the same device.
-//        guard let deviceId = UIDevice.current.identifierForVendor else {
-//            throw ExportError.uniqueIdentifierNotFound
-//        }
-        
-        let deviceId = UIDevice.current.identifierForVendor!
+    static func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) -> ECGExportDTO {
+        // The id should be unique. The same id is generated for apps that come from the same vendor running on the same device.   
+        let deviceId = UIDevice.current.identifierForVendor
         
         let ecgDTO = createECGDTO(algorithmViewModel: algorithmViewModel)
         let appleMetaDataDTO = createAppleMetaDataDTO(algorithmViewModel: algorithmViewModel)
