@@ -16,6 +16,7 @@ import SwiftUI
     @Published var hasExportError = false
     var documentName = "default"
     
+    
     func exportECG(algorithmViewModel: AlgorithmViewModel) async {
         
         do {
@@ -38,7 +39,7 @@ import SwiftUI
         }
     }
     
-    private func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) throws -> ECGExportDTO {
+    func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) throws -> ECGExportDTO {
         // The id should be unique. The same id is generated for apps that come from the same vendor running on the same device.
         guard let deviceId = UIDevice.current.identifierForVendor else {
             throw ExportError.uniqueIdentifierNotFound

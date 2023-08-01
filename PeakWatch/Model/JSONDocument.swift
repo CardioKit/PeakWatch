@@ -32,3 +32,17 @@ struct JSONDocument: FileDocument {
         return FileWrapper(regularFileWithContents: data)
     }
 }
+
+//struct JSONDocument2: Transferable {
+//    
+//    var text = ""
+//    
+//    static var transferRepresentation: some TransferRepresentation {
+//        FileRepresentation(contentType: .json) { jsonDoc in
+//           // SentTransferredFile(jsonDoc.)
+//            
+//        } importing: { received in
+//            
+//        }
+//    }
+//}

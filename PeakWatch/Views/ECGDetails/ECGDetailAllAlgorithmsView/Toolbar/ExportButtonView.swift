@@ -20,26 +20,6 @@ struct ExportButtonView: View {
     let exportErrorBody = "An error occured during export of the ECG data."
     
     var body: some View {
-        Button {
-            Task {
-               await exportJSON()
-            }
-        } label: {
-            Image(systemName: buttonIcon)
-        }
-        .fileExporter(
-            isPresented: $exportECGViewModel.showExporter,
-            document: exportECGViewModel.jsonDocument,
-            contentType: .json,
-            defaultFilename: exportECGViewModel.documentName) {
-                result in exportECGViewModel.exportECGComplete(result: result)
-            }.alert(exportErrorTitle, isPresented: $exportECGViewModel.hasExportError, actions: {}) {
-                Text(exportErrorBody)
-            }
-
-        }
-    
-    func exportJSON() async {
-        await exportECGViewModel.exportECG(algorithmViewModel: algorithmViewModel)
+        ShareLink(algorithmViewModel.exportTile, item: algorithmViewModel.exportResults, preview: SharePreview("ECG Export"))
     }
 }

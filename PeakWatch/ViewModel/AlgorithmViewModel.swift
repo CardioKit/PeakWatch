@@ -9,6 +9,14 @@ import Foundation
 import PeakSwift
 
 class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
+    
+    var exportResults: ECGExportDTO {
+        ECGExportDTOFactory.createECGExportDTO(algorithmViewModel: self)
+    }
+    
+    var exportTile: String {
+        "ecg-sample_\(DateUtils.formatDateForTitle(date: ecgSample.startDate))"
+    }
 
     var voltageMeasurementsWithPeaks: [VoltageMeasurementWithPeak] {
         var measurements = self.voltageMeasurements.map { measurement in
