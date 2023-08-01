@@ -44,11 +44,11 @@ struct ECGAppleMetaDataDTO: Codable {
             let sourceName = source.sourceRevision.source.name
             var algorithmVersion: Int?
             if let anyAlgorithmVersion = source.metadata?[HKMetadataKeyAppleECGAlgorithmVersion] {
-                algorithmVersion = anyAlgorithmVersion as! Int
+                algorithmVersion = anyAlgorithmVersion as? Int
             }
             var addedToHealthKit: Date?
-            if let addedToHealthKitRaw = source.value(forKey: "creationTimestamp") {
-                let addedToHealthKitDouble = addedToHealthKitRaw as! Double
+            if let addedToHealthKitRaw = source.value(forKey: "creationTimestamp"),
+                let addedToHealthKitDouble = addedToHealthKitRaw as? Double {
                 addedToHealthKit = Date(timeIntervalSinceReferenceDate: addedToHealthKitDouble)
             }
             
