@@ -10,10 +10,10 @@ import SwiftUI
 struct FeaturesView: View {
     
     let features = [
-        Feature(icon: "waveform.path.ecg", iconColor: .cyan, text: "R peaks"),
-        Feature(icon: "star.fill", iconColor: .systemYellow, text: "Signal quality"),
-        Feature(icon: "speedometer", iconColor: .systemGreen, text: "Context"),
-        Feature(icon: "icloud.fill", iconColor: .systemOrange, text: "Remote analysis")
+        Feature(icon: "waveform.path.ecg", iconColor: .gray, text: "R-peaks"),
+        Feature(icon: "star.fill", iconColor: .gray, text: "Signal quality"),
+        Feature(icon: "speedometer", iconColor: .gray, text: "Context"),
+        Feature(icon: "icloud.fill", iconColor: .gray, text: "Open source")
     ]
     
     let numberOfFeaturesPerRow = 2
@@ -38,21 +38,21 @@ struct FeaturesView: View {
     
     var body: some View {
         VStack {
-            Text("Our features").modifier(HeaderViewModifier())
+            Text("Features").modifier(HeaderViewModifier())
             VStack {
-                CardView(style: .quaternary) {
+                CardView(style: .background) {
                     Grid {
                         ForEach(featuresPerRow) { row in
                             GridRow {
                                 ForEach(row.featureRow) { item in
-                                    FeatureCardView(feature: item)
+                                    FeatureCardView(feature: item).shadow(radius: 2)
                                     
                                 }
                             }
                         }
                     }
                     .frame(maxWidth: .infinity)
-                    .padding(5)
+                    .padding(10)
                 }
             }
         }
