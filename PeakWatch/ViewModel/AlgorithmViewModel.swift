@@ -11,7 +11,7 @@ import PeakSwift
 class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
     var exportResults: ECGExportDTO {
-            ECGExportDTOFactory.createECGExportDTO(algorithmViewModel: self)
+            ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
     }
     
     var exportTile: String {
