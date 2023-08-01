@@ -42,11 +42,7 @@ enum ECGExportDTOFactory {
     }
     
     static private func createAppleMetaDataDTO(algorithmViewModel: AlgorithmViewModel) -> ECGAppleMetaDataDTO {
-        let appleWatchSymptoms = algorithmViewModel.ecgSample.classification.description
-        let beatsPerminute = algorithmViewModel.ecgSample.beatsPerMinute ?? 0
-        let startTime = algorithmViewModel.ecgSample.startDate
-        let endTime = algorithmViewModel.ecgSample.endDate
-        return .init(appleRating: appleWatchSymptoms, beatsPerMinute: beatsPerminute, recordingStartTime: startTime, recordingEndtIme: endTime)
+        return ECGAppleMetaDataDTO.createAppleMetaDataDTO(algorithmViewModel: algorithmViewModel)
     }
     
     static private func createRPeaksDTO(algorithmViewModel: AlgorithmViewModel) -> [RPeaksDTO]{
