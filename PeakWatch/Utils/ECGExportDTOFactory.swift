@@ -18,7 +18,9 @@ enum ECGExportDTOFactory {
     }
     
     static func createFileName(ecgExportDTO: ECGExportDTO) -> String {
-        "PW_ECG_\(ecgExportDTO.deviceID?.uuidString ?? "unknown")_\(ecgExportDTO.appleMetaData.recordingStartTime) "
+        let deviceName = ecgExportDTO.deviceID?.uuidString ?? "unknown"
+        let date = DateUtils.formatDateForTitle(date: ecgExportDTO.appleMetaData.recordingStartTime)
+        return "PW_ECG_\(deviceName)_\(date)"
     }
     
     static func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) -> ECGExportDTO {

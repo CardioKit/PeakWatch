@@ -20,7 +20,7 @@ struct DateUtils {
     static func formatDateForTitle(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
-        dateFormatter.dateFormat = "dd-MM_HH-mm"
+        dateFormatter.dateFormat = "dd-MM-YY_HH:mm:ss"
         return dateFormatter.string(from: date)
     }
     
