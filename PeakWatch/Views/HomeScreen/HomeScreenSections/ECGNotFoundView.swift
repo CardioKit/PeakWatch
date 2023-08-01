@@ -11,28 +11,21 @@ struct ECGNotFoundView: View {
     
     @ObservedObject var ecgViewModel: ECGViewModel
     
-    let ecgNotFoundTitle = "No ECGs found."
-    let ecgNotFoundText = "Please, try to record a few ECGs."
-    let refreshButtonLabel = "Refresh"
+    let ecgNotFoundText = "No ECGs detected."
+    let refreshButtonIcon = "arrow.clockwise"
     
     var body: some View {
-        VStack {
-            CardView(style: .background, padding: 0, cornerRadius: 5) {
-                VStack {
-                    VStack {
-                        Text(ecgNotFoundTitle).modifier(HeaderViewModifier())
-                        Text(ecgNotFoundText)
-                    }.padding([.top, .bottom], 10)
-                }.frame(maxWidth: .infinity)
+        
+        ECGRecordedButton {
+            Task {
+                await ecgViewModel.getECGFromHealthStore()
             }
-            Button {
-                Task {
-                    await ecgViewModel.getECGFromHealthStore()
-                }
-            } label: {
-                Text(refreshButtonLabel).frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-            }
-            .buttonStyle(.automatic)
+        } cardBody: {
+            Text(ecgNotFoundText)
+                .font(.system(size: 20, weight: .bold))
+        } cardIcon: {
+            Image(systemName: refreshButtonIcon)
+                .font(.system(size: 20, weight: .bold))
         }
     }
 }
