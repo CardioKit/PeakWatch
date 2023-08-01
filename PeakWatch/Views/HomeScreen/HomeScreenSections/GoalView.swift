@@ -11,7 +11,7 @@ struct GoalView: View {
     
     
     let goalTitle = "PeakWatch"
-    let goalDescription = "The objective of PeakWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiogramms."
+    let goalDescription = "The objective of PeakWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiograms."
     
     var body: some View {
             VStack {
