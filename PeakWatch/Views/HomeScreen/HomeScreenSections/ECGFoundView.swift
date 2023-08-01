@@ -11,8 +11,8 @@ struct ECGFoundView: View {
     
     @ObservedObject var ecgViewModel: ECGViewModel
     
-    let cardBodyText = "ECGs detected"
-    let cardIcon = "chevron.right"
+    let cardBodyText = " Recordings"
+    let moveForwardIcon = "chevron.right"
     
     @Binding var isSheetOpen: Bool
     
@@ -21,12 +21,11 @@ struct ECGFoundView: View {
         ECGRecordedButton {
             isSheetOpen.toggle()
         } cardBody: {
-            Text(String(ecgViewModel.ecgs.count))
-                .font(.system(size: 28, weight: .bold))
-            Text(cardBodyText)
-                .fontWeight(.light)
+            Text(String(ecgViewModel.ecgs.count) + cardBodyText)
+                .font(.system(size: 18))
         } cardIcon: {
-            Image(systemName: cardIcon)
+            Image(systemName: moveForwardIcon)
+                .font(.system(size: 20, weight: .bold))
         }
     }
 }

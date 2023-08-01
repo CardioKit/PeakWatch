@@ -11,8 +11,8 @@ struct ECGNotFoundView: View {
     
     @ObservedObject var ecgViewModel: ECGViewModel
     
-    let ecgNotFoundText = "No ECGs detected."
-    let refreshButtonIcon = "arrow.clockwise"
+    let ecgNotFoundText = "No Recordings"
+    let refreshIcon = "arrow.clockwise"
     
     var body: some View {
         
@@ -22,9 +22,9 @@ struct ECGNotFoundView: View {
             }
         } cardBody: {
             Text(ecgNotFoundText)
-                .font(.system(size: 20, weight: .bold))
+                .font(.system(size: 18))
         } cardIcon: {
-            Image(systemName: refreshButtonIcon)
+            Image(systemName: refreshIcon)
                 .font(.system(size: 20, weight: .bold))
         }
     }

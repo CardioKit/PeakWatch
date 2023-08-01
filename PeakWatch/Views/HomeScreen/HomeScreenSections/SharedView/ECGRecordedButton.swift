@@ -14,7 +14,7 @@ struct ECGRecordedButton<CardBody: View, CardIcon: View>: View {
     @ViewBuilder let cardIcon: CardIcon
     
     let headerIcon = "heart.fill"
-    let headerTitle = "Electrocardiogramms (ECGs)"
+    let headerTitle = "Electrocardiograms"
     
     var body: some View {
         Button {
@@ -25,12 +25,14 @@ struct ECGRecordedButton<CardBody: View, CardIcon: View>: View {
                     VStack(alignment: .leading, spacing: 5) {
                         HStack(alignment: .firstTextBaseline) {
                             Image(systemName: headerIcon)
-                            Text(headerTitle)
-                        }
-                        .font(.system(size: 18,  weight: .bold))
-                        .foregroundColor(.red)
-                        HStack(alignment: .bottom) {
-                            cardBody
+                                .font(.system(size: 20,  weight: .bold))
+                                .foregroundColor(.red)
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(headerTitle)
+                                    .font(.system(size: 20,  weight: .bold))
+                                    .foregroundColor(.red)
+                                cardBody
+                            }
                         }
                     }
                     Spacer()
