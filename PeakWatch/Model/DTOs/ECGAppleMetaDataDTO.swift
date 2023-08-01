@@ -11,5 +11,7 @@ struct ECGAppleMetaDataDTO: Codable {
     
     let appleRating: String
     let beatsPerMinute: Double
+    let recordingStartTime: Date
+    let recordingEndtIme: Date
     
 }

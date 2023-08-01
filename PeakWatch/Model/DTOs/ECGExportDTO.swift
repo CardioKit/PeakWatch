@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ECGExportDTO: Codable, Transferable {
     
@@ -16,19 +17,14 @@ struct ECGExportDTO: Codable, Transferable {
     let signalQuality: [SignalQualityDTO]
     let deviceID: UUID
     
-    private static var encoder: JSONEncoder {
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        return encoder
-    }
-    
-    private static var decoder: JSONDecoder {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return decoder
-    }
-    
     static var transferRepresentation: some TransferRepresentation {
-        CodableRepresentation(contentType: .json, encoder: encoder, decoder: decoder).suggestedFileName("PeakWatch_ECG_Recording")
+        FileRepresentation(exportedContentType: .json) { ecgExport in
+            let jsonData = try ECGExportDTOFactory.convertToJSON(ecgExportDTO: ecgExport)
+            let fileName = ECGExportDTOFactory.createFileName(ecgExportDTO: ecgExport)
+            let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(fileName, conformingTo: .json)
+            try jsonData.write(to: fileURL)
+            
+            return SentTransferredFile(fileURL)
+        }
     }
 }

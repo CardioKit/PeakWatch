@@ -10,6 +10,16 @@ import SwiftUI
 
 enum ECGExportDTOFactory {
     
+    static func convertToJSON(ecgExportDTO: ECGExportDTO) throws -> Data {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        let encodedData = try encoder.encode(ecgExportDTO)
+        return encodedData
+    }
+    
+    static func createFileName(ecgExportDTO: ECGExportDTO) -> String {
+        "PW_ECG_\(ecgExportDTO.deviceID.uuidString)_\(ecgExportDTO.appleMetaData.recordingStartTime) "
+    }
     
     static func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) /*throws*/ -> ECGExportDTO {
         // The id should be unique. The same id is generated for apps that come from the same vendor running on the same device.
@@ -18,7 +28,6 @@ enum ECGExportDTOFactory {
 //        }
         
         let deviceId = UIDevice.current.identifierForVendor!
-        //let fileName = createFileName(ecgSample: algorithmViewModel.ecgSample)
         
         let ecgDTO = createECGDTO(algorithmViewModel: algorithmViewModel)
         let appleMetaDataDTO = createAppleMetaDataDTO(algorithmViewModel: algorithmViewModel)
@@ -26,10 +35,6 @@ enum ECGExportDTOFactory {
         let signalQuality = createSignalQualityDTO(algorithmViewModel: algorithmViewModel)
         
         return .init(ecg: ecgDTO, appleMetaData: appleMetaDataDTO, algorithms: rPeaksDTO, signalQuality: signalQuality, deviceID: deviceId)
-    }
-    
-    static private func createFileName(ecgSample: ECGSample) -> String {
-            "ecg-sample_\(DateUtils.formatDateForTitle(date: ecgSample.startDate))"
     }
     
     static private func createECGDTO(algorithmViewModel: AlgorithmViewModel) -> ECGInformationDTO {
@@ -41,7 +46,9 @@ enum ECGExportDTOFactory {
     static private func createAppleMetaDataDTO(algorithmViewModel: AlgorithmViewModel) -> ECGAppleMetaDataDTO {
         let appleWatchSymptoms = algorithmViewModel.ecgSample.classification.description
         let beatsPerminute = algorithmViewModel.ecgSample.beatsPerMinute ?? 0
-        return .init(appleRating: appleWatchSymptoms, beatsPerMinute: beatsPerminute)
+        let startTime = algorithmViewModel.ecgSample.startDate
+        let endTime = algorithmViewModel.ecgSample.endDate
+        return .init(appleRating: appleWatchSymptoms, beatsPerMinute: beatsPerminute, recordingStartTime: startTime, recordingEndtIme: endTime)
     }
     
     static private func createRPeaksDTO(algorithmViewModel: AlgorithmViewModel) -> [RPeaksDTO]{

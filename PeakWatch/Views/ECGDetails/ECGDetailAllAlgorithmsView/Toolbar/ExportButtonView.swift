@@ -12,14 +12,11 @@ struct ExportButtonView: View {
     
     
     @ObservedObject var algorithmViewModel: AlgorithmViewModel
-    @StateObject var exportECGViewModel: ExportECGViewModel = ExportECGViewModel()
     
-    let buttonIcon = "square.and.arrow.up"
-    
-    let exportErrorTitle = "Export Error"
-    let exportErrorBody = "An error occured during export of the ECG data."
+    let ecgPreviewText = "ECG Export"
     
     var body: some View {
-        ShareLink(algorithmViewModel.exportTile, item: algorithmViewModel.exportResults, preview: SharePreview("ECG Export"))
+        ShareLink(item: algorithmViewModel.exportResults, preview: SharePreview(ecgPreviewText))
+        
     }
 }
