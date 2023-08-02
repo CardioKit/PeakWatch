@@ -28,7 +28,7 @@ struct HomeScreen: View {
                 Spacer()
                 ECGNavigationView(isSheetOpen: $isSheetOpen)
                     .padding([.leading, .trailing], paddingBetweenLeftRight)
-        }
+        }.background(Colors.background.value)
  
     }
 }

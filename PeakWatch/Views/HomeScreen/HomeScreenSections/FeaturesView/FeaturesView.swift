@@ -40,12 +40,11 @@ struct FeaturesView: View {
         VStack {
             Text("Features").modifier(HeaderViewModifier())
             VStack {
-                CardView(style: .background) {
                     Grid {
                         ForEach(featuresPerRow) { row in
                             GridRow {
                                 ForEach(row.featureRow) { item in
-                                    FeatureCardView(feature: item).shadow(radius: 2)
+                                    FeatureCardView(feature: item)
                                     
                                 }
                             }
@@ -53,7 +52,6 @@ struct FeaturesView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(10)
-                }
             }
         }
     }
