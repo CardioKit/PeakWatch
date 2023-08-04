@@ -10,13 +10,14 @@ import PeakSwift
 
 class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
-    
-    struct QRSResultsByAlgorithm {
-        let qrsResult: QRSResult
-        let algorithm: Algorithms
-        let duration: Duration
+    var exportResults: ECGExportDTO {
+            ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
     }
     
+    var exportTile: String {
+        "ecg-sample_\(DateUtils.formatDateForTitle(date: ecgSample.startDate))"
+    }
+
     var voltageMeasurementsWithPeaks: [VoltageMeasurementWithPeak] {
         var measurements = self.voltageMeasurements.map { measurement in
             VoltageMeasurementWithPeak(position: measurement.position, voltage: measurement.voltage)

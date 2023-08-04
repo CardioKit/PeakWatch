@@ -27,6 +27,12 @@ class VoltageViewModel: ObservableObject {
         ecgSample.samplingRate
     }
     
+    var voltageMeasurementsNoMetaData: [Double] {
+        self.voltageMeasurements.map { voltageWithMetaData in
+            voltageWithMetaData.voltage
+        }
+    }
+    
     var maxVoltage: Double {
         voltageMeasurements.max { (v1,v2) in
             v1.voltage < v2.voltage
