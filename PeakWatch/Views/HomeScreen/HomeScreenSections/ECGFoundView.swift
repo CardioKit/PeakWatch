@@ -11,26 +11,21 @@ struct ECGFoundView: View {
     
     @ObservedObject var ecgViewModel: ECGViewModel
     
-    let navigationTitle = "ECG Samples"
-    let buttonLabel = "Try out PeakWatch"
-    var ecgRecordedText: String {
-        "PeakWatch detected \(ecgViewModel.ecgs.count) recorded ECGs."
-    }
+    let cardBodyText = " Recordings"
+    let moveForwardIcon = "chevron.right"
+    
     @Binding var isSheetOpen: Bool
     
     var body: some View {
         
-        CardView(style: .background, cornerRadius: 5) {
-            Text(ecgRecordedText).frame(maxWidth: .infinity)
-        }
-
-        VStack {
-            Button {
-                isSheetOpen.toggle()
-            } label: {
-                Text(buttonLabel)
-            }
-            .buttonStyle(.automatic)
+        ECGRecordedButton {
+            isSheetOpen.toggle()
+        } cardBody: {
+            Text(String(ecgViewModel.ecgs.count) + cardBodyText)
+                .font(.system(size: 18))
+        } cardIcon: {
+            Image(systemName: moveForwardIcon)
+                .font(.system(size: 20, weight: .bold))
         }
     }
 }

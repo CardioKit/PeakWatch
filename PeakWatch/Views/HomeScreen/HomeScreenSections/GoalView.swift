@@ -10,15 +10,15 @@ import SwiftUI
 struct GoalView: View {
     
     
-    let goalTitle = "PeakWatch"
-    let goalDescription = "The objective of PeakWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiogramms."
+    let objectiveTitle = "PeakWatch"
+    let objectiveDescription = "The objective of PeakWatch is to demonstrate the capabilities of PeakSwift, a Swift package for detecting R peaks in Electrocardiograms."
     
     var body: some View {
             VStack {
-                Text(goalTitle).modifier(HeaderViewModifier())
-                CardView(style: .background, padding: 15) {
-                Text(goalDescription)
-            }
+                Text(objectiveTitle).modifier(HeaderViewModifier())
+                CardView(style: Colors.cardColor.value, padding: 15, cornerRadius: 8) {
+                Text(objectiveDescription)
+                }
         }
     }
 }
