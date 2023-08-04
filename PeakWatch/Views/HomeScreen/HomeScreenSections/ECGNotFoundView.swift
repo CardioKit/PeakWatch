@@ -17,7 +17,7 @@ struct ECGNotFoundView: View {
     
     var body: some View {
         VStack {
-            CardView(style: .red, padding: 0, cornerRadius: 5) {
+            CardView(style: .background, padding: 0, cornerRadius: 5) {
                 VStack {
                     VStack {
                         Text(ecgNotFoundTitle).modifier(HeaderViewModifier())
@@ -32,8 +32,7 @@ struct ECGNotFoundView: View {
             } label: {
                 Text(refreshButtonLabel).frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
             }
-            .buttonStyle(.borderedProminent)
-
+            .buttonStyle(.automatic)
         }
     }
 }
