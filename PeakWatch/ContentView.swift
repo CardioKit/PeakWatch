@@ -20,7 +20,7 @@ struct ContentView: View {
                 .navigationTitle(self.title)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarView(openInfoSheet: $infoSheetViewModel.openInfoSheet)
+                    ToolbarView(ecgs: ecgViewModel.ecgs, openInfoSheet: $infoSheetViewModel.openInfoSheet)
                 }
                 .sheet(isPresented: $infoSheetViewModel.openInfoSheet) {
                     HomeScreen(isSheetOpen: $infoSheetViewModel.openInfoSheet)
