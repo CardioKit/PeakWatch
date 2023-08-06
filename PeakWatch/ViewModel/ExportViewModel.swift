@@ -6,33 +6,42 @@
 //
 
 import Foundation
+import Combine
 
 class ExportViewModel: ObservableObject {
     
     let ecgs: [ECGSample]
     @Published var ecgExports: [ECGExportDTO] = []
+    var algorithmViewModels: [AlgorithmViewModel]
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(ecgs: [ECGSample]) {
         self.ecgs = ecgs
+        self.algorithmViewModels = ecgs.map { ecg in
+            AlgorithmViewModel(ecgSample: ecg)
+        }
+        
+        self.algorithmViewModels.forEach { algorithmViewModel in
+            algorithmViewModel.$qrsResultsByAlgorithm
+                .dropFirst()
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { _ in
+                    let exportResult = algorithmViewModel.exportResults
+                    self.ecgExports.append(exportResult)
+                    print("append \(exportResult.ecg.ecg.count)")
+                }
+            ).store(in: &cancellables)
+        }
     }
     
     
     func processAllECGs() async {
-        self.ecgs.map { ecg in
-            AlgorithmViewModel(ecgSample: ecg, algorithmsPerformedCallback: addECGExport)
-        }.forEach { algorithmViewModel in
+        self.algorithmViewModels.forEach { algorithmViewModel in
             Task {
-                await self.processSingleECG(algorithmViewModel: algorithmViewModel)
+                await algorithmViewModel.fetchVoltages()
             }
         }
     }
     
-    private func processSingleECG(algorithmViewModel: AlgorithmViewModel) async {
-        await algorithmViewModel.fetchVoltages()
-    }
-    
-    func addECGExport(_ algorithmViewModel: AlgorithmViewModel) {
-        let ecgExport = algorithmViewModel.exportResults
-        self.ecgExports.append(ecgExport)
-    }
 }

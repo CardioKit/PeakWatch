@@ -42,15 +42,6 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
     let qrsDetector = QRSDetector()
     
-    
-    var algorithmsPerformedCallback: (AlgorithmViewModel) -> Void = {_ in }
-    
-    init(ecgSample: ECGSample, algorithmsPerformedCallback: @escaping (AlgorithmViewModel) -> Void = {_ in }) {
-        super.init(ecgSample: ecgSample)
-        self.algorithmsPerformedCallback = algorithmsPerformedCallback
-    }
-    
-    
     private func calculateAlgorithms()  {
         
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
@@ -78,6 +69,5 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
 
     override func afterFetchAllVoltagesCallback() {
         calculateAlgorithms()
-        algorithmsPerformedCallback(self)
     }
 }
