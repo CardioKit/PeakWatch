@@ -16,6 +16,13 @@ struct ExportView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("ECGs to export: \(exportViewModel.ecgs.count)")
+            Text("ECGs exported: \(exportViewModel.ecgExports.count)")
+        }.task {
+            Task {
+                await exportViewModel.processAllECGs()
+            }
+        }
     }
 }
