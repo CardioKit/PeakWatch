@@ -62,6 +62,7 @@ class ExportViewModel: ObservableObject {
                 .dropFirst()
                 .receive(on: RunLoop.main)
                 .sink(receiveValue: { _ in
+                    print("appending")
                     if let exportResult = algorithmViewModel.exportResults {
                         self.ecgExports.ecgs.append(exportResult)
                     }
@@ -72,12 +73,9 @@ class ExportViewModel: ObservableObject {
     
     
     func processAllECGs() async {
-        
-        self.algorithmViewModels.enumerated().forEach { (index, algorithmViewModel) in
-            Task {
-                //sleep(UInt32(2 * index))
-                await algorithmViewModel.fetchVoltages()
-            }
+        for algorithmViewModel in algorithmViewModels {
+            await algorithmViewModel.fetchVoltages()
+            print("next")
         }
     }
     

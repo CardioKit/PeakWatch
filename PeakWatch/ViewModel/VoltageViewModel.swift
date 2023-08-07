@@ -87,7 +87,9 @@ class VoltageViewModel: ObservableObject {
                         self.voltageMeasurementsRaw = voltages
                         self.voltagesAllFetched = true
                         healthStore.stop(query)
-                        self.afterFetchAllVoltagesCallback()
+                        Task {
+                            await self.afterFetchAllVoltagesCallback()
+                        }
                     }
                     return
             }
@@ -105,7 +107,10 @@ class VoltageViewModel: ObservableObject {
                     DispatchQueue.main.async { [self] in
                         self.voltageMeasurementsRaw = voltages
                         self.voltagesAllFetched = true
-                        self.afterFetchAllVoltagesCallback()
+                        print("fetched")
+                        Task {
+                            await self.afterFetchAllVoltagesCallback()
+                        }
                     
                     }
                 case .error(let error):
@@ -122,7 +127,7 @@ class VoltageViewModel: ObservableObject {
     
     // Template method. Can be overriden by subclasses
     // Default behaviour empty
-    func afterFetchAllVoltagesCallback() {
+    func afterFetchAllVoltagesCallback() async {
         
     }
 }
