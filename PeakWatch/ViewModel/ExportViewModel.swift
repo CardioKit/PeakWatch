@@ -31,9 +31,10 @@ class ExportViewModel: ObservableObject {
                 .dropFirst()
                 .receive(on: RunLoop.main)
                 .sink(receiveValue: { _ in
-                    let exportResult = algorithmViewModel.exportResults
-                    self.ecgExports.ecgs.append(exportResult)
-                    print("append \(exportResult.ecg.ecg.count)")
+                    if let exportResult = algorithmViewModel.exportResults {
+                        self.ecgExports.ecgs.append(exportResult)
+                        print("append \(exportResult.ecg.ecg.count)")
+                    }
                 }
             ).store(in: &cancellables)
         }

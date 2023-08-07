@@ -16,7 +16,11 @@ struct ExportButtonView: View {
     let ecgPreviewText = "ECG Export"
     
     var body: some View {
-        ShareLink(item: algorithmViewModel.exportResults, preview: SharePreview(ecgPreviewText))
+        if let toExport = algorithmViewModel.exportResults {
+            ShareLink(item: toExport, preview: SharePreview(ecgPreviewText))
+        } else {
+            ProgressView()
+        }
         
     }
 }

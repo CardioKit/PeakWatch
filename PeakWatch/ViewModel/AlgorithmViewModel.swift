@@ -10,14 +10,15 @@ import PeakSwift
 
 class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
-    var exportResults: ECGExportDTO {
-            ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
+    var exportResults: ECGExportDTO? {
+        print("Results: \(qrsResultsByAlgorithm.count) + requested \(selectedAlgorithms.count)")
+        guard qrsResultsByAlgorithm.count == selectedAlgorithms.count else {
+            return nil
+        }
+        
+        return ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
     }
     
-    var exportTile: String {
-        "ecg-sample_\(DateUtils.formatDateForTitle(date: ecgSample.startDate))"
-    }
-
     var voltageMeasurementsWithPeaks: [VoltageMeasurementWithPeak] {
         var measurements = self.voltageMeasurements.map { measurement in
             VoltageMeasurementWithPeak(position: measurement.position, voltage: measurement.voltage)
@@ -43,13 +44,15 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     let qrsDetector = QRSDetector()
     
     private func calculateAlgorithms()  {
-        
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
+        
+        var qrsResultByAlgorithmBuffer: [QRSResultsByAlgorithm] = []
         selectedAlgorithms.forEach {
             algorithm in
             let qrsResults = calculateAlgorithm(algorithm: algorithm, voltages: voltages)
-            self.qrsResultsByAlgorithm.append(qrsResults)
+            qrsResultByAlgorithmBuffer.append(qrsResults)
         }
+        self.qrsResultsByAlgorithm = qrsResultByAlgorithmBuffer
         
     }
     
@@ -70,4 +73,5 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     override func afterFetchAllVoltagesCallback() {
         calculateAlgorithms()
     }
+    
 }
