@@ -71,11 +71,25 @@ class ExportViewModel: ObservableObject {
         }
     }
     
+    deinit {
+        print("deinit")
+    }
+    
     
     func processAllECGs() async {
         for algorithmViewModel in algorithmViewModels {
             await algorithmViewModel.fetchVoltages()
             print("next")
+        }
+    }
+    
+    // Call this function when view disappear
+    // Otherwise there is a chance of memory leaks
+    // Reason: if cancellables never canceled, ExportViewModel() is never deallocated.
+    func unsubscribe() {
+        print("cancel")
+        cancellables.forEach { cancellable in
+            cancellable.cancel()
         }
     }
     
