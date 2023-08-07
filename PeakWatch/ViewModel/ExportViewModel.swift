@@ -31,6 +31,24 @@ class ExportViewModel: ObservableObject {
         Array(UserSettingsViewModel().selectedAlgorithms)
     }
     
+    var processTime: Duration {
+        let runtimes = ecgExports.ecgs.flatMap { ecg in
+            let runtimesAlgorithms = ecg.algorithms.compactMap { algorithm in
+                algorithm.runtime
+            }
+            let runtimesQuality = ecg.signalQuality.compactMap { signalQuality in
+                signalQuality.runtime
+                
+            }
+            
+            return runtimesAlgorithms + runtimesQuality
+        }
+        
+        return runtimes.reduce(Duration.zero) { acc, nextDuration in
+            acc + Duration(secondsComponent: nextDuration.seconds, attosecondsComponent: nextDuration.attoseconds)
+        }
+    }
+    
     private var cancellables = Set<AnyCancellable>()
     
     init(ecgs: [ECGSample]) {

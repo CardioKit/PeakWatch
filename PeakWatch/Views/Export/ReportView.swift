@@ -23,7 +23,7 @@ struct ReportView: View {
         
         CardWithHeader(headerIcon: "stopwatch",
                        headerTitle: "Total execution time") {
-            Text("1000 ms")
+            Text("\(String(format: "%.6f", exportViewModel.processTime.inMilliseconds)) ms")
                 .font(.system(size: 18))
         }
         
