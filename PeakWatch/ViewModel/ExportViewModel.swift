@@ -18,6 +18,14 @@ class ExportViewModel: ObservableObject {
         ecgs.count == ecgExports.ecgs.count
     }
     
+    var totalECGsToProcess: Double {
+        Double(ecgs.count)
+    }
+    
+    var amountOfECGProcess: Double {
+        Double(ecgExports.ecgs.count)
+    }
+    
     private var cancellables = Set<AnyCancellable>()
     
     init(ecgs: [ECGSample]) {
@@ -44,6 +52,7 @@ class ExportViewModel: ObservableObject {
         
         self.algorithmViewModels.enumerated().forEach { (index, algorithmViewModel) in
             Task {
+                sleep(UInt32(2 * index))
                 await algorithmViewModel.fetchVoltages()
             }
         }
