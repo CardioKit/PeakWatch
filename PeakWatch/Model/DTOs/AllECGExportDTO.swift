@@ -16,15 +16,9 @@ struct AllECGExportDTO: Codable {
 
 extension AllECGExportDTO: Transferable {
     
-    #warning("recator copy and paste")
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(exportedContentType: .json) { ecgExport in
-            let jsonData = try ECGExportDTOHelper.convertToJSON(ecgExportDTO: ecgExport)
-            let fileName = ECGExportDTOHelper.createFileName(ecgExportDTO: ecgExport)
-            let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(fileName, conformingTo: .json)
-            try jsonData.write(to: fileURL)
-            
-            return SentTransferredFile(fileURL)
+            return try ECGExportDTOHelper.export(exportable: ecgExport)
         }
     }
     

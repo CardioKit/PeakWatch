@@ -15,6 +15,7 @@
 		114C258F2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */; };
 		114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */; };
 		114DA37F2A80D3B000186277 /* AllECGExportDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DA37E2A80D3B000186277 /* AllECGExportDTO.swift */; };
+		114DA3832A80EBB900186277 /* FileExportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DA3822A80EBB900186277 /* FileExportable.swift */; };
 		1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDB62A753B23008E209C /* DurationExtension.swift */; };
 		1153CDB92A755413008E209C /* ECGSingleAlgorithmPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDB82A755412008E209C /* ECGSingleAlgorithmPerformanceView.swift */; };
 		1153CDBB2A7690FC008E209C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDBA2A7690FC008E209C /* Colors.swift */; };
@@ -115,6 +116,7 @@
 		114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSheetView.swift; sourceTree = "<group>"; };
 		114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		114DA37E2A80D3B000186277 /* AllECGExportDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllECGExportDTO.swift; sourceTree = "<group>"; };
+		114DA3822A80EBB900186277 /* FileExportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExportable.swift; sourceTree = "<group>"; };
 		1153CDB62A753B23008E209C /* DurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationExtension.swift; sourceTree = "<group>"; };
 		1153CDB82A755412008E209C /* ECGSingleAlgorithmPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmPerformanceView.swift; sourceTree = "<group>"; };
 		1153CDBA2A7690FC008E209C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				11B3C9D62A5C5CB800EF0555 /* AlgorithmSelectable.swift */,
+				114DA3822A80EBB900186277 /* FileExportable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 				17BF56622A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift in Sources */,
 				179438E02A31F47700616B9B /* ECGSample.swift in Sources */,
 				1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */,
+				114DA3832A80EBB900186277 /* FileExportable.swift in Sources */,
 				117355062A778C37000C7F6A /* ECGInformationDTO.swift in Sources */,
 				1157080D2A59C112004D31F5 /* SupportedAlgorithmsView.swift in Sources */,
 				17BF565F2A3332E600FF42D5 /* HKClassificationExtension.swift in Sources */,
