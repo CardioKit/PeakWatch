@@ -10,6 +10,7 @@ import SwiftUI
 struct ExportView: View {
     
     @StateObject var exportViewModel: ExportViewModel
+    let ecgPreviewText = "Export all ecgs"
     
     init(ecgs: [ECGSample]) {
         self._exportViewModel = StateObject(wrappedValue: ExportViewModel(ecgs: ecgs))
@@ -17,8 +18,13 @@ struct ExportView: View {
     
     var body: some View {
         VStack {
-            Text("ECGs to export: \(exportViewModel.ecgs.count)")
-            Text("ECGs exported: \(exportViewModel.ecgExports.count)")
+            if exportViewModel.isExportReady {
+                ShareLink(item: exportViewModel.ecgExports, preview: SharePreview(ecgPreviewText))
+            } else {
+                Text("ECGs to export: \(exportViewModel.ecgs.count)")
+                Text("ECGs exported: \(exportViewModel.ecgExports.ecgs.count)")
+            }
+
         }.task {
             Task {
                 await exportViewModel.processAllECGs()

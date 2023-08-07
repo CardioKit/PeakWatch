@@ -8,19 +8,41 @@
 import Foundation
 import SwiftUI
 
-enum ECGExportDTOHelper {
+struct ECGExportDTOHelper<ExportDTO: Codable> {
     
-    static func convertToJSON(ecgExportDTO: ECGExportDTO) throws -> Data {
+    static var jsonEncoder: JSONEncoder {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
-        let encodedData = try encoder.encode(ecgExportDTO)
+        return encoder
+    }
+    
+    static func convertToJSON(ecgExportDTO: ExportDTO) throws -> Data {
+        let encodedData = try jsonEncoder.encode(ecgExportDTO)
         return encodedData
     }
     
+    static func createFileName(deviceID: UUID?, suffix: String) -> String {
+        let deviceName = deviceID?.uuidString ?? "unknown"
+        return "PW_ECG_\(deviceName)_\(suffix)"
+    }
+}
+
+
+extension ECGExportDTOHelper where ExportDTO == ECGExportDTO {
+    
     static func createFileName(ecgExportDTO: ECGExportDTO) -> String {
-        let deviceName = ecgExportDTO.deviceID?.uuidString ?? "unknown"
+        let deviceID = ecgExportDTO.deviceID
         let date = DateUtils.formatDateForTitle(date: ecgExportDTO.appleMetaData.recordingStartTime)
-        return "PW_ECG_\(deviceName)_\(date)"
+        return  createFileName(deviceID: deviceID, suffix: date)
+    }
+}
+
+extension ECGExportDTOHelper where ExportDTO == AllECGExportDTO {
+    
+    static func createFileName(ecgExportDTO: AllECGExportDTO) -> String {
+        let deviceID = UUID()
+        let suffix = "All"
+        return  createFileName(deviceID: deviceID, suffix: suffix)
     }
     
 }

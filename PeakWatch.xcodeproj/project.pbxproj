@@ -14,6 +14,7 @@
 		114BB14E2A7450D60079956A /* AlgorithmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BB14D2A7450D60079956A /* AlgorithmViewModel.swift */; };
 		114C258F2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */; };
 		114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */; };
+		114DA37F2A80D3B000186277 /* AllECGExportDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DA37E2A80D3B000186277 /* AllECGExportDTO.swift */; };
 		1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDB62A753B23008E209C /* DurationExtension.swift */; };
 		1153CDB92A755413008E209C /* ECGSingleAlgorithmPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDB82A755412008E209C /* ECGSingleAlgorithmPerformanceView.swift */; };
 		1153CDBB2A7690FC008E209C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153CDBA2A7690FC008E209C /* Colors.swift */; };
@@ -113,6 +114,7 @@
 		114BB14D2A7450D60079956A /* AlgorithmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmViewModel.swift; sourceTree = "<group>"; };
 		114C258E2A5C793400CB6F01 /* ECGAlgorithmSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSheetView.swift; sourceTree = "<group>"; };
 		114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
+		114DA37E2A80D3B000186277 /* AllECGExportDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllECGExportDTO.swift; sourceTree = "<group>"; };
 		1153CDB62A753B23008E209C /* DurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationExtension.swift; sourceTree = "<group>"; };
 		1153CDB82A755412008E209C /* ECGSingleAlgorithmPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSingleAlgorithmPerformanceView.swift; sourceTree = "<group>"; };
 		1153CDBA2A7690FC008E209C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				1173550B2A778D7B000C7F6A /* RPeaksDTO.swift */,
 				1173550D2A778E85000C7F6A /* SignalQualityDTO.swift */,
 				117355132A78266D000C7F6A /* RuntimeDTO.swift */,
+				114DA37E2A80D3B000186277 /* AllECGExportDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				115708132A59CD50004D31F5 /* Tag.swift in Sources */,
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
 				117355142A78266D000C7F6A /* RuntimeDTO.swift in Sources */,
+				114DA37F2A80D3B000186277 /* AllECGExportDTO.swift in Sources */,
 				11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */,
 				50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */,
 				115708092A59C0B7004D31F5 /* GoalView.swift in Sources */,

@@ -11,8 +11,12 @@ import Combine
 class ExportViewModel: ObservableObject {
     
     let ecgs: [ECGSample]
-    @Published var ecgExports: [ECGExportDTO] = []
+    @Published var ecgExports: AllECGExportDTO = AllECGExportDTO(ecgs: [])
     var algorithmViewModels: [AlgorithmViewModel]
+    
+    var isExportReady: Bool {
+        ecgs.count == ecgExports.ecgs.count
+    }
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -28,7 +32,7 @@ class ExportViewModel: ObservableObject {
                 .receive(on: RunLoop.main)
                 .sink(receiveValue: { _ in
                     let exportResult = algorithmViewModel.exportResults
-                    self.ecgExports.append(exportResult)
+                    self.ecgExports.ecgs.append(exportResult)
                     print("append \(exportResult.ecg.ecg.count)")
                 }
             ).store(in: &cancellables)
