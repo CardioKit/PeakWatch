@@ -11,7 +11,7 @@ import PeakSwift
 class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
     var exportResults: ECGExportDTO? {
-        print("Results: \(qrsResultsByAlgorithm.count) + requested \(selectedAlgorithms.count)")
+        // Only allow export, when all algorithms are executed
         guard qrsResultsByAlgorithm.count == selectedAlgorithms.count else {
             return nil
         }
