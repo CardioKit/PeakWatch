@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct LoadingScreenView: View {
+struct ExportProgressView: View {
     
     @ObservedObject var exportViewModel: ExportViewModel
+    
+    let progressText = "Algorithms running..."
     
     
     var ecgsProcessedPercentageLabel: String {
@@ -21,7 +23,7 @@ struct LoadingScreenView: View {
         LoadingLogo()
         Spacer()
             .frame(maxHeight: 60)
-        Text("Running algorithms...")
+        Text(progressText)
             .font(.system(size: 14, weight: .light))
         Text(ecgsProcessedPercentageLabel)
             .font(.system(size: 24, weight: .bold))

@@ -21,7 +21,7 @@ struct ExportView: View {
             if exportViewModel.isExportReady {
                 ShareLink(item: exportViewModel.ecgExports, preview: SharePreview(ecgPreviewText))
             } else {
-                LoadingScreenView(exportViewModel: exportViewModel)
+                ExportProgressView(exportViewModel: exportViewModel)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
