@@ -8,15 +8,20 @@
 import SwiftUI
 import PeakSwift
 
-struct SupportedAlgorithmsView: View {
+struct AlgorithmsTagsGridView: View {
     
-    let tags = TagUtils.createTags(from: supportedAlgorithms)
-    let supportedAlgorithmTitle = "Algorithms supported"
+    let tags: [Tag]
+    let title: String
+    
+    init(title: String, algorithms: [Algorithms]) {
+        self.title = title
+        self.tags = TagUtils.createTags(from: algorithms)
+    }
     
     
     var body: some View {
         VStack {
-            Text(supportedAlgorithmTitle).modifier(HeaderViewModifier())
+            Text(title).modifier(HeaderViewModifier())
             CardView(style: .background, cornerRadius: 8) {
                 TagContainerView(tags: tags)
             }

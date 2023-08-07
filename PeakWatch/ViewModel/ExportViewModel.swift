@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import PeakSwift
 
 class ExportViewModel: ObservableObject {
     
@@ -24,6 +25,10 @@ class ExportViewModel: ObservableObject {
     
     var amountOfECGProcess: Double {
         Double(ecgExports.ecgs.count)
+    }
+    
+    var algorithmsExecuted: [Algorithms] {
+        Array(UserSettingsViewModel().selectedAlgorithms)
     }
     
     private var cancellables = Set<AnyCancellable>()
@@ -52,7 +57,7 @@ class ExportViewModel: ObservableObject {
         
         self.algorithmViewModels.enumerated().forEach { (index, algorithmViewModel) in
             Task {
-                sleep(UInt32(2 * index))
+                //sleep(UInt32(2 * index))
                 await algorithmViewModel.fetchVoltages()
             }
         }

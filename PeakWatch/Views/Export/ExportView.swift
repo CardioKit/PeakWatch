@@ -10,7 +10,8 @@ import SwiftUI
 struct ExportView: View {
     
     @StateObject var exportViewModel: ExportViewModel
-    let ecgPreviewText = "Export all ecgs"
+    
+    let title = "Export ECGs"
     
     init(ecgs: [ECGSample]) {
         self._exportViewModel = StateObject(wrappedValue: ExportViewModel(ecgs: ecgs))
@@ -19,7 +20,8 @@ struct ExportView: View {
     var body: some View {
         VStack {
             if exportViewModel.isExportReady {
-                ShareLink(item: exportViewModel.ecgExports, preview: SharePreview(ecgPreviewText))
+                ReportView(exportViewModel: exportViewModel)
+                    .padding(10)
             } else {
                 ExportProgressView(exportViewModel: exportViewModel)
             }
@@ -30,6 +32,6 @@ struct ExportView: View {
             Task {
                 await exportViewModel.processAllECGs()
             }
-        }
+        }.navigationTitle(title)
     }
 }

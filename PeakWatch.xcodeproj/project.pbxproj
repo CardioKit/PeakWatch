@@ -25,7 +25,7 @@
 		115708032A59BC10004D31F5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708022A59BC10004D31F5 /* CardView.swift */; };
 		115708092A59C0B7004D31F5 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708082A59C0B7004D31F5 /* GoalView.swift */; };
 		1157080B2A59C0E0004D31F5 /* FeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157080A2A59C0E0004D31F5 /* FeaturesView.swift */; };
-		1157080D2A59C112004D31F5 /* SupportedAlgorithmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157080C2A59C112004D31F5 /* SupportedAlgorithmsView.swift */; };
+		1157080D2A59C112004D31F5 /* AlgorithmsTagsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157080C2A59C112004D31F5 /* AlgorithmsTagsGridView.swift */; };
 		1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157080E2A59C16D004D31F5 /* ECGNavigationView.swift */; };
 		115708112A59CD3D004D31F5 /* TagContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708102A59CD3D004D31F5 /* TagContainerView.swift */; };
 		115708132A59CD50004D31F5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708122A59CD50004D31F5 /* Tag.swift */; };
@@ -65,6 +65,8 @@
 		11B52C012A790B46004AE7B1 /* ECGExportDTOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B52C002A790B46004AE7B1 /* ECGExportDTOHelper.swift */; };
 		11B70C162A811F5B00D6BC8B /* LoadingLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B70C152A811F5B00D6BC8B /* LoadingLogo.swift */; };
 		11B70C182A81354800D6BC8B /* ExportProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B70C172A81354800D6BC8B /* ExportProgressView.swift */; };
+		11B70C1A2A813DA800D6BC8B /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B70C192A813DA800D6BC8B /* ReportView.swift */; };
+		11B70C1C2A81405B00D6BC8B /* CardWithHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B70C1B2A81405B00D6BC8B /* CardWithHeader.swift */; };
 		172871292A37B0D800507869 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172871282A37B0D800507869 /* TagViewModifier.swift */; };
 		1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */; };
 		1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712C2A37B28C00507869 /* ECGSignalView.swift */; };
@@ -128,7 +130,7 @@
 		115708022A59BC10004D31F5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		115708082A59C0B7004D31F5 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		1157080A2A59C0E0004D31F5 /* FeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesView.swift; sourceTree = "<group>"; };
-		1157080C2A59C112004D31F5 /* SupportedAlgorithmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedAlgorithmsView.swift; sourceTree = "<group>"; };
+		1157080C2A59C112004D31F5 /* AlgorithmsTagsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmsTagsGridView.swift; sourceTree = "<group>"; };
 		1157080E2A59C16D004D31F5 /* ECGNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGNavigationView.swift; sourceTree = "<group>"; };
 		115708102A59CD3D004D31F5 /* TagContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagContainerView.swift; sourceTree = "<group>"; };
 		115708122A59CD50004D31F5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -168,6 +170,8 @@
 		11B52C002A790B46004AE7B1 /* ECGExportDTOHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGExportDTOHelper.swift; sourceTree = "<group>"; };
 		11B70C152A811F5B00D6BC8B /* LoadingLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLogo.swift; sourceTree = "<group>"; };
 		11B70C172A81354800D6BC8B /* ExportProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportProgressView.swift; sourceTree = "<group>"; };
+		11B70C192A813DA800D6BC8B /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		11B70C1B2A81405B00D6BC8B /* CardWithHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWithHeader.swift; sourceTree = "<group>"; };
 		172871282A37B0D800507869 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSectionView.swift; sourceTree = "<group>"; };
 		1728712C2A37B28C00507869 /* ECGSignalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSignalView.swift; sourceTree = "<group>"; };
@@ -229,8 +233,10 @@
 			isa = PBXGroup;
 			children = (
 				115708022A59BC10004D31F5 /* CardView.swift */,
+				1157080C2A59C112004D31F5 /* AlgorithmsTagsGridView.swift */,
 				115708102A59CD3D004D31F5 /* TagContainerView.swift */,
 				115708142A59CD8F004D31F5 /* TagView.swift */,
+				11B70C1B2A81405B00D6BC8B /* CardWithHeader.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -250,7 +256,6 @@
 				11B52BFD2A78ECCA004AE7B1 /* SharedView */,
 				11671E5D2A5BFE8100C3A913 /* FeaturesView */,
 				115708082A59C0B7004D31F5 /* GoalView.swift */,
-				1157080C2A59C112004D31F5 /* SupportedAlgorithmsView.swift */,
 				1157080E2A59C16D004D31F5 /* ECGNavigationView.swift */,
 				1157081A2A59F0BE004D31F5 /* ECGFoundView.swift */,
 				1157081C2A59F121004D31F5 /* ECGNotFoundView.swift */,
@@ -272,6 +277,7 @@
 				11589A912A7FEFD900CC6E97 /* ExportView.swift */,
 				11B70C152A811F5B00D6BC8B /* LoadingLogo.swift */,
 				11B70C172A81354800D6BC8B /* ExportProgressView.swift */,
+				11B70C192A813DA800D6BC8B /* ReportView.swift */,
 			);
 			path = Export;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 			files = (
 				173C05362A31C15F00D3E786 /* ContentView.swift in Sources */,
 				1173550A2A778D10000C7F6A /* QRSResultByAlgorithm.swift in Sources */,
+				11B70C1C2A81405B00D6BC8B /* CardWithHeader.swift in Sources */,
 				179438E32A32422A00616B9B /* DateUtils.swift in Sources */,
 				114BB1462A729D760079956A /* ECGChartPreviewView.swift in Sources */,
 				179438D62A31E42400616B9B /* ECGRowView.swift in Sources */,
@@ -714,6 +721,7 @@
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
 				117355142A78266D000C7F6A /* RuntimeDTO.swift in Sources */,
 				114DA37F2A80D3B000186277 /* AllECGExportDTO.swift in Sources */,
+				11B70C1A2A813DA800D6BC8B /* ReportView.swift in Sources */,
 				11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */,
 				50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */,
 				115708092A59C0B7004D31F5 /* GoalView.swift in Sources */,
@@ -739,7 +747,7 @@
 				1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */,
 				114DA3832A80EBB900186277 /* FileExportable.swift in Sources */,
 				117355062A778C37000C7F6A /* ECGInformationDTO.swift in Sources */,
-				1157080D2A59C112004D31F5 /* SupportedAlgorithmsView.swift in Sources */,
+				1157080D2A59C112004D31F5 /* AlgorithmsTagsGridView.swift in Sources */,
 				17BF565F2A3332E600FF42D5 /* HKClassificationExtension.swift in Sources */,
 				1160CEAE2A5F040100BE5867 /* FeatureRow.swift in Sources */,
 				11B52C012A790B46004AE7B1 /* ECGExportDTOHelper.swift in Sources */,
