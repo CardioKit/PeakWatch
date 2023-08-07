@@ -12,11 +12,6 @@ struct ExportView: View {
     @StateObject var exportViewModel: ExportViewModel
     let ecgPreviewText = "Export all ecgs"
     
-    var ecgsProcessedPercentageLabel: String {
-        let percentage = 100.0 * exportViewModel.amountOfECGProcess / exportViewModel.totalECGsToProcess
-        return String(format: "%.0f", percentage)
-    }
-    
     init(ecgs: [ECGSample]) {
         self._exportViewModel = StateObject(wrappedValue: ExportViewModel(ecgs: ecgs))
     }
@@ -26,10 +21,7 @@ struct ExportView: View {
             if exportViewModel.isExportReady {
                 ShareLink(item: exportViewModel.ecgExports, preview: SharePreview(ecgPreviewText))
             } else {
-                LoadingLogo()
-                ProgressView(value: exportViewModel.amountOfECGProcess, total: exportViewModel.totalECGsToProcess) {
-                    Text("Running peak detection algorithms \(ecgsProcessedPercentageLabel)%")
-                }.frame(maxWidth: 300)
+                LoadingScreenView(exportViewModel: exportViewModel)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
