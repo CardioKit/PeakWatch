@@ -48,6 +48,7 @@
 		1160CEB72A5F1F9E00BE5867 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160CEB62A5F1F9E00BE5867 /* ToolbarView.swift */; };
 		11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */; };
 		11671E612A5C275100C3A913 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E602A5C275100C3A913 /* Feature.swift */; };
+		116D60522A8261C500EB7D9C /* DeviceDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */; };
 		116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E63B72A586F9C00A0C6F4 /* ECGChartView.swift */; };
 		117355012A778988000C7F6A /* ExportButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117355002A778988000C7F6A /* ExportButtonView.swift */; };
 		117355042A778C00000C7F6A /* ECGExportDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117355032A778C00000C7F6A /* ECGExportDTO.swift */; };
@@ -153,6 +154,7 @@
 		1160CEB62A5F1F9E00BE5867 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
 		11671E602A5C275100C3A913 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataUtils.swift; sourceTree = "<group>"; };
 		116E63B72A586F9C00A0C6F4 /* ECGChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGChartView.swift; sourceTree = "<group>"; };
 		117355002A778988000C7F6A /* ExportButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButtonView.swift; sourceTree = "<group>"; };
 		117355032A778C00000C7F6A /* ECGExportDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGExportDTO.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				115708182A59E7B9004D31F5 /* Constants.swift */,
 				1153CDBA2A7690FC008E209C /* Colors.swift */,
 				11B52C002A790B46004AE7B1 /* ECGExportDTOHelper.swift */,
+				116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				11B3C9D42A5C5BB600EF0555 /* UserSettingsViewModel.swift in Sources */,
 				1153CDBD2A769401008E209C /* RoundedBackgroundModifier.swift in Sources */,
 				116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */,
+				116D60522A8261C500EB7D9C /* DeviceDataUtils.swift in Sources */,
 				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
 				1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */,
 				17A82BEE2A3767F200873DF7 /* AlgorithmSelectionView.swift in Sources */,

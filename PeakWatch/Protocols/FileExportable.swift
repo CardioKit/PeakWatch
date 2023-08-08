@@ -37,7 +37,7 @@ extension ECGExportDTO: FileExportable {
 extension AllECGExportDTO: FileExportable {
     
     var createFileName: String {
-        let deviceID = UUID()
+        let deviceID = DeviceDataUtils.deviceId
         let suffix = "All"
         return createFileName(deviceID: deviceID, suffix: suffix)
     }

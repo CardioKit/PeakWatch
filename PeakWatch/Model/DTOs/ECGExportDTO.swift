@@ -18,8 +18,8 @@ struct ECGExportDTO: Codable {
     let deviceID: UUID?
     
     static func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) -> ECGExportDTO {
-        // The id should be unique. The same id is generated for apps that come from the same vendor running on the same device.
-        let deviceId = UIDevice.current.identifierForVendor
+        
+        let deviceId = DeviceDataUtils.deviceId
         
         let ecgDTO = ECGInformationDTO.createECGDTO(algorithmViewModel: algorithmViewModel)
         let appleMetaDataDTO = ECGAppleMetaDataDTO.createAppleMetaDataDTO(algorithmViewModel: algorithmViewModel)
