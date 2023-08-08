@@ -14,7 +14,7 @@ struct GlobalExportButtonView: View {
     
     var body: some View {
         NavigationLink {
-            ExportView(ecgs: [[ECGSample]].init(repeating: ecgs, count: 30).flatMap { $0 })
+            ExportView(ecgs: [[ECGSample]].init(repeating: ecgs, count: 1).flatMap { $0 })
         } label: {
             Image(systemName: exportButtonIcon)
         }
