@@ -12,7 +12,6 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
     var exportResults: ECGExportDTO? {
         // Only allow export, when all algorithms are executed
-        print("processed: \(qrsResultsByAlgorithm.count) of \(selectedAlgorithms.count)")
         guard qrsResultsByAlgorithm.count == selectedAlgorithms.count else {
             return nil
         }
@@ -75,9 +74,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
 
     override func afterFetchAllVoltagesCallback() async {
-        print("start calculation")
         calculateAlgorithms()
-        print("end calculation \(qrsResultsByAlgorithm.count)")
     }
     
 }

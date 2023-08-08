@@ -62,7 +62,6 @@ class ExportViewModel: ObservableObject {
                 .dropFirst()
                 .receive(on: RunLoop.main)
                 .sink(receiveValue: { _ in
-                    print("appending")
                     if let exportResult = algorithmViewModel.exportResults {
                         self.ecgExports.ecgs.append(exportResult)
                     }
@@ -71,15 +70,9 @@ class ExportViewModel: ObservableObject {
         }
     }
     
-    deinit {
-        print("deinit")
-    }
-    
-    
     func processAllECGs() async {
         for algorithmViewModel in algorithmViewModels {
             await algorithmViewModel.fetchVoltages()
-            print("next")
         }
     }
     
@@ -87,7 +80,6 @@ class ExportViewModel: ObservableObject {
     // Otherwise there is a chance of memory leaks
     // Reason: if cancellables never canceled, ExportViewModel() is never deallocated.
     func unsubscribe() {
-        print("cancel")
         cancellables.forEach { cancellable in
             cancellable.cancel()
         }

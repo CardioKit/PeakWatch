@@ -107,7 +107,6 @@ class VoltageViewModel: ObservableObject {
                     DispatchQueue.main.async { [self] in
                         self.voltageMeasurementsRaw = voltages
                         self.voltagesAllFetched = true
-                        print("fetched")
                         Task {
                             await self.afterFetchAllVoltagesCallback()
                         }
