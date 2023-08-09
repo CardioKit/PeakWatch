@@ -22,7 +22,7 @@ struct HomeScreen: View {
                 FeaturesView()
                     .padding(.top, spacingBetweenSections)
                     .padding([.leading, .trailing], paddingBetweenLeftRight)
-                SupportedAlgorithmsView()
+            AlgorithmsTagsGridView(title: "Algorithms supported", algorithms: supportedAlgorithms)
                     .padding(.top, spacingBetweenSections)
                     .padding([.leading, .trailing], paddingBetweenLeftRight)
                 Spacer()

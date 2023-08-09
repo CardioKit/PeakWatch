@@ -18,8 +18,8 @@ struct ECGExportDTO: Codable {
     let deviceID: UUID?
     
     static func createECGExportDTO(algorithmViewModel: AlgorithmViewModel) -> ECGExportDTO {
-        // The id should be unique. The same id is generated for apps that come from the same vendor running on the same device.
-        let deviceId = UIDevice.current.identifierForVendor
+        
+        let deviceId = DeviceDataUtils.deviceId
         
         let ecgDTO = ECGInformationDTO.createECGDTO(algorithmViewModel: algorithmViewModel)
         let appleMetaDataDTO = ECGAppleMetaDataDTO.createAppleMetaDataDTO(algorithmViewModel: algorithmViewModel)
@@ -34,12 +34,7 @@ extension ECGExportDTO: Transferable {
     
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(exportedContentType: .json) { ecgExport in
-            let jsonData = try ECGExportDTOHelper.convertToJSON(ecgExportDTO: ecgExport)
-            let fileName = ECGExportDTOHelper.createFileName(ecgExportDTO: ecgExport)
-            let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(fileName, conformingTo: .json)
-            try jsonData.write(to: fileURL)
-            
-            return SentTransferredFile(fileURL)
+            return try ECGExportDTOHelper.export(exportable: ecgExport)
         }
     }
     

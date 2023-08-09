@@ -8,19 +8,28 @@
 import Foundation
 import SwiftUI
 
-enum ECGExportDTOHelper {
+struct ECGExportDTOHelper<ExportDTO: FileExportable> {
     
-    static func convertToJSON(ecgExportDTO: ECGExportDTO) throws -> Data {
+    static var jsonEncoder: JSONEncoder {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
-        let encodedData = try encoder.encode(ecgExportDTO)
+        return encoder
+    }
+    
+    static func convertToJSON(ecgExportDTO: ExportDTO) throws -> Data {
+        let encodedData = try jsonEncoder.encode(ecgExportDTO)
         return encodedData
     }
     
-    static func createFileName(ecgExportDTO: ECGExportDTO) -> String {
-        let deviceName = ecgExportDTO.deviceID?.uuidString ?? "unknown"
-        let date = DateUtils.formatDateForTitle(date: ecgExportDTO.appleMetaData.recordingStartTime)
-        return "PW_ECG_\(deviceName)_\(date)"
+    static func export(exportable: ExportDTO) throws -> SentTransferredFile {
+        let jsonData = try ECGExportDTOHelper.convertToJSON(ecgExportDTO: exportable)
+        let fileName = exportable.createFileName
+        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(fileName, conformingTo: .json)
+        try jsonData.write(to: fileURL)
+        
+        return SentTransferredFile(fileURL)
     }
-    
 }
+
+
+
