@@ -27,6 +27,8 @@ struct ECGSignalView: View {
                     .foregroundStyle(by: .value("Algorithm", algorithm.description))
                 }
             }
+        } legend: {
+            AlgorithmsChartLegendView(algortihms: Array(algorithmViewModel.selectedAlgorithms))
         }
        }
     
