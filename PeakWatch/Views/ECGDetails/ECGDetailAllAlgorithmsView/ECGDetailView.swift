@@ -36,7 +36,7 @@ struct ECGDetailView: View {
                     .headerProminence(.increased)
                     Section(header: Text(chartTitle)) {
                         ECGSignalView(algorithmViewModel: algorithmViewModel)
-                    }.headerProminence(.increased)
+                    }.listRowSeparator(.hidden).headerProminence(.increased)
                     Section(header: Text(performanceTitle)) {
                         ECGAlgorithmPerformanceView(algorithmViewModel: algorithmViewModel)
                     }.headerProminence(.increased)
