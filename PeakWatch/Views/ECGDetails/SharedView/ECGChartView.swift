@@ -43,7 +43,7 @@ struct ECGChartView<Content: ChartContent, Legend: View>: View {
         if scrollable {
             ScrollView(.horizontal, showsIndicators: false) {
                 chart
-            }//.chartLegend(.visible)
+            }
             self.legend
         } else {
                 chart
@@ -56,10 +56,6 @@ struct ECGChartView<Content: ChartContent, Legend: View>: View {
         }
         .chartXScale(domain: 0...chartRange)
         .frame(width: CGFloat(chartRange) * CGFloat(widthScaling), height: CGFloat(height))
-        //.chartLegend(.visible)
-        .chartLegend(position: .bottom) {
-            Text("Test")
-        }
         .chartXAxis {
             self.xAxisMarks
         }

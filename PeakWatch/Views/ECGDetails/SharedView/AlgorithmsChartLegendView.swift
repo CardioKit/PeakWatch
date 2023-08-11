@@ -20,7 +20,7 @@ struct AlgorithmsChartLegendView: View {
             ForEach(algortihms, id: \.self) { symbol in
                 HStack {
                     BasicChartSymbolShape.circle
-                        .foregroundColor(colorFor(symbol: symbol))
+                        .foregroundColor(symbol.color)
                         .frame(width: 8, height: 8)
                     Text(symbol.description)
                         .foregroundColor(.gray)
