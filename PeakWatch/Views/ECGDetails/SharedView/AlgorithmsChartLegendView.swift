@@ -29,11 +29,4 @@ struct AlgorithmsChartLegendView: View {
             }
         }
     }
-    
-    let colors = [Color.blue, .green, .orange, .purple, .red, .cyan, .yellow]
-
-    func colorFor(symbol: Algorithms) -> Color {
-        let symbolIndex = supportedAlgorithms.firstIndex(of: symbol) ?? 0
-        return colors[symbolIndex % colors.count]
-    }
 }
