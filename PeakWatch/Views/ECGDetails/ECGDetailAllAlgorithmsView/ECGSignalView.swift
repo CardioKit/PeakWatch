@@ -24,9 +24,11 @@ struct ECGSignalView: View {
                     PointMark(
                         x: .value("R peak position", voltageMeasurement.position),
                               y: .value("Voltage", voltageMeasurement.voltage))
-                    .foregroundStyle(by: .value("Algorithm", algorithm.description))
+                    .foregroundStyle(algorithm.color)
                 }
             }
+        } legend: {
+            AlgorithmsChartLegendView(algortihms: Array(algorithmViewModel.selectedAlgorithms))
         }
        }
     

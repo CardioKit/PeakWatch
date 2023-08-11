@@ -7,6 +7,7 @@
 
 import Foundation
 import PeakSwift
+import SwiftUI
 
 extension Algorithms: RawRepresentable {
     
@@ -77,5 +78,35 @@ extension Algorithms: Identifiable {
 extension Algorithms: CustomStringConvertible {
     public var description: String {
         return rawValue
+    }
+}
+
+extension Algorithms {
+    
+    var color: Color {
+        switch self {
+        case .basic:
+            return .brown
+        case .aristotle:
+            return .black
+        case .christov:
+            return .blue
+        case .gqrs:
+            return .gray
+        case .wqrs:
+            return .mint
+        case .nabian2018:
+            return .purple
+        case .hamilton:
+            return .orange
+        case .hamiltonCleaned:
+            return .yellow
+        case .twoAverage:
+            return .pink
+        case .neurokit:
+            return .cyan
+        case .panTompkins:
+            return .green
+        }
     }
 }

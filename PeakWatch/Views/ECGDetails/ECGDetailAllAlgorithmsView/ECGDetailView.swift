@@ -20,22 +20,27 @@ struct ECGDetailView: View {
         self.ecgSample = ecgSample
         self._algorithmViewModel = StateObject(wrappedValue: AlgorithmViewModel(ecgSample: ecgSample))
     }
+    
+    let algorithmsSelectionTitle = "Configure algorithms"
+    let chartTitle = "ECG Signal with R peaks"
+    let performanceTitle = "ECG Algorithm performance"
+    let singleAlgortihmTitle = "Algorithm view execution details"
 
     var body: some View {
         VStack {
             if(algorithmViewModel.voltagesAllFetched) {
                 List {
-                    Section(header: Text("Algorithms performed")) {
+                    Section(header: Text(algorithmsSelectionTitle)) {
                         ECGAlgorithmSectionView(voltageViewModel: algorithmViewModel, showingEditAlgorithm: $showingEditAlgorithm)
                     }
                     .headerProminence(.increased)
-                    Section(header: Text("ECG Signal with R peaks")) {
+                    Section(header: Text(chartTitle)) {
                         ECGSignalView(algorithmViewModel: algorithmViewModel)
-                    }.headerProminence(.increased)
-                    Section(header: Text("ECG Algorithm performance")) {
+                    }.listRowSeparator(.hidden).headerProminence(.increased)
+                    Section(header: Text(performanceTitle)) {
                         ECGAlgorithmPerformanceView(algorithmViewModel: algorithmViewModel)
                     }.headerProminence(.increased)
-                    Section(header: Text("Algorithm view execution details")) {
+                    Section(header: Text(singleAlgortihmTitle)) {
                         ECGSingleAlgorithmSelectionView(algorithmViewModel: algorithmViewModel)
                     }.headerProminence(.increased)
                 }

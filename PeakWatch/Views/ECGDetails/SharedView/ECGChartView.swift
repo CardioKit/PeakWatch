@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
 
-struct ECGChartView<Content: ChartContent>: View {
+struct ECGChartView<Content: ChartContent, Legend: View>: View {
     
     
     let chartRange: Int
@@ -22,8 +22,9 @@ struct ECGChartView<Content: ChartContent>: View {
     let oneSecondLinesColor: Color
     
     @ChartContentBuilder var content: Content
+    var legend: Legend
     
-    init(chartRange: Int, samplingRate: Double, widthScaling: Double = 0.5, height: Double = 300, scrollable: Bool = true, showXAxisIntermediateMarker: Bool = true, showYAxisMarker: Bool = true, showXAxisValueLabels: Bool = true, oneSecondLinesColor: Color = .gray, @ChartContentBuilder content: () -> Content) {
+    init(chartRange: Int, samplingRate: Double, widthScaling: Double = 0.5, height: Double = 300, scrollable: Bool = true, showXAxisIntermediateMarker: Bool = true, showYAxisMarker: Bool = true, showXAxisValueLabels: Bool = true, oneSecondLinesColor: Color = .gray, @ChartContentBuilder content: () -> Content, @ViewBuilder legend: () -> Legend) {
 
         self.chartRange = chartRange
         self.samplingRate = samplingRate
@@ -35,6 +36,7 @@ struct ECGChartView<Content: ChartContent>: View {
         self.showXAxisValueLabels = showXAxisValueLabels
         self.oneSecondLinesColor = oneSecondLinesColor
         self.content = content()
+        self.legend = legend()
     }
     
     var body: some View {
@@ -42,6 +44,7 @@ struct ECGChartView<Content: ChartContent>: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 chart
             }
+            self.legend
         } else {
                 chart
         }
@@ -53,7 +56,6 @@ struct ECGChartView<Content: ChartContent>: View {
         }
         .chartXScale(domain: 0...chartRange)
         .frame(width: CGFloat(chartRange) * CGFloat(widthScaling), height: CGFloat(height))
-        .chartLegend(.visible)
         .chartXAxis {
             self.xAxisMarks
         }
@@ -104,3 +106,12 @@ struct ECGChartView<Content: ChartContent>: View {
     }
 }
 
+
+
+extension ECGChartView where Legend == EmptyView {
+    
+    init(chartRange: Int, samplingRate: Double, widthScaling: Double = 0.5, height: Double = 300, scrollable: Bool = true, showXAxisIntermediateMarker: Bool = true, showYAxisMarker: Bool = true, showXAxisValueLabels: Bool = true, oneSecondLinesColor: Color = .gray, @ChartContentBuilder content: () -> Content) {
+        
+        self.init(chartRange: chartRange, samplingRate: samplingRate, widthScaling: widthScaling, height: height, scrollable: scrollable, showXAxisIntermediateMarker: showXAxisIntermediateMarker, showYAxisMarker: showYAxisMarker, showXAxisValueLabels: showXAxisValueLabels, oneSecondLinesColor: oneSecondLinesColor, content: content, legend: {EmptyView()})
+    }
+}

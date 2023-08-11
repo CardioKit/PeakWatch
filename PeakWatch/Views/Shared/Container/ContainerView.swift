@@ -1,17 +1,18 @@
 //
-//  TagContainerView.swift
+//  ContainerView.swift
 //  PeakWatch
 //
-//  Created by Nikita Charushnikov on 08.07.23.
+//  Created by Nikita Charushnikov on 11.08.23.
 //
 
 import SwiftUI
 
+
 // Based on https://stackoverflow.com/questions/62102647/swiftui-hstack-with-wrap-and-dynamic-height/62103264#62103264
 // Also good Guide: https://blog.logrocket.com/implementing-tags-swiftui/
-struct TagContainerView: View {
+struct ContainerView<WrapperView: ContainerItemView>: View where WrapperView.Model: Identifiable {
     
-    let tags: [Tag]
+    let items: [WrapperView.Model]
     @State private var totalHeight = CGFloat.zero
     
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
@@ -39,8 +40,8 @@ struct TagContainerView: View {
         var height = CGFloat.zero
         
         return ZStack(alignment: .topLeading) {
-            ForEach(tags) { tag in
-                TagView(text: tag.text)
+            ForEach(items) { item in
+                WrapperView(item: item)
                     .padding(.all, 5)
                     .alignmentGuide(.leading, computeValue: { dimension in
                         if (abs(width - dimension.width) > geometry.size.width) {
@@ -48,7 +49,7 @@ struct TagContainerView: View {
                             height -= dimension.height
                         }
                         let result = width
-                        if tag.id == tags.last!.id {
+                        if item.id == items.last!.id {
                             width = 0
                         } else {
                             width -= dimension.width
@@ -57,7 +58,7 @@ struct TagContainerView: View {
                     })
                     .alignmentGuide(.top) { dimension in
                         let result = height
-                        if tag.id == tags.last!.id {
+                        if item.id == items.last!.id {
                             height = 0
                         }
                         return result
