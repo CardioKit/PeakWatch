@@ -33,6 +33,8 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         return measurements
     }
     
+    @Published var ecgQualityByAlgortihm: [ECGQuality] = []
+    
     @Published var selectedAlgorithms: Set<Algorithms> = UserSettingsViewModel().selectedAlgorithms {
         didSet {
             qrsResultsByAlgorithm.removeAll()
@@ -42,6 +44,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     @Published private(set) var qrsResultsByAlgorithm: [QRSResultsByAlgorithm] = []
     
     let qrsDetector = QRSDetector()
+    let ecgEvaluator = ECGQualityEvaluator()
     
     private func calculateAlgorithms()  {
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
@@ -59,6 +62,15 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         
     }
     
+    private func calculateECGQualities() {
+        let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
+        
+        supportedECGQualityAlgortihms.forEach { algorithm in
+            let ecgQuality = calculateECGQuality(algorithm: algorithm, voltages: voltages)
+            ecgQualityByAlgortihm.append(ecgQuality)
+        }
+    }
+    
 
     private func calculateAlgorithm(algorithm: Algorithms, voltages: [Double]) -> QRSResultsByAlgorithm {
         
@@ -72,9 +84,22 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         return .init(qrsResult: qrsResults!, algorithm: algorithm, duration: duration)
     }
     
+    private func calculateECGQuality(algorithm: ECGQualityAlgorithms, voltages: [Double]) -> ECGQuality {
+        let clock = ContinuousClock()
+        var ecgQuality: ECGQualityRating?
+        
+        let duration = clock.measure {
+            let ecg = Electrocardiogram(ecg: voltages, samplingRate: samplingRateValue)
+            ecgQuality = ecgEvaluator.evaluateECGQuality(electrocardiogram: ecg, algorithm: algorithm)
+        }
+        
+        return .init(algorithm: algorithm, qualityRating: ecgQuality!, duration: duration)
+    }
+    
 
     override func afterFetchAllVoltagesCallback() async {
         calculateAlgorithms()
+        calculateECGQualities()
     }
     
 }
