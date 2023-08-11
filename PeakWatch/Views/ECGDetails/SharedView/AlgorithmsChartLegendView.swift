@@ -16,17 +16,6 @@ struct AlgorithmsChartLegendView: View {
     let algortihms: [Algorithms]
     
     var body: some View {
-        HStack {
-            ForEach(algortihms, id: \.self) { symbol in
-                HStack {
-                    BasicChartSymbolShape.circle
-                        .foregroundColor(symbol.color)
-                        .frame(width: 8, height: 8)
-                    Text(symbol.description)
-                        .foregroundColor(.gray)
-                        .font(.caption)
-                }
-            }
-        }
+        ContainerView<LegendContainerItemView>(items: algortihms)
     }
 }
