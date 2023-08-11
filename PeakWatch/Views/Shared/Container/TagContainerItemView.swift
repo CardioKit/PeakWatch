@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContainerTagItemView: ContainerItemView {
+struct TagContainerItemView: ContainerItemView {
     
     let item: Tag
     

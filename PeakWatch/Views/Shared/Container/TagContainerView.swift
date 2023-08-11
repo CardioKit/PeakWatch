@@ -12,7 +12,7 @@ struct TagContainerView: View {
     let tags: [Tag]
     
     var body: some View {
-        ContainerView<ContainerTagItemView>(items: tags)
+        ContainerView<TagContainerItemView>(items: tags)
     }
 }
    
