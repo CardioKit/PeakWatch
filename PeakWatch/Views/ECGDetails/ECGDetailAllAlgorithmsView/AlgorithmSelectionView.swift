@@ -16,16 +16,11 @@ struct AlgorithmSelectionView<AlgorithmViewModel: AlgorithmSelectable>: View {
     
     let listTitle: String
     
-
-    let algorithms: [Algorithms] = [.nabian2018, .christov,
-        //.GQRS, - not implemented
-                                    .basic, .wqrs, .aristotle, .hamiltonCleaned, .hamilton, .panTompkins, .twoAverage, .neurokit]
-    
     
     var body: some View {
                 List(selection: $algorithmViewModel.selectedAlgorithms) {
                     Section(listTitle) {
-                        ForEach(algorithms) { algorithm in
+                        ForEach(supportedAlgorithms) { algorithm in
                             Text(algorithm.description)
                         }
                     }.headerProminence(.increased)

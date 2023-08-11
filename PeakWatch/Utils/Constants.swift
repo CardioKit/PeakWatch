@@ -8,4 +8,4 @@
 import Foundation
 import PeakSwift
 
-let supportedAlgorithms: [Algorithms] = [.christov, .hamilton, .neurokit, .panTompkins, .twoAverage]
+let supportedAlgorithms: [Algorithms] = Algorithms.allCases
