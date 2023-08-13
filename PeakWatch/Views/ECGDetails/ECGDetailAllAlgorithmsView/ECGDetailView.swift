@@ -25,6 +25,7 @@ struct ECGDetailView: View {
     let chartTitle = "ECG Signal with R peaks"
     let performanceTitle = "ECG Algorithm performance"
     let singleAlgortihmTitle = "Algorithm view execution details"
+    let ecgQualityTitle = "ECG Quality"
 
     var body: some View {
         VStack {
@@ -42,6 +43,9 @@ struct ECGDetailView: View {
                     }.headerProminence(.increased)
                     Section(header: Text(singleAlgortihmTitle)) {
                         ECGSingleAlgorithmSelectionView(algorithmViewModel: algorithmViewModel)
+                    }.headerProminence(.increased)
+                    Section(header: Text(ecgQualityTitle)) {
+                        ECGQualityListView(ecgQualities: algorithmViewModel.ecgQualityByAlgortihm)
                     }.headerProminence(.increased)
                 }
                 .listStyle(.insetGrouped)

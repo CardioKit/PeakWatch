@@ -8,4 +8,5 @@
 import Foundation
 import PeakSwift
 
-let supportedAlgorithms: [Algorithms] = [.christov, .hamilton, .neurokit, .panTompkins, .twoAverage]
+let supportedAlgorithms: [Algorithms] = Algorithms.allCases
+let supportedECGQualityAlgortihms: [ECGQualityAlgorithms] = [.zhao2018(.simple), .zhao2018(.fuzzy)]

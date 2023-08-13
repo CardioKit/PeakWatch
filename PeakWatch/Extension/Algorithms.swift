@@ -18,24 +18,24 @@ extension Algorithms: RawRepresentable {
         switch rawValue {
         case Algorithms.christov.rawValue:
             self = .christov
-        case Algorithms.wqrs.rawValue:
-            self = .wqrs
+        case Algorithms.engzee.rawValue:
+            self = .engzee
         case Algorithms.nabian2018.rawValue:
             self = .nabian2018
         case Algorithms.aristotle.rawValue:
             self = .aristotle
         case Algorithms.basic.rawValue:
             self = .basic
-        case Algorithms.gqrs.rawValue:
-            self = .gqrs
+        case Algorithms.kalidas.rawValue:
+            self = .kalidas
         case Algorithms.hamilton.rawValue:
             self = .hamilton
         case Algorithms.panTompkins.rawValue:
             self = .panTompkins
         case Algorithms.twoAverage.rawValue:
             self = .twoAverage
-        case Algorithms.hamiltonCleaned.rawValue:
-            self = .hamiltonCleaned
+        case Algorithms.unsw.rawValue:
+            self = .unsw
         case Algorithms.neurokit.rawValue:
             self = .neurokit
         default:
@@ -47,26 +47,26 @@ extension Algorithms: RawRepresentable {
         switch self {
             case .christov:
                 return "Christov"
-            case .wqrs:
-                return "WQRS"
             case .nabian2018:
                 return "Nabian"
             case .aristotle:
                 return "Aristotle"
             case .basic:
                 return "Basic"
-            case .gqrs:
-                return "GQRS"
             case .hamilton:
                 return "Hamilton"
             case .panTompkins:
                 return "Pan Tompkins"
             case .twoAverage:
                 return "Two Average"
-            case .hamiltonCleaned:
-                return "Hamilton cleaned signal"
             case .neurokit:
                 return "NeuroKit"
+            case .unsw:
+                return "UNSW"
+            case .engzee:
+                return "Engzee"
+            case .kalidas:
+                return "Kalidas"
         }
     }
 }
@@ -91,15 +91,15 @@ extension Algorithms {
             return .black
         case .christov:
             return .blue
-        case .gqrs:
+        case .engzee:
             return .gray
-        case .wqrs:
+        case .kalidas:
             return .mint
         case .nabian2018:
             return .purple
         case .hamilton:
             return .orange
-        case .hamiltonCleaned:
+        case .unsw:
             return .yellow
         case .twoAverage:
             return .pink

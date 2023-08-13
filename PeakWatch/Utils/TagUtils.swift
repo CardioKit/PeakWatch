@@ -10,7 +10,7 @@ import PeakSwift
 
 enum TagUtils {
     
-    static func createTags(from algorithms: [Algorithms]) -> [Tag] {
+    static func createTags(from algorithms: [CustomStringConvertible]) -> [Tag] {
         algorithms.map {Tag(text: $0.description)}
     }
 }

@@ -23,7 +23,7 @@ struct ECGSingleAlgorithmDetailView: View {
                 ECGSingleAlgorithmChartView(qrsResult: qrsResult.qrsResult)
             }.headerProminence(.increased)
             Section(header: Text(performanceSection)) {
-                ECGSingleAlgorithmPerformanceView(executionTime: qrsResult.duration)
+                ECGSingleAlgorithmPerformanceView(executionTime: qrsResult.runtime)
             }.headerProminence(.increased)
             .navigationTitle(algorithm.rawValue)
         }

@@ -16,6 +16,10 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
             return nil
         }
         
+        guard ecgQualityByAlgortihm.count == supportedECGQualityAlgortihms.count else {
+            return nil
+        }
+        
         return ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
     }
     
@@ -33,6 +37,8 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         return measurements
     }
     
+    @Published var ecgQualityByAlgortihm: [ECGQuality] = []
+    
     @Published var selectedAlgorithms: Set<Algorithms> = UserSettingsViewModel().selectedAlgorithms {
         didSet {
             qrsResultsByAlgorithm.removeAll()
@@ -42,6 +48,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     @Published private(set) var qrsResultsByAlgorithm: [QRSResultsByAlgorithm] = []
     
     let qrsDetector = QRSDetector()
+    let ecgEvaluator = ECGQualityEvaluator()
     
     private func calculateAlgorithms()  {
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
@@ -59,6 +66,20 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
         
     }
     
+    private func calculateECGQualities() {
+        let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
+        
+        var ecgQualityByAlgortihmBuffer: [ECGQuality] = []
+        supportedECGQualityAlgortihms.forEach { algorithm in
+            let ecgQuality = calculateECGQuality(algorithm: algorithm, voltages: voltages)
+            ecgQualityByAlgortihmBuffer.append(ecgQuality)
+        }
+        
+        DispatchQueue.main.async {
+            self.ecgQualityByAlgortihm = ecgQualityByAlgortihmBuffer
+        }
+    }
+    
 
     private func calculateAlgorithm(algorithm: Algorithms, voltages: [Double]) -> QRSResultsByAlgorithm {
         
@@ -69,12 +90,25 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
             qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: self.ecgSample.samplingRate), algorithm: algorithm)
         }
         
-        return .init(qrsResult: qrsResults!, algorithm: algorithm, duration: duration)
+        return .init(qrsResult: qrsResults!, algorithm: algorithm, runtime: duration)
+    }
+    
+    private func calculateECGQuality(algorithm: ECGQualityAlgorithms, voltages: [Double]) -> ECGQuality {
+        let clock = ContinuousClock()
+        var ecgQuality: ECGQualityRating?
+        
+        let duration = clock.measure {
+            let ecg = Electrocardiogram(ecg: voltages, samplingRate: samplingRateValue)
+            ecgQuality = ecgEvaluator.evaluateECGQuality(electrocardiogram: ecg, algorithm: algorithm)
+        }
+        
+        return .init(algorithm: algorithm, qualityRating: ecgQuality!, runtime: duration)
     }
     
 
     override func afterFetchAllVoltagesCallback() async {
         calculateAlgorithms()
+        calculateECGQualities()
     }
     
 }

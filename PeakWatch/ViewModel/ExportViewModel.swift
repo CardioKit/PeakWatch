@@ -58,30 +58,30 @@ class ExportViewModel: ObservableObject {
         }
         
         self.algorithmViewModels.forEach { algorithmViewModel in
-            algorithmViewModel.$qrsResultsByAlgorithm
-                .dropFirst()
-                .receive(on: RunLoop.main)
-                .sink(receiveValue: { _ in
-                    if let exportResult = algorithmViewModel.exportResults {
-                        self.ecgExports.ecgs.append(exportResult)
-                    }
-                }
-            ).store(in: &cancellables)
+            registerObserver(observable: algorithmViewModel, observer: algorithmViewModel.$qrsResultsByAlgorithm)
+            registerObserver(observable: algorithmViewModel, observer: algorithmViewModel.$ecgQualityByAlgortihm)
+        }
+    }
+    
+    func registerObserver<T>(observable: AlgorithmViewModel, observer: Published<T>.Publisher) {
+        observer
+            .dropFirst()
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { [weak self] _ in
+                self?.appendExportedECG(from: observable)
+            }
+        ).store(in: &cancellables)
+    }
+    
+    func appendExportedECG(from algorithmViewModel: AlgorithmViewModel) {
+        if let exportResult = algorithmViewModel.exportResults {
+            self.ecgExports.ecgs.append(exportResult)
         }
     }
     
     func processAllECGs() async {
         for algorithmViewModel in algorithmViewModels {
             await algorithmViewModel.fetchVoltages()
-        }
-    }
-    
-    // Call this function when view disappear
-    // Otherwise there is a chance of memory leaks
-    // Reason: if cancellables never canceled, ExportViewModel() is never deallocated.
-    func unsubscribe() {
-        cancellables.forEach { cancellable in
-            cancellable.cancel()
         }
     }
     

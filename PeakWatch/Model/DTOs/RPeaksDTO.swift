@@ -19,7 +19,7 @@ struct RPeaksDTO: Codable {
         
         return qrsResultsByAlgorithm.map { qrsResultsByAlg in
             let peakPositions = qrsResultsByAlg.qrsResult.rPeaks
-            let duration = qrsResultsByAlg.duration
+            let duration = qrsResultsByAlg.runtime
             let algorithm = qrsResultsByAlg.algorithm.description
             
             let runtimeDTO = RuntimeDTO.createRuntimeDTO(duration: duration)

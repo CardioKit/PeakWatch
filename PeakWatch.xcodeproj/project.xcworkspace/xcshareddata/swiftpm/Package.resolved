@@ -6,7 +6,16 @@
       "location" : "https://github.com/CardioKit/PeakSwift",
       "state" : {
         "branch" : "main",
-        "revision" : "f2ac80f9bfdf6355a488c24a6a0b37c826b0238e"
+        "revision" : "850cbdba7a6b1f16b3bcd82f270ffba5892f0861"
+      }
+    },
+    {
+      "identity" : "surge",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Jounce/Surge.git",
+      "state" : {
+        "revision" : "6e4a47e63da8801afe6188cf039e9f04eb577721",
+        "version" : "2.3.2"
       }
     }
   ],
