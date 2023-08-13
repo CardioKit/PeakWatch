@@ -58,21 +58,19 @@ class ExportViewModel: ObservableObject {
         }
         
         self.algorithmViewModels.forEach { algorithmViewModel in
-            algorithmViewModel.$qrsResultsByAlgorithm
-                .dropFirst()
-                .receive(on: RunLoop.main)
-                .sink(receiveValue: { _ in
-                    self.appendExportedECG(algorithmViewModel: algorithmViewModel)
-                }
-            ).store(in: &cancellables)
-            algorithmViewModel.$ecgQualityByAlgortihm
-                .dropFirst()
-                .receive(on: RunLoop.main)
-                .sink(receiveValue: { _ in
-                    self.appendExportedECG(algorithmViewModel: algorithmViewModel)
-                }
-            ).store(in: &cancellables)
+            registerObserver(observable: algorithmViewModel, observer: algorithmViewModel.$qrsResultsByAlgorithm)
+            registerObserver(observable: algorithmViewModel, observer: algorithmViewModel.$ecgQualityByAlgortihm)
         }
+    }
+    
+    func registerObserver<T>(observable: AlgorithmViewModel, observer: Published<T>.Publisher) {
+        observer
+            .dropFirst()
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { _ in
+                self.appendExportedECG(algorithmViewModel: observable)
+            }
+        ).store(in: &cancellables)
     }
     
     func appendExportedECG(algorithmViewModel: AlgorithmViewModel) {
