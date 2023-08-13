@@ -12,7 +12,7 @@ struct ECGQualityRowView: View {
     let ecgQuality: ECGQuality
     
     var runtime: String {
-        let formattedInMs = String(format: "%.2f", ecgQuality.duration.inMilliseconds)
+        let formattedInMs = String(format: "%.2f", ecgQuality.runtime.inMilliseconds)
         return "\(formattedInMs) ms"
     }
     

@@ -14,5 +14,5 @@ struct ECGQuality: Identifiable {
     let id: UUID = UUID()
     let algorithm: ECGQualityAlgorithms
     let qualityRating: ECGQualityRating
-    let duration: Duration
+    let runtime: Duration
 }

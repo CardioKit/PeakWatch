@@ -11,5 +11,5 @@ import PeakSwift
 struct QRSResultsByAlgorithm {
     let qrsResult: QRSResult
     let algorithm: Algorithms
-    let duration: Duration
+    let runtime: Duration
 }

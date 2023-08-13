@@ -90,7 +90,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
             qrsResults = self.qrsDetector.detectPeaks(electrocardiogram: Electrocardiogram(ecg: voltages, samplingRate: self.ecgSample.samplingRate), algorithm: algorithm)
         }
         
-        return .init(qrsResult: qrsResults!, algorithm: algorithm, duration: duration)
+        return .init(qrsResult: qrsResults!, algorithm: algorithm, runtime: duration)
     }
     
     private func calculateECGQuality(algorithm: ECGQualityAlgorithms, voltages: [Double]) -> ECGQuality {
@@ -102,7 +102,7 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
             ecgQuality = ecgEvaluator.evaluateECGQuality(electrocardiogram: ecg, algorithm: algorithm)
         }
         
-        return .init(algorithm: algorithm, qualityRating: ecgQuality!, duration: duration)
+        return .init(algorithm: algorithm, qualityRating: ecgQuality!, runtime: duration)
     }
     
 

@@ -68,12 +68,12 @@ class ExportViewModel: ObservableObject {
             .dropFirst()
             .receive(on: RunLoop.main)
             .sink(receiveValue: { _ in
-                self.appendExportedECG(algorithmViewModel: observable)
+                self.appendExportedECG(from: observable)
             }
         ).store(in: &cancellables)
     }
     
-    func appendExportedECG(algorithmViewModel: AlgorithmViewModel) {
+    func appendExportedECG(from algorithmViewModel: AlgorithmViewModel) {
         if let exportResult = algorithmViewModel.exportResults {
             self.ecgExports.ecgs.append(exportResult)
         }

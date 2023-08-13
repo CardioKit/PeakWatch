@@ -30,12 +30,12 @@ struct ECGAlgorithmPerformanceView: View {
             Chart {
                 ForEach(Array(self.algorithmViewModel.qrsResultsByAlgorithm), id: \.algorithm) { qrsResults in
                     BarMark(
-                        x: .value("Duration", qrsResults.duration.inMilliseconds),
+                        x: .value("Duration", qrsResults.runtime.inMilliseconds),
                         y: .value("Algorithm", qrsResults.algorithm.description),
                         width: MarkDimension(floatLiteral: barWidth)
                     )
                     .annotation(position: .trailing) {
-                        ExecutionTimeLabel(duration: qrsResults.duration)
+                        ExecutionTimeLabel(duration: qrsResults.runtime)
                     }
                     .foregroundStyle(barColor)
                 }

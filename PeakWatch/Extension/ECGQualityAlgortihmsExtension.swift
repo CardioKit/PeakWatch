@@ -36,17 +36,11 @@ extension ECGQualityAlgorithms: CustomStringConvertible {
     }
     
     public var description: String {
-        let algorithm = self.algorithmName
-        let method = self.methodName
-            
         var suffix = ""
-            
-        if let method = method {
+        if let method = self.methodName {
             suffix = " (\(method))"
         }
             
-        return algorithm + suffix
+        return self.algorithmName + suffix
     }
-    
-    
 }
