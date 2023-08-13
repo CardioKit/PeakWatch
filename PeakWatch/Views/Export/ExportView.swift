@@ -33,9 +33,5 @@ struct ExportView: View {
                 await exportViewModel.processAllECGs()
             }
         }.navigationTitle(title)
-        .onDisappear {
-            // This is necessary. Otherwise there is a very high risk of memory leaks
-            exportViewModel.unsubscribe()
-        }
     }
 }
