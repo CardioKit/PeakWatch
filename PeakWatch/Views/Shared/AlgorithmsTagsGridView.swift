@@ -13,11 +13,10 @@ struct AlgorithmsTagsGridView: View {
     let tags: [Tag]
     let title: String
     
-    init(title: String, algorithms: [Algorithms]) {
+    init(title: String, algorithms: [CustomStringConvertible]) {
         self.title = title
         self.tags = TagUtils.createTags(from: algorithms)
     }
-    
     
     var body: some View {
         VStack {

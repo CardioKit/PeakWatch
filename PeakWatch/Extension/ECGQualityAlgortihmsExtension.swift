@@ -8,7 +8,7 @@
 import Foundation
 import PeakSwift
 
-extension ECGQualityAlgorithms {
+extension ECGQualityAlgorithms: CustomStringConvertible {
     
     var algorithmName: String {
         switch self {
@@ -34,4 +34,19 @@ extension ECGQualityAlgorithms {
     var exportName: String {
         algorithmName + (methodName ?? "")
     }
+    
+    public var description: String {
+        let algorithm = self.algorithmName
+        let method = self.methodName
+            
+        var suffix = ""
+            
+        if let method = method {
+            suffix = " (\(method))"
+        }
+            
+        return algorithm + suffix
+    }
+    
+    
 }

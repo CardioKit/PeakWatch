@@ -27,7 +27,9 @@ struct ReportView: View {
                 .font(.system(size: 18))
         }
         
-        AlgorithmsTagsGridView(title: "Algorithms executed", algorithms: exportViewModel.algorithmsExecuted)
+        AlgorithmsTagsGridView(title: "R-Peaks algorithms executed", algorithms: exportViewModel.algorithmsExecuted)
+        
+        AlgorithmsTagsGridView(title: "ECG Quality algortihms executed", algorithms: supportedECGQualityAlgortihms)
         
         Spacer()
         

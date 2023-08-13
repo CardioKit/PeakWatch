@@ -11,19 +11,6 @@ struct ECGQualityRowView: View {
     
     let ecgQuality: ECGQuality
     
-    var algortihmName: String {
-        let algorithm = ecgQuality.algorithm.algorithmName
-        let method = ecgQuality.algorithm.methodName
-        
-        var suffix = ""
-        
-        if let method = method {
-            suffix = " (\(method))"
-        }
-        
-        return algorithm + suffix
-    }
-    
     var runtime: String {
         let formattedInMs = String(format: "%.2f", ecgQuality.duration.inMilliseconds)
         return "\(formattedInMs) ms"
@@ -32,7 +19,7 @@ struct ECGQualityRowView: View {
     let runTimeIcon = "timer"
     
     var body: some View {
-        CardWithHeader(headerIcon: "", headerTitle: algortihmName) {
+        CardWithHeader(headerIcon: "", headerTitle: ecgQuality.algorithm.description) {
             HStack {
                 Text(ecgQuality.qualityRating.description)
                 Spacer()
