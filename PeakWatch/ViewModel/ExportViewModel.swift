@@ -62,11 +62,22 @@ class ExportViewModel: ObservableObject {
                 .dropFirst()
                 .receive(on: RunLoop.main)
                 .sink(receiveValue: { _ in
-                    if let exportResult = algorithmViewModel.exportResults {
-                        self.ecgExports.ecgs.append(exportResult)
-                    }
+                    self.appendExportedECG(algorithmViewModel: algorithmViewModel)
                 }
             ).store(in: &cancellables)
+            algorithmViewModel.$ecgQualityByAlgortihm
+                .dropFirst()
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { _ in
+                    self.appendExportedECG(algorithmViewModel: algorithmViewModel)
+                }
+            ).store(in: &cancellables)
+        }
+    }
+    
+    func appendExportedECG(algorithmViewModel: AlgorithmViewModel) {
+        if let exportResult = algorithmViewModel.exportResults {
+            self.ecgExports.ecgs.append(exportResult)
         }
     }
     

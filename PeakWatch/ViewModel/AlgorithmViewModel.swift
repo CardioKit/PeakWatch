@@ -69,9 +69,14 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     private func calculateECGQualities() {
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
         
+        var ecgQualityByAlgortihmBuffer: [ECGQuality] = []
         supportedECGQualityAlgortihms.forEach { algorithm in
             let ecgQuality = calculateECGQuality(algorithm: algorithm, voltages: voltages)
-            ecgQualityByAlgortihm.append(ecgQuality)
+            ecgQualityByAlgortihmBuffer.append(ecgQuality)
+        }
+        
+        DispatchQueue.main.async {
+            self.ecgQualityByAlgortihm = ecgQualityByAlgortihmBuffer
         }
     }
     
