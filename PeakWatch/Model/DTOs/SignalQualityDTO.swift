@@ -14,8 +14,13 @@ struct SignalQualityDTO: Codable {
     let runtime: RuntimeDTO
     
     static func createSignalQualityDTO(algorithmViewModel: AlgorithmViewModel) -> [SignalQualityDTO] {
-        #warning("Pass the signal quality when implemented")
-        let runtime = RuntimeDTO.createRuntimeDTO(duration: .zero)
-        return [.init(method: "dummyMethod", score: "Excellent", runtime: runtime)]
+        let ecgQualities = algorithmViewModel.ecgQualityByAlgortihm.map { ecgQualityByAlgorithm in
+            let runtime = RuntimeDTO.createRuntimeDTO(duration: ecgQualityByAlgorithm.duration)
+            return SignalQualityDTO(
+                method: ecgQualityByAlgorithm.algorithm.exportName,
+                score: ecgQualityByAlgorithm.qualityRating.exportName, runtime: runtime)
+            
+        }
+        return ecgQualities
     }
 }

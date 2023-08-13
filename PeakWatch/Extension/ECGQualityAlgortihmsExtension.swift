@@ -30,4 +30,8 @@ extension ECGQualityAlgorithms {
             }
         }
     }
+    
+    var exportName: String {
+        algorithmName + (methodName ?? "")
+    }
 }

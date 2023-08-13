@@ -21,4 +21,16 @@ extension ECGQualityRating: CustomStringConvertible {
             return "Excellent"
         }
     }
+    
+    public var exportName: String {
+        switch self {
+        case .unacceptable:
+            return "unacceptable"
+        case .barelyAcceptable:
+            return "barelyAcceptable"
+        case .excellent:
+            return "excellent"
+        }
+    }
+    
 }

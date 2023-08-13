@@ -16,6 +16,10 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
             return nil
         }
         
+        guard ecgQualityByAlgortihm.count == supportedECGQualityAlgortihms.count else {
+            return nil
+        }
+        
         return ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
     }
     
