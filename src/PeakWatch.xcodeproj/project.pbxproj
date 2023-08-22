@@ -99,9 +99,9 @@
 		17BF565F2A3332E600FF42D5 /* HKClassificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF565E2A3332E600FF42D5 /* HKClassificationExtension.swift */; };
 		17BF56622A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF56612A3336FD00FF42D5 /* SecondaryInfoListRowViewModifier.swift */; };
 		17BF56642A33479800FF42D5 /* ECGDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF56632A33479800FF42D5 /* ECGDetailView.swift */; };
-		17C88C9C2A366DD9007B8A8E /* PeakSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17C88C9B2A366DD9007B8A8E /* PeakSwift */; };
 		17CACAF32A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CACAF22A4C5AC00061576F /* ECGSingleAlgorithmSelectionView.swift */; };
 		17CACAF52A4C5E670061576F /* ECGSingleAlgorithmChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CACAF42A4C5E670061576F /* ECGSingleAlgorithmChartView.swift */; };
+		504710B12A94EB3200E5F626 /* PeakSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 504710B02A94EB3200E5F626 /* PeakSwift */; };
 		50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D5922A2A5EF923006A7897 /* InfoSheetViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -230,7 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17C88C9C2A366DD9007B8A8E /* PeakSwift in Frameworks */,
+				504710B12A94EB3200E5F626 /* PeakSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +630,7 @@
 			);
 			name = PeakWatch;
 			packageProductDependencies = (
-				17C88C9B2A366DD9007B8A8E /* PeakSwift */,
+				504710B02A94EB3200E5F626 /* PeakSwift */,
 			);
 			productName = PeakWatch;
 			productReference = 173C05302A31C15F00D3E786 /* PeakWatch.app */;
@@ -705,7 +705,7 @@
 			);
 			mainGroup = 173C05272A31C15F00D3E786;
 			packageReferences = (
-				17C88C9A2A366DD9007B8A8E /* XCRemoteSwiftPackageReference "PeakSwift" */,
+				504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */,
 			);
 			productRefGroup = 173C05312A31C15F00D3E786 /* Products */;
 			projectDirPath = "";
@@ -999,7 +999,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = UJYRLZA762;
+				DEVELOPMENT_TEAM = W47Y3X8372;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PeakWatch/Info.plist;
@@ -1015,7 +1015,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.developer.PeakWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ukb.idm.peakwatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1034,7 +1034,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = UJYRLZA762;
+				DEVELOPMENT_TEAM = W47Y3X8372;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PeakWatch/Info.plist;
@@ -1050,7 +1050,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = charushnikov.de.developer.PeakWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ukb.idm.peakwatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1177,7 +1177,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		17C88C9A2A366DD9007B8A8E /* XCRemoteSwiftPackageReference "PeakSwift" */ = {
+		504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CardioKit/PeakSwift";
 			requirement = {
@@ -1188,9 +1188,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		17C88C9B2A366DD9007B8A8E /* PeakSwift */ = {
+		504710B02A94EB3200E5F626 /* PeakSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 17C88C9A2A366DD9007B8A8E /* XCRemoteSwiftPackageReference "PeakSwift" */;
+			package = 504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */;
 			productName = PeakSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
