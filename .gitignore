@@ -92,3 +92,4 @@ iOSInjectionProject/
 # data
 analysis/data/*.json
 *.png
+analysis/.ipynb_checkpoints/analysis-checkpoint.ipynb
