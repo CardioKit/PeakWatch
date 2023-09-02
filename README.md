@@ -12,10 +12,10 @@ PeakWatch is a project to demonstrate, evaluate, and validate the functionality 
 
 ## Screenshots
 
-<img width="200" alt="PeakWatch_Main" src="https://github.com/CardioKit/PeakWatch/assets/15707108/326ada0b-c019-45b7-aec0-10f092e876f8">
-<img width="200" alt="PeakWatch_Detail" src="https://github.com/CardioKit/PeakWatch/assets/15707108/866fa362-d830-49ab-a07f-761191cf05e6">
-<img width="200" alt="PeakWatch_Clean" src="https://github.com/CardioKit/PeakWatch/assets/15707108/103c3453-73cc-4161-9729-3873e927e16e">
-<img width="200" alt="PeakWatch_Export" src="https://github.com/CardioKit/PeakWatch/assets/15707108/757d6593-7b94-4a28-b3e1-f263b00441fe">
+<img width="200" alt="PeakWatch_Main" src="https://github.com/CardioKit/PeakWatch/assets/PeakWatch_Main">
+<img width="200" alt="PeakWatch_Detail" src="https://github.com/CardioKit/PeakWatch/assets/PeakWatch_Detail">
+<img width="200" alt="PeakWatch_Clean" src="https://github.com/CardioKit/PeakWatch/assets/PeakWatch_Clean">
+<img width="200" alt="PeakWatch_Export" src="https://github.com/CardioKit/PeakWatch/assets/PeakWatch_Export">
 
 ## Installation
 
