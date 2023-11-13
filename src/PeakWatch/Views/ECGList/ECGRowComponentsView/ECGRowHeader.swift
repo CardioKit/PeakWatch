@@ -15,10 +15,10 @@ struct ECGRowHeader: View {
     var body: some View {
         HStack {
             switch ecg.ecgSource {
-            case .Synthetic:
-                Text("Synthetic")
             case .HealthKit(let source):
                 Text(source.classification.description).bold()
+            case .Synthetic, .External(_):
+                Text(ecg.ecgSource.description)
             }
             Spacer()
             Text(DateUtils.formatDate(date: ecg.startDate))

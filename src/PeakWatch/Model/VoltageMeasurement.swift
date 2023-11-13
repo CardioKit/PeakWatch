@@ -20,8 +20,8 @@ class VoltageMeasurement: Identifiable {
         self.voltage = voltage
     }
     
-    static func createFromHKQuantity(position: Int, hkQuantity: HKQuantity) -> VoltageMeasurement {
-        return .init(position: position, voltage: hkQuantity.doubleValue(for: .volt()))
+    static func createFromHKQuantity(position: Int, voltage: Double) -> VoltageMeasurement {
+         .init(position: position, voltage: voltage)
     }
     
 }

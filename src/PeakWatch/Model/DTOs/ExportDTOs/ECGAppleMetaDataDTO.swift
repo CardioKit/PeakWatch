@@ -23,7 +23,7 @@ struct ECGAppleMetaDataDTO: Codable {
     let algorithmVersion: Int?
     let addedToHealthKitDate: Date?
     
-    static func createAppleMetaDataDTO(algorithmViewModel: AlgorithmViewModel) -> ECGAppleMetaDataDTO {
+    static func createAppleMetaDataDTO(algorithmViewModel: AlgorithmViewModel) -> ECGAppleMetaDataDTO? {
         let beatsPerminute = algorithmViewModel.ecgSample.beatsPerMinute ?? 0
         let startTime = algorithmViewModel.ecgSample.startDate
         let endTime = algorithmViewModel.ecgSample.endDate
@@ -67,6 +67,8 @@ struct ECGAppleMetaDataDTO: Codable {
                          addedToHealthKitDate: addedToHealthKit
                          
             )
+        case .External(_):
+            return nil
         }
     }
     

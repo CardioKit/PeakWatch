@@ -28,8 +28,11 @@ extension ECGExportDTO: FileExportable {
     
     var createFileName: String {
         let deviceID = self.deviceID
-        let date = DateUtils.formatDateForTitle(date: self.appleMetaData.recordingStartTime)
-        return createFileName(deviceID: deviceID, suffix: date)
+        var suffix = "ExternalSource"
+        if let appleMetaData = self.appleMetaData {
+            suffix = DateUtils.formatDateForTitle(date: appleMetaData.recordingStartTime)
+        }
+        return createFileName(deviceID: deviceID, suffix: suffix)
     }
     
 }

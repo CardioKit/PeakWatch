@@ -11,6 +11,7 @@ import HealthKit
 enum ECGSource {
     case Synthetic
     case HealthKit(source: HKECG)
+    case External(voltages: [Double])
 }
 
 extension ECGSource: CustomStringConvertible {
@@ -20,6 +21,8 @@ extension ECGSource: CustomStringConvertible {
             return "Synthetic"
         case .HealthKit:
             return "HealthKit"
+        case .External(_):
+            return "External"
         }
     }
     
