@@ -11,17 +11,11 @@ import PeakSwift
 class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
     var exportResults: ECGExportDTO? {
-        // Only allow export, when all algorithms are executed
-        guard qrsResultsByAlgorithm.count == selectedAlgorithms.count else {
-            return nil
-        }
-        
-        guard ecgQualityByAlgortihm.count == supportedECGQualityAlgortihms.count else {
-            return nil
-        }
-        
-        return ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
+        ECGExportDTO.createECGExportDTO(algorithmViewModel: self)
     }
+    
+    @Published
+    var canExport = false
     
     var voltageMeasurementsWithPeaks: [VoltageMeasurementWithPeak] {
         var measurements = self.voltageMeasurements.map { measurement in
@@ -42,7 +36,10 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     @Published var selectedAlgorithms: Set<Algorithms> = UserSettingsViewModel().selectedAlgorithms {
         didSet {
             qrsResultsByAlgorithm.removeAll()
-            calculateAlgorithms() // It's better to instruct recalculation only to add and remove the algorithm added or removed and not all
+            let algorithmResults = calculateAlgorithms() // It's better to instruct recalculation only to add and remove the algorithm added or removed and not all
+            DispatchQueue.main.async {
+                self.qrsResultsByAlgorithm = algorithmResults
+            }
         }
     }
     @Published private(set) var qrsResultsByAlgorithm: [QRSResultsByAlgorithm] = []
@@ -50,23 +47,23 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     let qrsDetector = QRSDetector()
     let ecgEvaluator = ECGQualityEvaluator()
     
-    private func calculateAlgorithms()  {
+    private func calculateAlgorithms() -> [QRSResultsByAlgorithm]  {
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
         
+     
         var qrsResultByAlgorithmBuffer: [QRSResultsByAlgorithm] = []
         selectedAlgorithms.forEach {
             algorithm in
             let qrsResults = calculateAlgorithm(algorithm: algorithm, voltages: voltages)
             qrsResultByAlgorithmBuffer.append(qrsResults)
         }
+                                          
+                               
         
-        DispatchQueue.main.async {
-            self.qrsResultsByAlgorithm = qrsResultByAlgorithmBuffer
-        }
-        
+        return qrsResultByAlgorithmBuffer
     }
     
-    private func calculateECGQualities() {
+    private func calculateECGQualities() -> [ECGQuality] {
         let voltages = self.voltageMeasurements.map { voltageMeasurement in voltageMeasurement.voltage }
         
         var ecgQualityByAlgortihmBuffer: [ECGQuality] = []
@@ -74,10 +71,9 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
             let ecgQuality = calculateECGQuality(algorithm: algorithm, voltages: voltages)
             ecgQualityByAlgortihmBuffer.append(ecgQuality)
         }
-        
-        DispatchQueue.main.async {
-            self.ecgQualityByAlgortihm = ecgQualityByAlgortihmBuffer
-        }
+
+        return ecgQualityByAlgortihmBuffer
+
     }
     
 
@@ -107,8 +103,16 @@ class AlgorithmViewModel: VoltageViewModel & AlgorithmSelectable {
     
 
     override func afterFetchAllVoltagesCallback() async {
-        calculateAlgorithms()
-        calculateECGQualities()
+        let algorithmResults = calculateAlgorithms()
+        let qualityResults = calculateECGQualities()
+        
+        DispatchQueue.main.async {
+            self.qrsResultsByAlgorithm = algorithmResults
+            self.ecgQualityByAlgortihm = qualityResults
+            self.canExport = true
+        }
+       
     }
+    
     
 }
