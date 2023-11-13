@@ -35,4 +35,5 @@ struct ECGSample: Identifiable {
                      samplingRate: hkElectrocardiogramm.samplingFrequency?.doubleValue(for: .hertz()) ?? defaultSamplingRate
         )
     }
+    
 }

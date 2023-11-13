@@ -81,6 +81,9 @@
 		11C793C12B027B0F00FEF38E /* ECGImportDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793C02B027B0F00FEF38E /* ECGImportDTO.swift */; };
 		11C793C32B027B6200FEF38E /* ExternalDataSetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793C22B027B6200FEF38E /* ExternalDataSetDTO.swift */; };
 		11C793C52B027BB700FEF38E /* ECGImportDTOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793C42B027BB700FEF38E /* ECGImportDTOHelper.swift */; };
+		11C793C92B027D8700FEF38E /* ImportButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793C82B027D8700FEF38E /* ImportButtonView.swift */; };
+		11C793CC2B02814E00FEF38E /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CB2B02814E00FEF38E /* ImportView.swift */; };
+		11C793CE2B02843400FEF38E /* ImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CD2B02843400FEF38E /* ImportViewModel.swift */; };
 		172871292A37B0D800507869 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172871282A37B0D800507869 /* TagViewModifier.swift */; };
 		1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */; };
 		1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712C2A37B28C00507869 /* ECGSignalView.swift */; };
@@ -200,6 +203,9 @@
 		11C793C02B027B0F00FEF38E /* ECGImportDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGImportDTO.swift; sourceTree = "<group>"; };
 		11C793C22B027B6200FEF38E /* ExternalDataSetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDataSetDTO.swift; sourceTree = "<group>"; };
 		11C793C42B027BB700FEF38E /* ECGImportDTOHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGImportDTOHelper.swift; sourceTree = "<group>"; };
+		11C793C82B027D8700FEF38E /* ImportButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportButtonView.swift; sourceTree = "<group>"; };
+		11C793CB2B02814E00FEF38E /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
+		11C793CD2B02843400FEF38E /* ImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewModel.swift; sourceTree = "<group>"; };
 		172871282A37B0D800507869 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSectionView.swift; sourceTree = "<group>"; };
 		1728712C2A37B28C00507869 /* ECGSignalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSignalView.swift; sourceTree = "<group>"; };
@@ -317,6 +323,7 @@
 				114C25902A5C7D5F00CB6F01 /* SettingsButtonView.swift */,
 				1160CEB62A5F1F9E00BE5867 /* ToolbarView.swift */,
 				11589A932A7FF06000CC6E97 /* GlobalExportButtonView.swift */,
+				11C793C82B027D8700FEF38E /* ImportButtonView.swift */,
 			);
 			path = ToolbarView;
 			sourceTree = "<group>";
@@ -469,6 +476,14 @@
 			path = ImportDTOs;
 			sourceTree = "<group>";
 		};
+		11C793CA2B02813F00FEF38E /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				11C793CB2B02814E00FEF38E /* ImportView.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
 		1728712E2A37B34000507869 /* ECGDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +576,7 @@
 		179438D22A31E13900616B9B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				11C793CA2B02813F00FEF38E /* Import */,
 				11589A902A7FEFC400CC6E97 /* Export */,
 				11B3C9D02A5C4C1400EF0555 /* Settings */,
 				115708042A59C07B004D31F5 /* HomeScreen */,
@@ -580,6 +596,7 @@
 				114BB1472A72D88A0079956A /* VoltageViewModel.swift */,
 				114BB14D2A7450D60079956A /* AlgorithmViewModel.swift */,
 				11589A952A7FF1C100CC6E97 /* ExportViewModel.swift */,
+				11C793CD2B02843400FEF38E /* ImportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -797,8 +814,10 @@
 				115708132A59CD50004D31F5 /* Tag.swift in Sources */,
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
 				11632E7E2A8682CD006CE5BA /* ECGQualityRowView.swift in Sources */,
+				11C793CE2B02843400FEF38E /* ImportViewModel.swift in Sources */,
 				117355142A78266D000C7F6A /* RuntimeDTO.swift in Sources */,
 				114DA37F2A80D3B000186277 /* AllECGExportDTO.swift in Sources */,
+				11C793C92B027D8700FEF38E /* ImportButtonView.swift in Sources */,
 				11B70C1A2A813DA800D6BC8B /* ReportView.swift in Sources */,
 				11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */,
 				50D5922B2A5EF924006A7897 /* InfoSheetViewModel.swift in Sources */,
@@ -808,6 +827,7 @@
 				1173550E2A778E86000C7F6A /* SignalQualityDTO.swift in Sources */,
 				115708032A59BC10004D31F5 /* CardView.swift in Sources */,
 				115708192A59E7B9004D31F5 /* Constants.swift in Sources */,
+				11C793CC2B02814E00FEF38E /* ImportView.swift in Sources */,
 				1160186B2A7509EC00A7CE7A /* ECGAlgorithmPerformanceView.swift in Sources */,
 				1157081B2A59F0BE004D31F5 /* ECGFoundView.swift in Sources */,
 				1153CDB92A755413008E209C /* ECGSingleAlgorithmPerformanceView.swift in Sources */,
@@ -1027,7 +1047,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PeakWatch/Info.plist;
@@ -1043,6 +1063,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nikita.charush.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1061,7 +1082,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PeakWatch/Preview Content\"";
-				DEVELOPMENT_TEAM = W47Y3X8372;
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PeakWatch/Info.plist;
@@ -1077,6 +1098,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nikita.charush.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1092,10 +1114,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nikita.charush.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1111,10 +1134,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nikita.charush.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1129,9 +1153,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nikita.charush.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1146,9 +1171,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UJYRLZA762;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nikita.charush.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
