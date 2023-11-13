@@ -11,11 +11,12 @@ class ImportViewModel: ObservableObject {
     
     @Published var isOpenFileImport = false
     @Published var isLoading = true
-    @Published var isError = false
+    @Published var isError: String?
     
-    init(isLoading: Bool = false, isError: Bool = false) {
-        self.isLoading = isLoading
-        self.isError = isError
+    @Published var ecgSamples: [ECGSample] = []
+    
+    init() {
+     
     }
     
     func importExternalDataSet(resultImport: Result<URL, Error>) {
@@ -24,22 +25,47 @@ class ImportViewModel: ObservableObject {
             case .success(let fileUrl):
                 successHandler(fileUrl: fileUrl)
             case .failure(let failure):
-                errorHandler()
+                errorHandler(errorMessage: failure.localizedDescription)
             }
         }
     }
     
-    private func errorHandler() {
-        self.isError = false
+    private func errorHandler(errorMessage: String) {
+        DispatchQueue.main.async {
+            self.isError = errorMessage
+        }
     }
     
     private func successHandler(fileUrl: URL) {
-        do {
-            let importECG = try ECGImportDTOHelper.importDataset(fileUrl: fileUrl)
-            
-            isLoading = false
-        } catch {
-            errorHandler()
+        
+        if fileUrl.startAccessingSecurityScopedResource() {
+            do {
+                let importECGs = try ECGImportDTOHelper.importDataset(fileUrl: fileUrl)
+                let ecgSamples = importECGs.dataset.map { importECG in
+                    ECGSample.createFromExternalDataset(importedSample: importECG)
+                    
+                }
+                DispatchQueue.main.async {
+                    self.ecgSamples = ecgSamples
+                    self.isLoading = false
+                }
+                
+            } catch let error {
+                errorHandler(errorMessage: error.localizedDescription)
+            }
+            fileUrl.stopAccessingSecurityScopedResource()
+        } else {
+            errorHandler(errorMessage: "No permissions to view the file!")
+        }
+        
+    }
+    
+    func reset() {
+        DispatchQueue.main.async {
+            self.isOpenFileImport = false
+            self.isLoading = true
+            self.isError = nil
+            self.ecgSamples = []
         }
     }
     

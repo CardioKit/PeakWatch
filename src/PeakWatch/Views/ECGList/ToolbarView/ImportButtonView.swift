@@ -11,11 +11,11 @@ struct ImportButtonView: View {
 
     
     var body: some View {
-        NavigationLink {
-            ImportView()
-        } label: {
-            Text("Imp")
-        }
+            NavigationLink {
+                ImportView()
+            } label: {
+                Text("Imp")
+            }
     }
 }
 

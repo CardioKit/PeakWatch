@@ -9,6 +9,6 @@ import Foundation
 
 struct ExternalDataSetDTO: Decodable {
     
-    let dataset: ECGImportDTO
+    let dataset: [ECGImportDTO]
     
 }

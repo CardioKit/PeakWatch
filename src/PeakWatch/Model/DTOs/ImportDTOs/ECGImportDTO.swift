@@ -10,6 +10,6 @@ import Foundation
 struct ECGImportDTO: Decodable {
         
     let ecg: [Double]
-    let samplingRate: [Double]
+    let samplingRate: Double
     
 }

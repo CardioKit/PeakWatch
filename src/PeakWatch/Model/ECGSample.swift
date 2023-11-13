@@ -31,7 +31,11 @@ struct ECGSample: Identifiable {
     }
     
     
-    /*static func createFromExternalDataset(importedDatasset: ECGImportDTO) -> ECGSample {
-        .init(numberOfVoltageMeasurements: <#T##Int#>, startDate: <#T##Date#>, endDate: <#T##Date#>, device: <#T##String#>, classification: <#T##HKElectrocardiogram.Classification#>, beatsPerMinute: <#T##Double?#>, ecgSource: <#T##ECGSource#>, samplingRate: <#T##Double#>)
-    }*/
+    static func createFromExternalDataset(importedSample: ECGImportDTO) -> ECGSample {
+        .init(startDate: Date(),
+              endDate: Date(),
+              beatsPerMinute: nil,
+              ecgSource: .External(voltages: importedSample.ecg),
+              samplingRate: importedSample.samplingRate)
+    }
 }
