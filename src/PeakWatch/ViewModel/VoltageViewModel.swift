@@ -62,7 +62,7 @@ class VoltageViewModel: ObservableObject {
         case .Synthetic:
             #warning("TODO not implemented")
         case .HealthKit(let source):
-            fetchVoltagesHealthKit(ecgSample: source, maxSamples: maxSamples)
+            fetchVoltagesHealthKit(ecgSample: source.ecg, maxSamples: maxSamples)
         }
 
     }

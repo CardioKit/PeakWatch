@@ -10,7 +10,7 @@ import HealthKit
 
 enum ECGSource {
     case Synthetic
-    case HealthKit(source: HKElectrocardiogram)
+    case HealthKit(source: HKECG)
 }
 
 extension ECGSource: CustomStringConvertible {
