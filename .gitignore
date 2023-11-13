@@ -91,6 +91,8 @@ iOSInjectionProject/
 
 # data
 analysis/data/*.json
+
+analysis/ecg_data_arrhythmia.json
 *.png
 analysis/.ipynb_checkpoints/analysis-checkpoint.ipynb
 *.csv
