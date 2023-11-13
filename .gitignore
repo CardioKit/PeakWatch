@@ -91,6 +91,7 @@ iOSInjectionProject/
 
 # data
 analysis/data/*.json
+analysis/data/archive/
 
 analysis/ecg_data_arrhythmia.json
 *.png
