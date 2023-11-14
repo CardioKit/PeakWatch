@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ImportButtonView: View {
 
+    let importButtonIcon = "square.and.arrow.down"
     
     var body: some View {
             NavigationLink {
                 ImportView()
             } label: {
-                Text("Imp")
+                Image(systemName: importButtonIcon)
             }
     }
 }
