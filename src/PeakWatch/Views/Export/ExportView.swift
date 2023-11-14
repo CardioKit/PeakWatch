@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ExportView: View {
+struct ExportView<ExportViewModel: ExportableViewModel>: View {
     
-    @StateObject var exportViewModel: ExportViewModel
+    @StateObject var exportViewModel: ExportViewModel 
     
     let title = "Export ECGs"
     
-    init(ecgs: [ECGSample]) {
-        self._exportViewModel = StateObject(wrappedValue: ExportViewModel(ecgs: ecgs))
+    init(exportViewModel: ExportViewModel) {
+        self._exportViewModel = StateObject(wrappedValue: exportViewModel)
     }
     
     var body: some View {

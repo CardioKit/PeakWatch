@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ReportView: View {
+struct ReportView<ExportViewModel: ExportableViewModel>: View {
     
     @ObservedObject var exportViewModel: ExportViewModel
     let ecgPreviewText = "Export all ecgs"
@@ -17,7 +17,7 @@ struct ReportView: View {
         
         CardWithHeader(headerIcon: "heart.fill",
                        headerTitle: "Electrocardiograms") {
-            Text(String(exportViewModel.ecgs.count) + " Recordings analyzed")
+            Text(String(exportViewModel.amountOfECGProcess) + " Recordings analyzed")
                 .font(.system(size: 18))
         }
         

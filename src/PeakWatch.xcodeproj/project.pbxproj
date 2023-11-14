@@ -38,7 +38,7 @@
 		115708222A5A0F98004D31F5 /* HeaderViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */; };
 		11589A922A7FEFD900CC6E97 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A912A7FEFD900CC6E97 /* ExportView.swift */; };
 		11589A942A7FF06000CC6E97 /* GlobalExportButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A932A7FF06000CC6E97 /* GlobalExportButtonView.swift */; };
-		11589A962A7FF1C100CC6E97 /* ExportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A952A7FF1C100CC6E97 /* ExportViewModel.swift */; };
+		11589A962A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A952A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift */; };
 		11597A8F2A5DE6F800E71A0D /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */; };
 		115A91862A863B4E00650C62 /* AlgorithmsChartLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A91852A863B4E00650C62 /* AlgorithmsChartLegendView.swift */; };
 		115A91882A8656A300650C62 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A91872A8656A300650C62 /* ContainerView.swift */; };
@@ -56,6 +56,7 @@
 		11632E7E2A8682CD006CE5BA /* ECGQualityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11632E7D2A8682CD006CE5BA /* ECGQualityRowView.swift */; };
 		11632E802A868584006CE5BA /* ECGQualityRatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11632E7F2A868584006CE5BA /* ECGQualityRatingExtension.swift */; };
 		11632E822A8685D7006CE5BA /* ECGQualityAlgortihmsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11632E812A8685D7006CE5BA /* ECGQualityAlgortihmsExtension.swift */; };
+		116369C42B038D4700DF7C82 /* ExportableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369C32B038D4700DF7C82 /* ExportableViewModel.swift */; };
 		11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */; };
 		11671E612A5C275100C3A913 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E602A5C275100C3A913 /* Feature.swift */; };
 		116D60522A8261C500EB7D9C /* DeviceDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */; };
@@ -161,7 +162,7 @@
 		115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModifier.swift; sourceTree = "<group>"; };
 		11589A912A7FEFD900CC6E97 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		11589A932A7FF06000CC6E97 /* GlobalExportButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExportButtonView.swift; sourceTree = "<group>"; };
-		11589A952A7FF1C100CC6E97 /* ExportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewModel.swift; sourceTree = "<group>"; };
+		11589A952A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportInMemoryViewModel.swift; sourceTree = "<group>"; };
 		11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
 		115A91852A863B4E00650C62 /* AlgorithmsChartLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmsChartLegendView.swift; sourceTree = "<group>"; };
 		115A91872A8656A300650C62 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		11632E7D2A8682CD006CE5BA /* ECGQualityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGQualityRowView.swift; sourceTree = "<group>"; };
 		11632E7F2A868584006CE5BA /* ECGQualityRatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGQualityRatingExtension.swift; sourceTree = "<group>"; };
 		11632E812A8685D7006CE5BA /* ECGQualityAlgortihmsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGQualityAlgortihmsExtension.swift; sourceTree = "<group>"; };
+		116369C32B038D4700DF7C82 /* ExportableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportableViewModel.swift; sourceTree = "<group>"; };
 		11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
 		11671E602A5C275100C3A913 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataUtils.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				11B3C9D62A5C5CB800EF0555 /* AlgorithmSelectable.swift */,
 				114DA3822A80EBB900186277 /* FileExportable.swift */,
 				115A91892A865CB000650C62 /* ContainerItemView.swift */,
+				116369C32B038D4700DF7C82 /* ExportableViewModel.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -597,7 +600,7 @@
 				11B3C9D32A5C5BB600EF0555 /* UserSettingsViewModel.swift */,
 				114BB1472A72D88A0079956A /* VoltageViewModel.swift */,
 				114BB14D2A7450D60079956A /* AlgorithmViewModel.swift */,
-				11589A952A7FF1C100CC6E97 /* ExportViewModel.swift */,
+				11589A952A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift */,
 				11C793CD2B02843400FEF38E /* ImportViewModel.swift */,
 			);
 			path = ViewModel;
@@ -862,9 +865,10 @@
 				11B52C012A790B46004AE7B1 /* ECGExportDTOHelper.swift in Sources */,
 				115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */,
 				1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */,
+				116369C42B038D4700DF7C82 /* ExportableViewModel.swift in Sources */,
 				115708152A59CD8F004D31F5 /* TagView.swift in Sources */,
 				1153CDBB2A7690FC008E209C /* Colors.swift in Sources */,
-				11589A962A7FF1C100CC6E97 /* ExportViewModel.swift in Sources */,
+				11589A962A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift in Sources */,
 				1173550C2A778D7B000C7F6A /* RPeaksDTO.swift in Sources */,
 				114BB14E2A7450D60079956A /* AlgorithmViewModel.swift in Sources */,
 				114BB1482A72D88A0079956A /* VoltageViewModel.swift in Sources */,

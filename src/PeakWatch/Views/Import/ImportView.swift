@@ -16,7 +16,7 @@ struct ImportView: View {
     var body: some View {
         Group {
             if let errorMessage = importViewModel.isError  {
-                Text("Error during import: \(errorMessage)")
+                Text("Error during import \(errorMessage)")
             } else if importViewModel.isLoading {
                 ProgressView()
                 Spacer()
@@ -34,7 +34,7 @@ struct ImportView: View {
                     self.importViewModel.isOpenFileImport = true
                 })
             } else {
-                ExportView(ecgs: importViewModel.ecgSamples)
+                ExportView(exportViewModel: ExportInMemoryViewModel(ecgs: importViewModel.ecgSamples))
             }
         }.onDisappear {
             importViewModel.reset()

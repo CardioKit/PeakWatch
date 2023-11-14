@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExportProgressView: View {
+struct ExportProgressView<ExportViewModel: ExportableViewModel>: View {
     
     @ObservedObject var exportViewModel: ExportViewModel
     
