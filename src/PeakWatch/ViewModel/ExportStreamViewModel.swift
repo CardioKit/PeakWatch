@@ -20,9 +20,8 @@ class ExportStreamViewModel: ExportableViewModel {
     
     @Published var amountOfECGProcess: Double = 0
     
-    var processTime: Duration {
-        Duration.zero
-    }
+    @Published var processTime: Duration = Duration.zero
+
     
     @Published var ecgExports: URL?
     
@@ -44,7 +43,6 @@ class ExportStreamViewModel: ExportableViewModel {
     func processAllECGs() async {
         do  {
             if let ecg = try self.importStream.getNextECG() {
-                // do something with
                 self.algorithmViewModel = AlgorithmViewModel(ecgSample: ecg)
                 if let algorithmViewModel = self.algorithmViewModel{
                     await algorithmViewModel.fetchVoltages()
@@ -65,26 +63,31 @@ class ExportStreamViewModel: ExportableViewModel {
         }
     }
     
-    func iteratveOverAllECGs() {
-        Task {
-           exportECG()
-           increment()
-           await processAllECGs()
-        }
-    }
-    
     func exportECG() {
         if let exportResults = algorithmViewModel?.exportResults {
             do {
+                
                 try exportStream.exportECG(ecgExport: exportResults)
+                
+                DispatchQueue.main.async {
+                    self.processTime += exportResults.runtime
+                }
+        
             } catch {
                 errorHandler(error: error)
             }
         }
     }
     
+    private func iteratveOverAllECGs() {
+        Task {
+           exportECG()
+           incrementAmountOfECGs()
+           await processAllECGs()
+        }
+    }
     
-    func registerObserver<T>(observable: AlgorithmViewModel, observer: Published<T>.Publisher) {
+    private func registerObserver<T>(observable: AlgorithmViewModel, observer: Published<T>.Publisher) {
         observer
             .dropFirst()
             .receive(on: DispatchQueue.main)
@@ -95,14 +98,14 @@ class ExportStreamViewModel: ExportableViewModel {
         ).store(in: &cancellables)
     }
     
-    func increment() {
+    private func incrementAmountOfECGs() {
         DispatchQueue.main.async {
             self.amountOfECGProcess += 1
         }
      
     }
     
-    func errorHandler(error: Error) {
+    private func errorHandler(error: Error) {
         DispatchQueue.main.async {
             self.isError = error.localizedDescription
         }

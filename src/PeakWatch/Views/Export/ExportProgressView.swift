@@ -15,8 +15,13 @@ struct ExportProgressView<ExportViewModel: ExportableViewModel>: View {
     let numberFont: Font = .system(size: 24, weight: .bold)
     
     
-    var ecgsProcessedPercentageLabel: String {
-        let percentage = 100.0 * exportViewModel.amountOfECGProcess  / (exportViewModel.totalECGsToProcess ?? 100)// TODO improve unwrapping
+    var ecgsProcessedPercentageLabel: String? {
+        
+        guard let totalECGsToProcess = exportViewModel.totalECGsToProcess else {
+            return nil
+        }
+        
+        let percentage = 100.0 * exportViewModel.amountOfECGProcess  / (totalECGsToProcess)
         return "\(String(format: "%.0f", percentage))%"
     }
     
@@ -26,7 +31,8 @@ struct ExportProgressView<ExportViewModel: ExportableViewModel>: View {
             .frame(maxHeight: 60)
         Text(progressText)
             .font(.system(size: 14, weight: .light))
-        if let totalECGsToProcess = exportViewModel.totalECGsToProcess {
+        if let ecgsProcessedPercentageLabel = ecgsProcessedPercentageLabel,
+           let totalECGsToProcess = exportViewModel.totalECGsToProcess  {
             Text(ecgsProcessedPercentageLabel)
                 .font(numberFont)
             ProgressView(value: exportViewModel.amountOfECGProcess, total: totalECGsToProcess).frame(maxWidth: 300)

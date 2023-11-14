@@ -36,20 +36,12 @@ class ExportInMemoryViewModel: ExportableViewModel {
     let isError: String? = nil
     
     var processTime: Duration {
-        let runtimes = ecgResults.flatMap { ecg in
-            let runtimesAlgorithms = ecg.algorithms.compactMap { algorithm in
-                algorithm.runtime
-            }
-            let runtimesQuality = ecg.signalQuality.compactMap { signalQuality in
-                signalQuality.runtime
-                
-            }
-            
-            return runtimesAlgorithms + runtimesQuality
+        let runtimes = ecgResults.compactMap { ecg in
+            ecg.runtime
         }
         
         return runtimes.reduce(Duration.zero) { acc, nextDuration in
-            acc + Duration(secondsComponent: nextDuration.seconds, attosecondsComponent: nextDuration.attoseconds)
+            acc + nextDuration
         }
     }
     

@@ -39,3 +39,22 @@ extension ECGExportDTO: Transferable {
     }
     
 }
+
+extension ECGExportDTO {
+    
+    var runtime: Duration {
+        let runtimesAlgorithms = algorithms.compactMap { algorithm in
+            algorithm.runtime
+        }
+        let runtimesQuality = signalQuality.compactMap { signalQuality in
+            signalQuality.runtime
+            
+        }
+        
+        let runtimes = runtimesAlgorithms + runtimesQuality
+        
+        return runtimes.reduce(Duration.zero) { acc, nextDuration in
+            acc + Duration(secondsComponent: nextDuration.seconds, attosecondsComponent: nextDuration.attoseconds)
+        }
+    }
+}

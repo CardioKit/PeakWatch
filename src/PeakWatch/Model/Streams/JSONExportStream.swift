@@ -11,7 +11,7 @@ class JSONExportStream: ExportStream {
     
     
     let exportFileURL: URL
-    private let exportFileName = "arrythmia"
+    private let exportFileName = FileNameHelper.createFileName(suffix: "Dataset_External")
     
     private var fileHandle: FileHandle?
     
