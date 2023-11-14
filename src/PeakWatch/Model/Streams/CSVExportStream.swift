@@ -1,5 +1,5 @@
 //
-//  ImportStream.swift
+//  CSVExportStream.swift
 //  PeakWatch
 //
 //  Created by Nikita Charushnikov on 14.11.23.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-
-protocol ImportStream {
+class CSVExportStream: ExportStream {
     
-    
-    func getNextECG() -> ECGSample?
+    init() {
+        
+    }
 }

@@ -38,4 +38,12 @@ struct ECGSample: Identifiable {
               ecgSource: .External(voltages: importedSample.ecg),
               samplingRate: importedSample.samplingRate)
     }
+    
+    static func createFromExternalDataset(ecg: [Double], samplingRate: Double) -> ECGSample {
+        .init(startDate: Date(),
+              endDate: Date(),
+              beatsPerMinute: nil,
+              ecgSource: .External(voltages: ecg),
+              samplingRate: samplingRate)
+    }
 }

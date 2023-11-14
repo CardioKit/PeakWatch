@@ -21,12 +21,16 @@ class CSVImportStream: ImportStream {
         }
     }
     
-    func getNextECG() throws -> ECGSample? {
+    func getNextECG() -> ECGSample? {
         guard let row = csvReader.next() else {
             return nil
         }
         
-        fatalError("TODO")
+        #warning("Improve add exception here") 
+        let ecg = row.compactMap(Double.init)
+        let samplingRate = 512.0
+        
+        return ECGSample.createFromExternalDataset(ecg: ecg, samplingRate: samplingRate)
     }
     
     

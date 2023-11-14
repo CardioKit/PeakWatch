@@ -6,13 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 class ExportStreamViewModel: ExportableViewModel {
     
     // Interface properties
-    var isExportReady: Bool {
-        return false
-    }
+    var isExportReady: Bool = false
     
     var totalECGsToProcess: Double {
         return 100000
@@ -23,6 +22,9 @@ class ExportStreamViewModel: ExportableViewModel {
     }
     
     @Published var ecgExports: AllECGExportDTO = AllECGExportDTO(ecgs: [])
+    
+    private var algorithmViewModel: AlgorithmViewModel?
+    private var cancellables = Set<AnyCancellable>()
     
     
     // Internal properties
@@ -37,10 +39,38 @@ class ExportStreamViewModel: ExportableViewModel {
     
     
     func processAllECGs() async {
-        
+        if let ecg = self.importStream.getNextECG() {
+            // do something with
+            self.algorithmViewModel = AlgorithmViewModel(ecgSample: ecg)
+            if let algorithmViewModel = self.algorithmViewModel{
+                await algorithmViewModel.fetchVoltages()
+                registerObserver(observable: algorithmViewModel, observer: algorithmViewModel.$canExport)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.isExportReady = true
+            }
+        }
+    }
+    
+    func iteratveOverAllECGs() {
+        Task {
+           await processAllECGs()
+        }
     }
     
     
+    
+    func registerObserver<T>(observable: AlgorithmViewModel, observer: Published<T>.Publisher) {
+        observer
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] _ in
+                self?.iteratveOverAllECGs()
+    
+            }
+        ).store(in: &cancellables)
+    }
     
     
     
