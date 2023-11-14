@@ -10,7 +10,7 @@ import HealthKit
 
 struct ECGAppleMetaDataDTO: Codable {
     
-    let appleRating: String
+    let appleRating: String?
     let beatsPerMinute: Double
     let recordingStartTime: Date
     let recordingEndtIme: Date
@@ -23,8 +23,7 @@ struct ECGAppleMetaDataDTO: Codable {
     let algorithmVersion: Int?
     let addedToHealthKitDate: Date?
     
-    static func createAppleMetaDataDTO(algorithmViewModel: AlgorithmViewModel) -> ECGAppleMetaDataDTO {
-        let appleWatchSymptoms = algorithmViewModel.ecgSample.classification.description
+    static func createAppleMetaDataDTO(algorithmViewModel: AlgorithmViewModel) -> ECGAppleMetaDataDTO? {
         let beatsPerminute = algorithmViewModel.ecgSample.beatsPerMinute ?? 0
         let startTime = algorithmViewModel.ecgSample.startDate
         let endTime = algorithmViewModel.ecgSample.endDate
@@ -33,8 +32,9 @@ struct ECGAppleMetaDataDTO: Codable {
         case .Synthetic:
             #warning("not implemented")
             fatalError("not implemented")
-        case .HealthKit(let source):
+        case .HealthKit(let hkECG):
             
+            let source = hkECG.ecg
             
             let deviceName = source.device?.name
             let manufacturer = source.device?.manufacturer
@@ -51,6 +51,7 @@ struct ECGAppleMetaDataDTO: Codable {
                 let addedToHealthKitDouble = addedToHealthKitRaw as? Double {
                 addedToHealthKit = Date(timeIntervalSinceReferenceDate: addedToHealthKitDouble)
             }
+            let appleWatchSymptoms = source.classification.description
             
             return .init(appleRating: appleWatchSymptoms,
                          beatsPerMinute: beatsPerminute,
@@ -66,6 +67,8 @@ struct ECGAppleMetaDataDTO: Codable {
                          addedToHealthKitDate: addedToHealthKit
                          
             )
+        case .External(_):
+            return nil
         }
     }
     

@@ -12,11 +12,8 @@ import HealthKit
 struct ECGSample: Identifiable {
     
     let id = UUID()
-    let numberOfVoltageMeasurements: Int
     let startDate: Date
     let endDate: Date
-    let device: String
-    let classification: HKElectrocardiogram.Classification
     let beatsPerMinute: Double?
     let ecgSource: ECGSource
     let samplingRate: Double
@@ -24,15 +21,21 @@ struct ECGSample: Identifiable {
     static let defaultSamplingRate = 512.0
     
     static func createFromHKElectrocardiogram(hkElectrocardiogramm: HKElectrocardiogram) -> ECGSample {
-        
-        return .init(numberOfVoltageMeasurements: hkElectrocardiogramm.numberOfVoltageMeasurements,
+        .init(
                      startDate: hkElectrocardiogramm.startDate,
                      endDate: hkElectrocardiogramm.endDate,
-                     device: hkElectrocardiogramm.device?.name ?? "Unknown device",
-                     classification: hkElectrocardiogramm.classification,
                      beatsPerMinute: hkElectrocardiogramm.averageHeartRate?.doubleValue(for: HKUnit.count().unitDivided(by: .minute())),
-                     ecgSource: .HealthKit(source: hkElectrocardiogramm),
+                     ecgSource: .HealthKit(source: HKECG(ecg: hkElectrocardiogramm)),
                      samplingRate: hkElectrocardiogramm.samplingFrequency?.doubleValue(for: .hertz()) ?? defaultSamplingRate
         )
+    }
+    
+    
+    static func createFromExternalDataset(importedSample: ECGImportDTO) -> ECGSample {
+        .init(startDate: Date(),
+              endDate: Date(),
+              beatsPerMinute: nil,
+              ecgSource: .External(voltages: importedSample.ecg),
+              samplingRate: importedSample.samplingRate)
     }
 }

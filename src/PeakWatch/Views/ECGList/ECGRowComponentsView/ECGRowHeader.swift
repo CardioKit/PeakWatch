@@ -14,7 +14,12 @@ struct ECGRowHeader: View {
     
     var body: some View {
         HStack {
-            Text(ecg.classification.description).bold()
+            switch ecg.ecgSource {
+            case .HealthKit(let source):
+                Text(source.classification.description).bold()
+            case .Synthetic, .External(_):
+                Text(ecg.ecgSource.description)
+            }
             Spacer()
             Text(DateUtils.formatDate(date: ecg.startDate))
         }

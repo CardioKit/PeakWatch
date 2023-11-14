@@ -12,7 +12,7 @@ import UniformTypeIdentifiers
 struct ECGExportDTO: Codable {
     
     let ecg: ECGInformationDTO
-    let appleMetaData: ECGAppleMetaDataDTO
+    let appleMetaData: ECGAppleMetaDataDTO?
     let algorithms: [RPeaksDTO]
     let signalQuality: [SignalQualityDTO]
     let deviceID: UUID?

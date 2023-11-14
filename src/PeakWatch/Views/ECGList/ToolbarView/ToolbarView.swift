@@ -14,6 +14,7 @@ struct ToolbarView: View {
     
     var body: some View {
         GlobalExportButtonView(ecgs: ecgs)
+        ImportButtonView()
         InfoButtonView(openInfoSheet: $openInfoSheet)
         SettingsButtonView()
     }
