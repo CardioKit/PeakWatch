@@ -12,6 +12,7 @@ struct ExportProgressView<ExportViewModel: ExportableViewModel>: View {
     @ObservedObject var exportViewModel: ExportViewModel
     
     let progressText = "Algorithms running..."
+    let numberFont: Font = .system(size: 24, weight: .bold)
     
     
     var ecgsProcessedPercentageLabel: String {
@@ -27,10 +28,11 @@ struct ExportProgressView<ExportViewModel: ExportableViewModel>: View {
             .font(.system(size: 14, weight: .light))
         if let totalECGsToProcess = exportViewModel.totalECGsToProcess {
             Text(ecgsProcessedPercentageLabel)
-                .font(.system(size: 24, weight: .bold))
+                .font(numberFont)
             ProgressView(value: exportViewModel.amountOfECGProcess, total: totalECGsToProcess).frame(maxWidth: 300)
         } else {
-            Text("ECG processed \(exportViewModel.amountOfECGProcess)")
+            Text("\(String(format: "%.0f", exportViewModel.amountOfECGProcess)) ECGs")
+                .font(numberFont)
         }
     }
 }

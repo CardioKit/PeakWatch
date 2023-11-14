@@ -28,16 +28,15 @@ class CSVImportStream: ImportStream {
             return nil
         }
         
-        let ecg = row.map(Double.init)
-        let ecgWithoutNil = ecg.compactMap { $0 }
+        let ecg = row.compactMap(Double.init)
         let samplingRate = DEFAULT_SAMPLING_RATE
         
-        guard ecgWithoutNil.count != ecg.count else {
+        guard row.count == ecg.count else {
             throw ImportError.typeError(message: "ECGs are not numeric!")
         }
         
         
-        return ECGSample.createFromExternalDataset(ecg: ecgWithoutNil, samplingRate: samplingRate)
+        return ECGSample.createFromExternalDataset(ecg: ecg, samplingRate: samplingRate)
     }
     
     
