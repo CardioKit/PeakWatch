@@ -61,9 +61,6 @@ class JSONExportStream: ExportStream {
     func getExportFile() throws -> URL {
         try writeToFile(data: suffixExport)
         return self.exportFileURL
-    }
-    
-    
-    
+    } 
 
 }
