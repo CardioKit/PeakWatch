@@ -24,7 +24,7 @@ class ExportInMemoryViewModel: ExportableViewModel {
         ecgs.count == ecgResults.count
     }
     
-    var totalECGsToProcess: Double {
+    var totalECGsToProcess: Double? {
         Double(ecgs.count)
     }
     

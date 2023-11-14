@@ -14,13 +14,9 @@ class ExportStreamViewModel: ExportableViewModel {
     // Interface properties
     var isExportReady: Bool = false
     
-    var totalECGsToProcess: Double {
-        return 100000
-    }
+    var totalECGsToProcess: Double? = nil
     
-    var amountOfECGProcess: Double {
-        return 0
-    }
+    @Published var amountOfECGProcess: Double = 0
     
     var processTime: Duration {
         Duration.zero
@@ -62,6 +58,7 @@ class ExportStreamViewModel: ExportableViewModel {
     func iteratveOverAllECGs() {
         Task {
            exportECG()
+           increment()
            await processAllECGs()
         }
     }
@@ -89,6 +86,12 @@ class ExportStreamViewModel: ExportableViewModel {
         ).store(in: &cancellables)
     }
     
+    func increment() {
+        DispatchQueue.main.async {
+            self.amountOfECGProcess += 1
+        }
+     
+    }
     
     
 }
