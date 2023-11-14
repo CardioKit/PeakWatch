@@ -16,7 +16,7 @@ struct ImportView: View {
     var body: some View {
         Group {
             if let errorMessage = importViewModel.isError  {
-                Text("Error during import: \(errorMessage)")
+                Text("Error during import \(errorMessage)")
             } else if importViewModel.isLoading {
                 ProgressView()
                 Spacer()
@@ -25,7 +25,7 @@ struct ImportView: View {
                     .font(.system(size: 14, weight: .light))
                 .fileImporter(
                     isPresented: $importViewModel.isOpenFileImport,
-                    allowedContentTypes: [.json]
+                    allowedContentTypes: [.commaSeparatedText]
                 ) { result in
                     importViewModel.importExternalDataSet(
                         resultImport: result
@@ -34,7 +34,9 @@ struct ImportView: View {
                     self.importViewModel.isOpenFileImport = true
                 })
             } else {
-                ExportView(ecgs: importViewModel.ecgSamples)
+                if let exportViewModel = importViewModel.exportViewModel {
+                    ExportView(exportViewModel: exportViewModel)
+                }
             }
         }.onDisappear {
             importViewModel.reset()

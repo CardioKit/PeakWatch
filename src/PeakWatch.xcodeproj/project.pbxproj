@@ -38,7 +38,7 @@
 		115708222A5A0F98004D31F5 /* HeaderViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */; };
 		11589A922A7FEFD900CC6E97 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A912A7FEFD900CC6E97 /* ExportView.swift */; };
 		11589A942A7FF06000CC6E97 /* GlobalExportButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A932A7FF06000CC6E97 /* GlobalExportButtonView.swift */; };
-		11589A962A7FF1C100CC6E97 /* ExportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A952A7FF1C100CC6E97 /* ExportViewModel.swift */; };
+		11589A962A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589A952A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift */; };
 		11597A8F2A5DE6F800E71A0D /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */; };
 		115A91862A863B4E00650C62 /* AlgorithmsChartLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A91852A863B4E00650C62 /* AlgorithmsChartLegendView.swift */; };
 		115A91882A8656A300650C62 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A91872A8656A300650C62 /* ContainerView.swift */; };
@@ -56,6 +56,13 @@
 		11632E7E2A8682CD006CE5BA /* ECGQualityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11632E7D2A8682CD006CE5BA /* ECGQualityRowView.swift */; };
 		11632E802A868584006CE5BA /* ECGQualityRatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11632E7F2A868584006CE5BA /* ECGQualityRatingExtension.swift */; };
 		11632E822A8685D7006CE5BA /* ECGQualityAlgortihmsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11632E812A8685D7006CE5BA /* ECGQualityAlgortihmsExtension.swift */; };
+		116369C42B038D4700DF7C82 /* ExportableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369C32B038D4700DF7C82 /* ExportableViewModel.swift */; };
+		116369C62B03962400DF7C82 /* ExportStreamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369C52B03962400DF7C82 /* ExportStreamViewModel.swift */; };
+		116369C92B03970100DF7C82 /* ImportStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369C82B03970100DF7C82 /* ImportStream.swift */; };
+		116369CB2B03971800DF7C82 /* ExportStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369CA2B03971800DF7C82 /* ExportStream.swift */; };
+		116369CD2B0399E100DF7C82 /* CSVImportStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369CC2B0399E100DF7C82 /* CSVImportStream.swift */; };
+		116369D02B039B5100DF7C82 /* CSV in Frameworks */ = {isa = PBXBuildFile; productRef = 116369CF2B039B5100DF7C82 /* CSV */; };
+		116369D22B03B70300DF7C82 /* JSONExportStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369D12B03B70300DF7C82 /* JSONExportStream.swift */; };
 		11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */; };
 		11671E612A5C275100C3A913 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E602A5C275100C3A913 /* Feature.swift */; };
 		116D60522A8261C500EB7D9C /* DeviceDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */; };
@@ -85,6 +92,8 @@
 		11C793CC2B02814E00FEF38E /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CB2B02814E00FEF38E /* ImportView.swift */; };
 		11C793CE2B02843400FEF38E /* ImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CD2B02843400FEF38E /* ImportViewModel.swift */; };
 		11C793D02B028B7500FEF38E /* HKECG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CF2B028B7500FEF38E /* HKECG.swift */; };
+		11E49F392B03FDBA007275CA /* ImportError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E49F382B03FDBA007275CA /* ImportError.swift */; };
+		11E49F3B2B04052A007275CA /* FileNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E49F3A2B04052A007275CA /* FileNameHelper.swift */; };
 		172871292A37B0D800507869 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172871282A37B0D800507869 /* TagViewModifier.swift */; };
 		1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */; };
 		1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712C2A37B28C00507869 /* ECGSignalView.swift */; };
@@ -161,7 +170,7 @@
 		115708212A5A0F98004D31F5 /* HeaderViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModifier.swift; sourceTree = "<group>"; };
 		11589A912A7FEFD900CC6E97 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		11589A932A7FF06000CC6E97 /* GlobalExportButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExportButtonView.swift; sourceTree = "<group>"; };
-		11589A952A7FF1C100CC6E97 /* ExportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewModel.swift; sourceTree = "<group>"; };
+		11589A952A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportInMemoryViewModel.swift; sourceTree = "<group>"; };
 		11597A8E2A5DE6F800E71A0D /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
 		115A91852A863B4E00650C62 /* AlgorithmsChartLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmsChartLegendView.swift; sourceTree = "<group>"; };
 		115A91872A8656A300650C62 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -179,6 +188,12 @@
 		11632E7D2A8682CD006CE5BA /* ECGQualityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGQualityRowView.swift; sourceTree = "<group>"; };
 		11632E7F2A868584006CE5BA /* ECGQualityRatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGQualityRatingExtension.swift; sourceTree = "<group>"; };
 		11632E812A8685D7006CE5BA /* ECGQualityAlgortihmsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGQualityAlgortihmsExtension.swift; sourceTree = "<group>"; };
+		116369C32B038D4700DF7C82 /* ExportableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportableViewModel.swift; sourceTree = "<group>"; };
+		116369C52B03962400DF7C82 /* ExportStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportStreamViewModel.swift; sourceTree = "<group>"; };
+		116369C82B03970100DF7C82 /* ImportStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStream.swift; sourceTree = "<group>"; };
+		116369CA2B03971800DF7C82 /* ExportStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportStream.swift; sourceTree = "<group>"; };
+		116369CC2B0399E100DF7C82 /* CSVImportStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVImportStream.swift; sourceTree = "<group>"; };
+		116369D12B03B70300DF7C82 /* JSONExportStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExportStream.swift; sourceTree = "<group>"; };
 		11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
 		11671E602A5C275100C3A913 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataUtils.swift; sourceTree = "<group>"; };
@@ -208,6 +223,8 @@
 		11C793CB2B02814E00FEF38E /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
 		11C793CD2B02843400FEF38E /* ImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewModel.swift; sourceTree = "<group>"; };
 		11C793CF2B028B7500FEF38E /* HKECG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKECG.swift; sourceTree = "<group>"; };
+		11E49F382B03FDBA007275CA /* ImportError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportError.swift; sourceTree = "<group>"; };
+		11E49F3A2B04052A007275CA /* FileNameHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNameHelper.swift; sourceTree = "<group>"; };
 		172871282A37B0D800507869 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSectionView.swift; sourceTree = "<group>"; };
 		1728712C2A37B28C00507869 /* ECGSignalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSignalView.swift; sourceTree = "<group>"; };
@@ -245,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				504710B12A94EB3200E5F626 /* PeakSwift in Frameworks */,
+				116369D02B039B5100DF7C82 /* CSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +377,15 @@
 			path = ECGQSignalQuality;
 			sourceTree = "<group>";
 		};
+		116369C72B0396D800DF7C82 /* Streams */ = {
+			isa = PBXGroup;
+			children = (
+				116369CC2B0399E100DF7C82 /* CSVImportStream.swift */,
+				116369D12B03B70300DF7C82 /* JSONExportStream.swift */,
+			);
+			path = Streams;
+			sourceTree = "<group>";
+		};
 		11671E5D2A5BFE8100C3A913 /* FeaturesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +452,7 @@
 			children = (
 				117355162A782B25000C7F6A /* JSONError.swift */,
 				111AD9F82A782EC200A73AD3 /* ExportError.swift */,
+				11E49F382B03FDBA007275CA /* ImportError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -443,6 +471,9 @@
 				11B3C9D62A5C5CB800EF0555 /* AlgorithmSelectable.swift */,
 				114DA3822A80EBB900186277 /* FileExportable.swift */,
 				115A91892A865CB000650C62 /* ContainerItemView.swift */,
+				116369C32B038D4700DF7C82 /* ExportableViewModel.swift */,
+				116369C82B03970100DF7C82 /* ImportStream.swift */,
+				116369CA2B03971800DF7C82 /* ExportStream.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -597,8 +628,9 @@
 				11B3C9D32A5C5BB600EF0555 /* UserSettingsViewModel.swift */,
 				114BB1472A72D88A0079956A /* VoltageViewModel.swift */,
 				114BB14D2A7450D60079956A /* AlgorithmViewModel.swift */,
-				11589A952A7FF1C100CC6E97 /* ExportViewModel.swift */,
+				11589A952A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift */,
 				11C793CD2B02843400FEF38E /* ImportViewModel.swift */,
+				116369C52B03962400DF7C82 /* ExportStreamViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -606,6 +638,7 @@
 		179438DE2A31F45A00616B9B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				116369C72B0396D800DF7C82 /* Streams */,
 				117355022A778BCE000C7F6A /* DTOs */,
 				179438DF2A31F47700616B9B /* ECGSample.swift */,
 				17A759422A349282001B5E7D /* VoltageMeasurementWithPeak.swift */,
@@ -631,6 +664,7 @@
 				11B52C002A790B46004AE7B1 /* ECGExportDTOHelper.swift */,
 				116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */,
 				11C793C42B027BB700FEF38E /* ECGImportDTOHelper.swift */,
+				11E49F3A2B04052A007275CA /* FileNameHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -676,6 +710,7 @@
 			name = PeakWatch;
 			packageProductDependencies = (
 				504710B02A94EB3200E5F626 /* PeakSwift */,
+				116369CF2B039B5100DF7C82 /* CSV */,
 			);
 			productName = PeakWatch;
 			productReference = 173C05302A31C15F00D3E786 /* PeakWatch.app */;
@@ -751,6 +786,7 @@
 			mainGroup = 173C05272A31C15F00D3E786;
 			packageReferences = (
 				504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */,
+				116369CE2B039B5100DF7C82 /* XCRemoteSwiftPackageReference "CSV.swift" */,
 			);
 			productRefGroup = 173C05312A31C15F00D3E786 /* Products */;
 			projectDirPath = "";
@@ -809,6 +845,7 @@
 				1153CDBD2A769401008E209C /* RoundedBackgroundModifier.swift in Sources */,
 				116E63B82A586F9C00A0C6F4 /* ECGChartView.swift in Sources */,
 				116D60522A8261C500EB7D9C /* DeviceDataUtils.swift in Sources */,
+				116369CD2B0399E100DF7C82 /* CSVImportStream.swift in Sources */,
 				179438D42A31E23200616B9B /* ECGListView.swift in Sources */,
 				1153CDB72A753B23008E209C /* DurationExtension.swift in Sources */,
 				17A82BEE2A3767F200873DF7 /* AlgorithmSelectionView.swift in Sources */,
@@ -817,6 +854,7 @@
 				173C05342A31C15F00D3E786 /* PeakWatchApp.swift in Sources */,
 				115708132A59CD50004D31F5 /* Tag.swift in Sources */,
 				1157080F2A59C16D004D31F5 /* ECGNavigationView.swift in Sources */,
+				116369C62B03962400DF7C82 /* ExportStreamViewModel.swift in Sources */,
 				11632E7E2A8682CD006CE5BA /* ECGQualityRowView.swift in Sources */,
 				11C793CE2B02843400FEF38E /* ImportViewModel.swift in Sources */,
 				117355142A78266D000C7F6A /* RuntimeDTO.swift in Sources */,
@@ -856,20 +894,25 @@
 				1160CEB32A5F10D400BE5867 /* ECGRowHeader.swift in Sources */,
 				114DA3832A80EBB900186277 /* FileExportable.swift in Sources */,
 				117355062A778C37000C7F6A /* ECGInformationDTO.swift in Sources */,
+				11E49F3B2B04052A007275CA /* FileNameHelper.swift in Sources */,
 				1157080D2A59C112004D31F5 /* AlgorithmsTagsGridView.swift in Sources */,
 				17BF565F2A3332E600FF42D5 /* HKClassificationExtension.swift in Sources */,
 				1160CEAE2A5F040100BE5867 /* FeatureRow.swift in Sources */,
+				116369D22B03B70300DF7C82 /* JSONExportStream.swift in Sources */,
 				11B52C012A790B46004AE7B1 /* ECGExportDTOHelper.swift in Sources */,
 				115707FE2A599A7B004D31F5 /* ECGSingleAlgorithmDetailView.swift in Sources */,
 				1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */,
+				116369CB2B03971800DF7C82 /* ExportStream.swift in Sources */,
+				116369C42B038D4700DF7C82 /* ExportableViewModel.swift in Sources */,
 				115708152A59CD8F004D31F5 /* TagView.swift in Sources */,
 				1153CDBB2A7690FC008E209C /* Colors.swift in Sources */,
-				11589A962A7FF1C100CC6E97 /* ExportViewModel.swift in Sources */,
+				11589A962A7FF1C100CC6E97 /* ExportInMemoryViewModel.swift in Sources */,
 				1173550C2A778D7B000C7F6A /* RPeaksDTO.swift in Sources */,
 				114BB14E2A7450D60079956A /* AlgorithmViewModel.swift in Sources */,
 				114BB1482A72D88A0079956A /* VoltageViewModel.swift in Sources */,
 				172871292A37B0D800507869 /* TagViewModifier.swift in Sources */,
 				114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */,
+				11E49F392B03FDBA007275CA /* ImportError.swift in Sources */,
 				11C793C32B027B6200FEF38E /* ExternalDataSetDTO.swift in Sources */,
 				117355012A778988000C7F6A /* ExportButtonView.swift in Sources */,
 				115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */,
@@ -880,6 +923,7 @@
 				117355082A778C73000C7F6A /* ECGAppleMetaDataDTO.swift in Sources */,
 				117355172A782B25000C7F6A /* JSONError.swift in Sources */,
 				11671E612A5C275100C3A913 /* Feature.swift in Sources */,
+				116369C92B03970100DF7C82 /* ImportStream.swift in Sources */,
 				115A918A2A865CB000650C62 /* ContainerItemView.swift in Sources */,
 				115A91882A8656A300650C62 /* ContainerView.swift in Sources */,
 				1157081D2A59F121004D31F5 /* ECGNotFoundView.swift in Sources */,
@@ -1229,6 +1273,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		116369CE2B039B5100DF7C82 /* XCRemoteSwiftPackageReference "CSV.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:yaslab/CSV.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.3;
+			};
+		};
 		504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CardioKit/PeakSwift";
@@ -1240,6 +1292,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		116369CF2B039B5100DF7C82 /* CSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 116369CE2B039B5100DF7C82 /* XCRemoteSwiftPackageReference "CSV.swift" */;
+			productName = CSV;
+		};
 		504710B02A94EB3200E5F626 /* PeakSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */;

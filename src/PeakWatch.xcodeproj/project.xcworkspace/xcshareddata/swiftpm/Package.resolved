@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "csv.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:yaslab/CSV.swift.git",
+      "state" : {
+        "revision" : "81d2874c51db364d7e1d71b0d99018a294c87ac1",
+        "version" : "2.4.3"
+      }
+    },
+    {
       "identity" : "peakswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CardioKit/PeakSwift",

@@ -14,7 +14,7 @@ struct GlobalExportButtonView: View {
     
     var body: some View {
         NavigationLink {
-            ExportView(ecgs: ecgs)
+            ExportView(exportViewModel: ExportInMemoryViewModel(ecgs: ecgs))
         } label: {
             Image(systemName: exportButtonIcon)
         }

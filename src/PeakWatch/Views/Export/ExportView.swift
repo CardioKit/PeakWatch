@@ -7,19 +7,21 @@
 
 import SwiftUI
 
-struct ExportView: View {
+struct ExportView<ExportViewModel: ExportableViewModel>: View {
     
-    @StateObject var exportViewModel: ExportViewModel
+    @StateObject var exportViewModel: ExportViewModel 
     
     let title = "Export ECGs"
     
-    init(ecgs: [ECGSample]) {
-        self._exportViewModel = StateObject(wrappedValue: ExportViewModel(ecgs: ecgs))
+    init(exportViewModel: ExportViewModel) {
+        self._exportViewModel = StateObject(wrappedValue: exportViewModel)
     }
     
     var body: some View {
         VStack {
-            if exportViewModel.isExportReady {
+            if let error = exportViewModel.isError {
+               Text("Error: \(error)")
+            } else if exportViewModel.isExportReady {
                 ReportView(exportViewModel: exportViewModel)
                     .padding(10)
             } else {

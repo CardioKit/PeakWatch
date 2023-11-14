@@ -13,7 +13,7 @@ class ImportViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var isError: String?
     
-    @Published var ecgSamples: [ECGSample] = []
+    @Published var exportViewModel: ExportStreamViewModel?
     
     init() {
      
@@ -39,19 +39,18 @@ class ImportViewModel: ObservableObject {
     private func successHandler(fileUrl: URL) {
         
         if fileUrl.startAccessingSecurityScopedResource() {
+            
             do {
-                let importECGs = try ECGImportDTOHelper.importDataset(fileUrl: fileUrl)
-                let ecgSamples = importECGs.dataset.map { importECG in
-                    ECGSample.createFromExternalDataset(importedSample: importECG)
-                    
-                }
+                let importStream = try CSVImportStream(fileURL: fileUrl)
+                let exportStream = JSONExportStream()
+              
                 DispatchQueue.main.async {
-                    self.ecgSamples = ecgSamples
+                    self.exportViewModel = ExportStreamViewModel(importStream: importStream, exportStream: exportStream)
                     self.isLoading = false
                 }
                 
-            } catch let error {
-                errorHandler(errorMessage: error.localizedDescription)
+            } catch {
+                errorHandler(errorMessage: "Error setting up CSVStream!")
             }
             fileUrl.stopAccessingSecurityScopedResource()
         } else {
@@ -65,7 +64,6 @@ class ImportViewModel: ObservableObject {
             self.isOpenFileImport = false
             self.isLoading = true
             self.isError = nil
-            self.ecgSamples = []
         }
     }
     

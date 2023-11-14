@@ -50,6 +50,7 @@ Use the provided Jupyter notebook to perform detailed data analysis:
 PeakWatch relies on the following libraries:
 
 - [PeakSwift](https://github.com/CardioKit/PeakSwift)
+- [CSV.swift](https://github.com/yaslab/CSV.swift)
 
 ## Contributing
 
