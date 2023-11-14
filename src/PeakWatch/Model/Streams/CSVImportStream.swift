@@ -28,7 +28,7 @@ class CSVImportStream: ImportStream {
         
         #warning("Improve add exception here") 
         let ecg = row.compactMap(Double.init)
-        let samplingRate = 512.0
+        let samplingRate = 500.0
         
         return ECGSample.createFromExternalDataset(ecg: ecg, samplingRate: samplingRate)
     }
