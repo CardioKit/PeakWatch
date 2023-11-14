@@ -13,24 +13,31 @@ class CSVImportStream: ImportStream {
     
     let csvReader: CSVReader
     
+    let DEFAULT_SAMPLING_RATE = 500.0
+    
     init(fileURL: URL) throws {
         if let inputStream = InputStream(url: fileURL) {
             self.csvReader = try CSVReader(stream: inputStream)
         } else {
-            fatalError("TODO implement exception")
+            throw ImportError.fileError
         }
     }
     
-    func getNextECG() -> ECGSample? {
+    func getNextECG() throws -> ECGSample? {
         guard let row = csvReader.next() else {
             return nil
         }
         
-        #warning("Improve add exception here") 
-        let ecg = row.compactMap(Double.init)
-        let samplingRate = 500.0
+        let ecg = row.map(Double.init)
+        let ecgWithoutNil = ecg.compactMap { $0 }
+        let samplingRate = DEFAULT_SAMPLING_RATE
         
-        return ECGSample.createFromExternalDataset(ecg: ecg, samplingRate: samplingRate)
+        guard ecgWithoutNil.count != ecg.count else {
+            throw ImportError.typeError(message: "ECGs are not numeric!")
+        }
+        
+        
+        return ECGSample.createFromExternalDataset(ecg: ecgWithoutNil, samplingRate: samplingRate)
     }
     
     

@@ -11,5 +11,5 @@ import Foundation
 protocol ImportStream {
     
     
-    func getNextECG() -> ECGSample?
+    func getNextECG() throws -> ECGSample?
 }

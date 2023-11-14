@@ -93,6 +93,7 @@
 		11C793CC2B02814E00FEF38E /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CB2B02814E00FEF38E /* ImportView.swift */; };
 		11C793CE2B02843400FEF38E /* ImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CD2B02843400FEF38E /* ImportViewModel.swift */; };
 		11C793D02B028B7500FEF38E /* HKECG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C793CF2B028B7500FEF38E /* HKECG.swift */; };
+		11E49F392B03FDBA007275CA /* ImportError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E49F382B03FDBA007275CA /* ImportError.swift */; };
 		172871292A37B0D800507869 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172871282A37B0D800507869 /* TagViewModifier.swift */; };
 		1728712B2A37B1E600507869 /* ECGAlgorithmSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */; };
 		1728712D2A37B28C00507869 /* ECGSignalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728712C2A37B28C00507869 /* ECGSignalView.swift */; };
@@ -222,6 +223,7 @@
 		11C793CB2B02814E00FEF38E /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
 		11C793CD2B02843400FEF38E /* ImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewModel.swift; sourceTree = "<group>"; };
 		11C793CF2B028B7500FEF38E /* HKECG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKECG.swift; sourceTree = "<group>"; };
+		11E49F382B03FDBA007275CA /* ImportError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportError.swift; sourceTree = "<group>"; };
 		172871282A37B0D800507869 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		1728712A2A37B1E600507869 /* ECGAlgorithmSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGAlgorithmSectionView.swift; sourceTree = "<group>"; };
 		1728712C2A37B28C00507869 /* ECGSignalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGSignalView.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 			children = (
 				117355162A782B25000C7F6A /* JSONError.swift */,
 				111AD9F82A782EC200A73AD3 /* ExportError.swift */,
+				11E49F382B03FDBA007275CA /* ImportError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -909,6 +912,7 @@
 				114BB1482A72D88A0079956A /* VoltageViewModel.swift in Sources */,
 				172871292A37B0D800507869 /* TagViewModifier.swift in Sources */,
 				114C25912A5C7D5F00CB6F01 /* SettingsButtonView.swift in Sources */,
+				11E49F392B03FDBA007275CA /* ImportError.swift in Sources */,
 				11C793C32B027B6200FEF38E /* ExternalDataSetDTO.swift in Sources */,
 				117355012A778988000C7F6A /* ExportButtonView.swift in Sources */,
 				115708002A59ADA1004D31F5 /* HomeScreen.swift in Sources */,

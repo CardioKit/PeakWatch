@@ -19,7 +19,9 @@ struct ExportView<ExportViewModel: ExportableViewModel>: View {
     
     var body: some View {
         VStack {
-            if exportViewModel.isExportReady {
+            if let error = exportViewModel.isError {
+               Text("Error: \(error)")
+            } else if exportViewModel.isExportReady {
                 ReportView(exportViewModel: exportViewModel)
                     .padding(10)
             } else {

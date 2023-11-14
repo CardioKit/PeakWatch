@@ -16,6 +16,8 @@ class ExportStreamViewModel: ExportableViewModel {
     
     var totalECGsToProcess: Double? = nil
     
+    @Published var isError: String? = nil
+    
     @Published var amountOfECGProcess: Double = 0
     
     var processTime: Duration {
@@ -40,23 +42,26 @@ class ExportStreamViewModel: ExportableViewModel {
     
     
     func processAllECGs() async {
-        if let ecg = self.importStream.getNextECG() {
-            // do something with
-            self.algorithmViewModel = AlgorithmViewModel(ecgSample: ecg)
-            if let algorithmViewModel = self.algorithmViewModel{
-                await algorithmViewModel.fetchVoltages()
-                registerObserver(observable: algorithmViewModel, observer: algorithmViewModel.$canExport)
-            }
-        } else {
-            DispatchQueue.main.async {
-                do {
-                    self.ecgExports = try self.exportStream.getExportFile()
-                    self.isExportReady = true
-                } catch {
-                    #warning("Implement error habdling")
-                    print("Error: \(error.localizedDescription)")
+        do  {
+            if let ecg = try self.importStream.getNextECG() {
+                // do something with
+                self.algorithmViewModel = AlgorithmViewModel(ecgSample: ecg)
+                if let algorithmViewModel = self.algorithmViewModel{
+                    await algorithmViewModel.fetchVoltages()
+                    registerObserver(observable: algorithmViewModel, observer: algorithmViewModel.$canExport)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    do {
+                        self.ecgExports = try self.exportStream.getExportFile()
+                        self.isExportReady = true
+                    } catch {
+                        self.errorHandler(error: error)
+                    }
                 }
             }
+        } catch {
+            errorHandler(error: error)
         }
     }
     
@@ -73,8 +78,7 @@ class ExportStreamViewModel: ExportableViewModel {
             do {
                 try exportStream.exportECG(ecgExport: exportResults)
             } catch {
-                #warning("Implement error habdling")
-                print("Error: \(error.localizedDescription)")
+                errorHandler(error: error)
             }
         }
     }
@@ -96,6 +100,12 @@ class ExportStreamViewModel: ExportableViewModel {
             self.amountOfECGProcess += 1
         }
      
+    }
+    
+    func errorHandler(error: Error) {
+        DispatchQueue.main.async {
+            self.isError = error.localizedDescription
+        }
     }
     
     

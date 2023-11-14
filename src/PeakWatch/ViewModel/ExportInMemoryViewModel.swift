@@ -11,6 +11,7 @@ import PeakSwift
 
 class ExportInMemoryViewModel: ExportableViewModel {
     
+    
     let ecgs: [ECGSample]
     var ecgExports: AllECGExportDTO? {
         .init(ecgs: ecgResults)
@@ -31,6 +32,8 @@ class ExportInMemoryViewModel: ExportableViewModel {
     var amountOfECGProcess: Double {
         Double(ecgResults.count)
     }
+    
+    let isError: String? = nil
     
     var processTime: Duration {
         let runtimes = ecgResults.flatMap { ecg in

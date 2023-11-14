@@ -16,6 +16,8 @@ protocol ExportableViewModel: ObservableObject {
     
     var isExportReady: Bool { get }
     
+    var isError: String? { get }
+    
     var totalECGsToProcess: Double? { get }
     
     var amountOfECGProcess: Double { get }
