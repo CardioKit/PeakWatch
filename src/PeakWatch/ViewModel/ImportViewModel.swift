@@ -42,7 +42,7 @@ class ImportViewModel: ObservableObject {
             
             do {
                 let importStream = try CSVImportStream(fileURL: fileUrl)
-                let exportStream = CSVExportStream()
+                let exportStream = JSONExportStream()
               
                 DispatchQueue.main.async {
                     self.exportViewModel = ExportStreamViewModel(importStream: importStream, exportStream: exportStream)

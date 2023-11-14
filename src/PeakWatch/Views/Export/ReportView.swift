@@ -33,13 +33,15 @@ struct ReportView<ExportViewModel: ExportableViewModel>: View {
         
         Spacer()
         
-        ShareLink(item: exportViewModel.ecgExports,
-                  preview: SharePreview(ecgPreviewText)) {
-            CardView(cornerRadius: 4) {
-                HStack {
-                    Image(systemName: exportButtonIcon)
-                    Text("Share as JSON file")
-                }.frame(maxWidth: .infinity)
+        if let ecgExports = exportViewModel.ecgExports {
+            ShareLink(item: ecgExports,
+                      preview: SharePreview(ecgPreviewText)) {
+                CardView(cornerRadius: 4) {
+                    HStack {
+                        Image(systemName: exportButtonIcon)
+                        Text("Share as JSON file")
+                    }.frame(maxWidth: .infinity)
+                }
             }
         }
     }

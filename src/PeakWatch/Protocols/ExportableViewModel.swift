@@ -7,9 +7,12 @@
 
 import Foundation
 import PeakSwift
+import SwiftUI
 
 
 protocol ExportableViewModel: ObservableObject {
+    
+    associatedtype T: Transferable
     
     var isExportReady: Bool { get }
     
@@ -17,7 +20,7 @@ protocol ExportableViewModel: ObservableObject {
     
     var amountOfECGProcess: Double { get }
     
-    var ecgExports: AllECGExportDTO { get }
+    var ecgExports: T? { get }
     
     func processAllECGs() async
     
@@ -31,22 +34,5 @@ extension ExportableViewModel {
     var algorithmsExecuted: [Algorithms] {
         Array(UserSettingsViewModel().selectedAlgorithms)
     }
-    
-    var processTime: Duration {
-        let runtimes = ecgExports.ecgs.flatMap { ecg in
-            let runtimesAlgorithms = ecg.algorithms.compactMap { algorithm in
-                algorithm.runtime
-            }
-            let runtimesQuality = ecg.signalQuality.compactMap { signalQuality in
-                signalQuality.runtime
-                
-            }
-            
-            return runtimesAlgorithms + runtimesQuality
-        }
-        
-        return runtimes.reduce(Duration.zero) { acc, nextDuration in
-            acc + Duration(secondsComponent: nextDuration.seconds, attosecondsComponent: nextDuration.attoseconds)
-        }
-    }
+
 }

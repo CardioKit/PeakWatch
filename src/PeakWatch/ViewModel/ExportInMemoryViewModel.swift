@@ -12,11 +12,16 @@ import PeakSwift
 class ExportInMemoryViewModel: ExportableViewModel {
     
     let ecgs: [ECGSample]
-    @Published var ecgExports: AllECGExportDTO = AllECGExportDTO(ecgs: [])
+    var ecgExports: AllECGExportDTO? {
+        .init(ecgs: ecgResults)
+    }
     var algorithmViewModels: [AlgorithmViewModel]
     
+    
+    @Published var ecgResults: [ECGExportDTO] = []
+    
     var isExportReady: Bool {
-        ecgs.count == ecgExports.ecgs.count
+        ecgs.count == ecgResults.count
     }
     
     var totalECGsToProcess: Double {
@@ -24,7 +29,25 @@ class ExportInMemoryViewModel: ExportableViewModel {
     }
     
     var amountOfECGProcess: Double {
-        Double(ecgExports.ecgs.count)
+        Double(ecgResults.count)
+    }
+    
+    var processTime: Duration {
+        let runtimes = ecgResults.flatMap { ecg in
+            let runtimesAlgorithms = ecg.algorithms.compactMap { algorithm in
+                algorithm.runtime
+            }
+            let runtimesQuality = ecg.signalQuality.compactMap { signalQuality in
+                signalQuality.runtime
+                
+            }
+            
+            return runtimesAlgorithms + runtimesQuality
+        }
+        
+        return runtimes.reduce(Duration.zero) { acc, nextDuration in
+            acc + Duration(secondsComponent: nextDuration.seconds, attosecondsComponent: nextDuration.attoseconds)
+        }
     }
     
     private var cancellables = Set<AnyCancellable>()
@@ -51,8 +74,9 @@ class ExportInMemoryViewModel: ExportableViewModel {
     }
     
     func appendExportedECG(from algorithmViewModel: AlgorithmViewModel) {
+        
         if let exportResult = algorithmViewModel.exportResults {
-            self.ecgExports.ecgs.append(exportResult)
+            self.ecgResults.append(exportResult)
         }
     }
     

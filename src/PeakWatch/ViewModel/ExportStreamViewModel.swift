@@ -10,6 +10,7 @@ import Combine
 
 class ExportStreamViewModel: ExportableViewModel {
     
+    
     // Interface properties
     var isExportReady: Bool = false
     
@@ -21,7 +22,11 @@ class ExportStreamViewModel: ExportableViewModel {
         return 0
     }
     
-    @Published var ecgExports: AllECGExportDTO = AllECGExportDTO(ecgs: [])
+    var processTime: Duration {
+        Duration.zero
+    }
+    
+    @Published var ecgExports: URL?
     
     private var algorithmViewModel: AlgorithmViewModel?
     private var cancellables = Set<AnyCancellable>()
@@ -48,6 +53,7 @@ class ExportStreamViewModel: ExportableViewModel {
             }
         } else {
             DispatchQueue.main.async {
+                self.ecgExports = self.exportStream.getExportFile()
                 self.isExportReady = true
             }
         }
@@ -55,10 +61,21 @@ class ExportStreamViewModel: ExportableViewModel {
     
     func iteratveOverAllECGs() {
         Task {
+           exportECG()
            await processAllECGs()
         }
     }
     
+    func exportECG() {
+        if let exportResults = algorithmViewModel?.exportResults {
+            do {
+                try exportStream.exportECG(ecgExport: exportResults)
+            } catch {
+                #warning("Implement error habdling")
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
     
     
     func registerObserver<T>(observable: AlgorithmViewModel, observer: Published<T>.Publisher) {
