@@ -49,8 +49,13 @@ class ExportStreamViewModel: ExportableViewModel {
             }
         } else {
             DispatchQueue.main.async {
-                self.ecgExports = self.exportStream.getExportFile()
-                self.isExportReady = true
+                do {
+                    self.ecgExports = try self.exportStream.getExportFile()
+                    self.isExportReady = true
+                } catch {
+                    #warning("Implement error habdling")
+                    print("Error: \(error.localizedDescription)")
+                }
             }
         }
     }

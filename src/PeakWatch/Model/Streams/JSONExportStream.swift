@@ -9,14 +9,21 @@ import Foundation
 
 class JSONExportStream: ExportStream {
     
+    
     let exportFileURL: URL
     private let exportFileName = "arrythmia"
     
     private var fileHandle: FileHandle?
     
+    private let prefixExport = "{ \"ecgs\":[".data(using: .utf8)!
+    private let delimiter = ",".data(using: .utf8)!
+    private let suffixExport = "]}".data(using: .utf8)!
+    
+    private var isFirst = true
+    
     init() {
         self.exportFileURL = FileManager.default.temporaryDirectory.appendingPathComponent(exportFileName, conformingTo: .json)
-        FileManager.default.createFile(atPath: self.exportFileURL.path(), contents: nil)
+        FileManager.default.createFile(atPath: self.exportFileURL.path(), contents: prefixExport)
     }
     
     func openStream() throws {
@@ -26,20 +33,34 @@ class JSONExportStream: ExportStream {
     
     func exportECG(ecgExport: ECGExportDTO) throws {
         
+        let jsonData = try ECGExportDTOHelper.convertToJSON(ecgExportDTO: ecgExport)
+        
+        if (!isFirst) {
+            try writeToFile(data: delimiter)
+        } else {
+            isFirst = false
+        }
+        
+        try writeToFile(data: jsonData)
+      
+        
+    }
+    
+    func writeToFile(data: Data) throws {
+        
         if fileHandle == nil {
             try openStream()
         }
         
-        let jsonData = try ECGExportDTOHelper.convertToJSON(ecgExportDTO: ecgExport)
-        
         if let fileHandle = self.fileHandle {
             try fileHandle.seekToEnd()
-            fileHandle.write(jsonData)
+            fileHandle.write(data)
         }
     }
     
-    func getExportFile() -> URL {
-        self.exportFileURL
+    func getExportFile() throws -> URL {
+        try writeToFile(data: suffixExport)
+        return self.exportFileURL
     }
     
     

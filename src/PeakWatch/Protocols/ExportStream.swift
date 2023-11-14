@@ -12,5 +12,5 @@ protocol ExportStream {
     
     func exportECG(ecgExport: ECGExportDTO) throws
     
-    func getExportFile() -> URL
+    func getExportFile() throws -> URL
 }
