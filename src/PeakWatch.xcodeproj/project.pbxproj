@@ -63,7 +63,6 @@
 		116369CD2B0399E100DF7C82 /* CSVImportStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369CC2B0399E100DF7C82 /* CSVImportStream.swift */; };
 		116369D02B039B5100DF7C82 /* CSV in Frameworks */ = {isa = PBXBuildFile; productRef = 116369CF2B039B5100DF7C82 /* CSV */; };
 		116369D22B03B70300DF7C82 /* JSONExportStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369D12B03B70300DF7C82 /* JSONExportStream.swift */; };
-		116369D52B03C65400DF7C82 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 116369D42B03C65400DF7C82 /* Zip */; };
 		11671E5F2A5BFEA800C3A913 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E5E2A5BFEA800C3A913 /* FeatureCardView.swift */; };
 		11671E612A5C275100C3A913 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11671E602A5C275100C3A913 /* Feature.swift */; };
 		116D60522A8261C500EB7D9C /* DeviceDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D60512A8261C500EB7D9C /* DeviceDataUtils.swift */; };
@@ -262,7 +261,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				116369D52B03C65400DF7C82 /* Zip in Frameworks */,
 				504710B12A94EB3200E5F626 /* PeakSwift in Frameworks */,
 				116369D02B039B5100DF7C82 /* CSV in Frameworks */,
 			);
@@ -713,7 +711,6 @@
 			packageProductDependencies = (
 				504710B02A94EB3200E5F626 /* PeakSwift */,
 				116369CF2B039B5100DF7C82 /* CSV */,
-				116369D42B03C65400DF7C82 /* Zip */,
 			);
 			productName = PeakWatch;
 			productReference = 173C05302A31C15F00D3E786 /* PeakWatch.app */;
@@ -790,7 +787,6 @@
 			packageReferences = (
 				504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */,
 				116369CE2B039B5100DF7C82 /* XCRemoteSwiftPackageReference "CSV.swift" */,
-				116369D32B03C65400DF7C82 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 173C05312A31C15F00D3E786 /* Products */;
 			projectDirPath = "";
@@ -1285,14 +1281,6 @@
 				minimumVersion = 2.4.3;
 			};
 		};
-		116369D32B03C65400DF7C82 /* XCRemoteSwiftPackageReference "Zip" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:marmelroy/Zip.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.2;
-			};
-		};
 		504710AF2A94EB3200E5F626 /* XCRemoteSwiftPackageReference "PeakSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CardioKit/PeakSwift";
@@ -1308,11 +1296,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 116369CE2B039B5100DF7C82 /* XCRemoteSwiftPackageReference "CSV.swift" */;
 			productName = CSV;
-		};
-		116369D42B03C65400DF7C82 /* Zip */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 116369D32B03C65400DF7C82 /* XCRemoteSwiftPackageReference "Zip" */;
-			productName = Zip;
 		};
 		504710B02A94EB3200E5F626 /* PeakSwift */ = {
 			isa = XCSwiftPackageProductDependency;
