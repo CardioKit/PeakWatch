@@ -100,3 +100,4 @@ analysis/.ipynb_checkpoints/analysis-checkpoint.ipynb
 *.zip
 analysis/.ipynb_checkpoints/data-checkpoint.ipynb
 analysis/.ipynb_checkpoints/download_data-checkpoint.ipynb
+analysis/data/open-source/*.json
